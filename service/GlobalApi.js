@@ -1,30 +1,94 @@
-import axios from "axios";
+// LocalStorage-based API service (replaces Strapi backend)
+// Same interface as the original GlobalApi so all components work unchanged
 
+const STORAGE_KEY = 'ai_resume_builder_resumes';
 
-const API_KEY=import.meta.env.VITE_STRAPI_API_KEY;
-const axiosClient=axios.create({
-    baseURL:import.meta.env.VITE_API_BASE_URL+"/api/",
-    headers:{
-        'Content-Type':'application/json',
-        'Authorization':`Bearer ${API_KEY}`
-    }
-})
+const getResumes = () => {
+    const data = localStorage.getItem(STORAGE_KEY);
+    return data ? JSON.parse(data) : [];
+};
 
+const saveResumes = (resumes) => {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(resumes));
+};
 
-const CreateNewResume=(data)=>axiosClient.post('/user-resumes',data);
+const CreateNewResume = (data) => {
+    return new Promise((resolve) => {
+        const resumes = getResumes();
+        const newResume = {
+            id: Date.now(),
+            documentId: data.data.resumeId || Date.now().toString(),
+            ...data.data,
+            themeColor: '#7c3aed',
+            summery: '',
+            Experience: [],
+            education: [],
+            skills: [],
+            createdAt: new Date().toISOString(),
+        };
+        resumes.push(newResume);
+        saveResumes(resumes);
+        resolve({
+            data: {
+                data: newResume
+            }
+        });
+    });
+};
 
-const GetUserResumes=(userEmail)=>axiosClient.get('/user-resumes?filters[userEmail][$eq]='+userEmail);
+const GetUserResumes = (userEmail) => {
+    return new Promise((resolve) => {
+        const resumes = getResumes();
+        const filtered = resumes.filter(r => r.userEmail === userEmail);
+        resolve({
+            data: {
+                data: filtered
+            }
+        });
+    });
+};
 
-const UpdateResumeDetail=(id,data)=>axiosClient.put('/user-resumes/'+id,data)
+const UpdateResumeDetail = (id, data) => {
+    return new Promise((resolve) => {
+        const resumes = getResumes();
+        const index = resumes.findIndex(r => r.documentId === id);
+        if (index !== -1) {
+            resumes[index] = { ...resumes[index], ...data.data };
+            saveResumes(resumes);
+        }
+        resolve({
+            data: {
+                data: resumes[index]
+            }
+        });
+    });
+};
 
-const GetResumeById=(id)=>axiosClient.get('/user-resumes/'+id+"?populate=*")
+const GetResumeById = (id) => {
+    return new Promise((resolve) => {
+        const resumes = getResumes();
+        const resume = resumes.find(r => r.documentId === id);
+        resolve({
+            data: {
+                data: resume || null
+            }
+        });
+    });
+};
 
-const DeleteResumeById=(id)=>axiosClient.delete('/user-resumes/'+id)
+const DeleteResumeById = (id) => {
+    return new Promise((resolve) => {
+        let resumes = getResumes();
+        resumes = resumes.filter(r => r.documentId !== id);
+        saveResumes(resumes);
+        resolve({ data: { data: null } });
+    });
+};
 
-export default{
+export default {
     CreateNewResume,
     GetUserResumes,
     UpdateResumeDetail,
     GetResumeById,
     DeleteResumeById
-}
+};
