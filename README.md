@@ -4,7 +4,7 @@
 
 ## 📝 Description
 
-AI-Resume-Builder is a powerful React-based web application designed to streamline the job application process by leveraging artificial intelligence. This platform provides users with an intuitive interface to craft professional, high-impact resumes tailored to their specific career goals. With integrated secure authentication, users can save their progress and manage multiple versions of their professional profiles seamlessly across the web. Whether you are a student or a seasoned professional, AI-Resume-Builder simplifies resume creation, ensuring you stand out to recruiters with minimal effort.
+AI-Resume-Builder is a React-based web application that helps users create professional resumes easily. It offers a simple interface to build and customize resumes based on career needs. With secure authentication, users can save their progress and manage multiple resume versions. It is suitable for both students and professionals who want to create clear and effective resumes quickly.
 
 ## ✨ Features
 
