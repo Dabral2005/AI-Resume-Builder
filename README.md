@@ -145,5 +145,34 @@ Contributions are welcome! Here's how you can help:
 
 Please ensure your code follows the project's style guidelines and includes tests where applicable.
 
+
+# 🖼️ Images
+## Default Page
+<img width="1856" height="911" alt="image" src="https://github.com/user-attachments/assets/fbf2a915-cdc0-4f30-b3eb-54c9bb61211b" />
+<img width="1853" height="915" alt="image" src="https://github.com/user-attachments/assets/a5a3d12e-9659-4ae9-93db-6c3bc8f1d685" />
+
+## Testimonials
+<img width="1854" height="799" alt="image" src="https://github.com/user-attachments/assets/e9599327-be56-465b-a906-9f075a33043c" />
+
+## Sign Up
+<img width="1730" height="796" alt="image" src="https://github.com/user-attachments/assets/32e0bfcf-6757-4236-8804-fb0392d7de03" />
+
+## Sign In
+<img width="1852" height="903" alt="image" src="https://github.com/user-attachments/assets/9b3166a7-f0d4-4da3-bc6d-f93003e20c54" />
+
+## Create Resume
+<img width="1851" height="897" alt="image" src="https://github.com/user-attachments/assets/d571f713-0373-4b02-8162-1b9a6a3f5156" />
+
+## Finish
+<img width="1850" height="907" alt="image" src="https://github.com/user-attachments/assets/5f6acab4-b130-4a0e-a958-f70a96dca91e" />
+
+## Download & Share Options
+<img width="1483" height="829" alt="image" src="https://github.com/user-attachments/assets/5dbb6766-0a9d-4be6-9f07-78c649798363" />
+<img width="1849" height="909" alt="image" src="https://github.com/user-attachments/assets/68379c58-da05-43b4-9965-33ee6fd584bc" />
+
 ---
 
+# 📫 Contact
+GitHub: Dabral2005
+
+**For any questions or suggestions: dabralmohit78@gmail.com**
