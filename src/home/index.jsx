@@ -77,7 +77,7 @@ function Home() {
                 <p className='text-sm text-gray-500 mt-1'>Success Rate</p>
               </div>
               <div className='text-center'>
-                <p className='text-3xl font-bold text-white'>4.9</p>
+                <p className='text-3xl font-bold text-white'>4.8</p>
                 <p className='text-sm text-gray-500 mt-1'>User Rating</p>
               </div>
             </div>
@@ -115,9 +115,9 @@ function Home() {
                 <FileText className='w-7 h-7 text-violet-600' />
               </div>
               <div className='inline-flex items-center justify-center w-8 h-8 rounded-full bg-violet-50 text-violet-600 font-bold text-sm mb-4'>1</div>
-              <h3 className='text-xl font-bold text-gray-900 mb-3'>Choose a Template</h3>
+              <h3 className='text-xl font-bold text-gray-900 mb-3'>Enter Your Details</h3>
               <p className='text-gray-500 leading-relaxed'>
-                Select from our collection of professionally designed resume templates that match your industry and style.
+                Input your information to begin creating a structured and professional resume.
               </p>
             </div>
 
@@ -224,6 +224,8 @@ function Home() {
             ))}
           </div>
         </div>
+
+        
       </section>
 
       {/* ===== CTA Section ===== */}
