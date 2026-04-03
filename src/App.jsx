@@ -1,14 +1,21 @@
 import './App.css'
-import { Navigate, Outlet } from 'react-router-dom'
+import { Navigate, Outlet, useLocation } from 'react-router-dom'
 import { useUser } from '@clerk/clerk-react'
 import Header from './components/custom/Header'
 import { Toaster } from './components/ui/sonner'
 
 function App() {
-  const { user, isLoaded, isSignedIn } = useUser();
+  const { isLoaded, isSignedIn } = useUser();
+  const location = useLocation();
 
-  if (!isSignedIn && isLoaded) {
-    return <Navigate to={'/auth/sign-in'} />
+  // Wait until Clerk loads
+  if (!isLoaded) return null;
+
+  // Allow public routes
+  const publicRoutes = ['/', '/auth/sign-in'];
+
+  if (!isSignedIn && !publicRoutes.includes(location.pathname)) {
+    return <Navigate to="/auth/sign-in" />;
   }
 
   return (
@@ -17,7 +24,7 @@ function App() {
       <Outlet />
       <Toaster />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
