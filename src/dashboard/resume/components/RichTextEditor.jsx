@@ -6,7 +6,7 @@ import { BtnBold, BtnBulletList, BtnClearFormatting, BtnItalic, BtnLink, BtnNumb
 import { AIChatSession, mockExperienceResponse } from './../../../../service/AIModal';
 import { toast } from 'sonner';
 
-const PROMPT='position title: {positionTitle} , Depends on position title give me 5-7 bullet points for my experience in resume (Please do not add experience level and No JSON array) , give me result in HTML tags'
+const PROMPT = 'Position Title: {positionTitle}. Based on this position, provide 5-7 professional resume bullet points highlighting key responsibilities and achievements. Return ONLY a valid HTML <ul> element with <li> tags. Do not include any other text or JSON. Ensure points are impactful and use action verbs.'
 
 function RichTextEditor({onRichTextEditorChange, index, defaultValue}) {
     const [value, setValue] = useState(defaultValue);
@@ -27,16 +27,21 @@ function RichTextEditor({onRichTextEditorChange, index, defaultValue}) {
           if (AIChatSession) {
               const result = await AIChatSession.sendMessage(prompt);
               resp = result.response.text();
+              // Clean up potential markdown or wrapper text
+              resp = resp.replace(/```html/g, '').replace(/```/g, '').trim();
           } else {
-              // Fallback Mock Response
               resp = mockExperienceResponse(title);
           }
-          const cleanResp = resp.replace('[', '').replace(']', '');
-          setValue(cleanResp);
-          onRichTextEditorChange({ target: { value: cleanResp } });
+          
+          setValue(resp);
+          onRichTextEditorChange({ target: { value: resp } });
+          toast.success("AI Content Generated!");
       } catch (err) {
-          console.error(err);
-          toast.error("Failed to generate AI experience points");
+          console.error("AI Generation Error:", err);
+          toast.error("Failed to generate AI experience points. Using fallback.");
+          const fallback = mockExperienceResponse(title);
+          setValue(fallback);
+          onRichTextEditorChange({ target: { value: fallback } });
       } finally {
           setLoading(false);
       }

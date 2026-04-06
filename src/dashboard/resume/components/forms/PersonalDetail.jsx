@@ -13,6 +13,7 @@ function PersonalDetail({enabledNext}) {
 
     const [formData, setFormData] = useState({});
     const [loading, setLoading] = useState(false);
+    const [phoneError, setPhoneError] = useState('');
 
     useEffect(() => {
         // Initialize form data with existing info
@@ -32,6 +33,16 @@ function PersonalDetail({enabledNext}) {
         enabledNext(false)
         const {name, value} = e.target;
 
+        if (name === 'phone') {
+            // Regex for phone with optional leading '+' and 7-15 digits
+            const phoneRegex = /^\+?[\d\s-]{7,15}$/;
+            if (value && !phoneRegex.test(value)) {
+                setPhoneError('Invalid phone number. Use format: +1 1234567890');
+            } else {
+                setPhoneError('');
+            }
+        }
+
         setFormData({
             ...formData,
             [name]: value
@@ -44,6 +55,10 @@ function PersonalDetail({enabledNext}) {
 
     const onSave = (e) => {
         e.preventDefault();
+        if (phoneError) {
+            toast.error("Please fix form errors before saving");
+            return;
+        }
         setLoading(true)
         const data = {
             data: formData
@@ -54,6 +69,7 @@ function PersonalDetail({enabledNext}) {
             toast("Details updated")
         }, (error) => {
             setLoading(false);
+            toast.error("Failed to update details")
         })
     }
     
@@ -113,8 +129,10 @@ function PersonalDetail({enabledNext}) {
                             required 
                             defaultValue={resumeInfo?.phone}
                             onChange={handleInputChange} 
-                            className="bg-gray-50/50 border-gray-200 focus:ring-violet-500 focus:border-violet-500 rounded-xl"
+                            className={`bg-gray-50/50 border-gray-200 focus:ring-violet-500 focus:border-violet-500 rounded-xl ${phoneError ? 'border-red-500 ring-red-500' : ''}`}
+                            placeholder="+1 123 456 7890"
                         />
+                        {phoneError && <p className='text-[10px] text-red-500 font-medium px-1'>{phoneError}</p>}
                     </div>
                     <div className='space-y-2'>
                         <label className='text-sm font-medium text-gray-700'>Email</label>

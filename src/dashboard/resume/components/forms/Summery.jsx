@@ -8,7 +8,7 @@ import { Brain, Loader2 } from 'lucide-react';
 import { toast } from 'sonner';
 import { AIChatSession, mockSummaryResponse } from './../../../../../service/AIModal';
 
-const prompt = "Job Title: {jobTitle} , Depends on job title give me list of  summery for 3 experience level, Mid Level and Freasher level in 3 -4 lines in array format, With summery and experience_level Field in JSON Format"
+const prompt = "Job Title: {jobTitle}. Based on this job title, provide 3 professional resume summaries in JSON array format. Each element should have 'summary' and 'experience_level' fields. Levels should be: 'Senior', 'Mid Level', and 'Fresher'. The summaries should be impactful, keyword-rich, and about 3-4 lines each."
 
 function Summery({enabledNext}) {
     const {resumeInfo, setResumeInfo} = useContext(ResumeInfoContext);
@@ -30,17 +30,20 @@ function Summery({enabledNext}) {
         const PROMPT = prompt.replace('{jobTitle}', jobTitle);
         
         try {
-            let resultData;
             if (AIChatSession) {
                 const result = await AIChatSession.sendMessage(PROMPT);
-                setAiGenerateSummeryList(JSON.parse(result.response.text()));
+                const responseText = result.response.text();
+                
+                // Handle potential markdown code blocks in Gemini response
+                const cleanJson = responseText.replace(/```json/g, '').replace(/```/g, '').trim();
+                setAiGenerateSummeryList(JSON.parse(cleanJson));
             } else {
-                // Fallback to mock data if no API key
                 setAiGenerateSummeryList(JSON.parse(mockSummaryResponse(jobTitle)));
             }
         } catch (e) {
-            console.error(e);
-            toast.error("Failed to generate AI summary.");
+            console.error("AI Generation Error:", e);
+            toast.error("Failed to generate AI summary. Using fallback data.");
+            setAiGenerateSummeryList(JSON.parse(mockSummaryResponse(jobTitle)));
         } finally {
             setLoading(false);
         }

@@ -271,9 +271,9 @@ function Home() {
               </span>
             </div>
             <div className='flex gap-8 text-sm text-gray-500'>
-              <a href='#' className='hover:text-violet-600 transition-colors'>Privacy</a>
-              <a href='#' className='hover:text-violet-600 transition-colors'>Terms</a>
-              <a href='#' className='hover:text-violet-600 transition-colors'>Support</a>
+              <Link to='/privacy' className='hover:text-violet-600 transition-colors'>Privacy</Link>
+              <Link to='/terms' className='hover:text-violet-600 transition-colors'>Terms</Link>
+              <Link to='/support' className='hover:text-violet-600 transition-colors'>Support</Link>
             </div>
             <p className='text-sm text-gray-400'>© 2024 AI Resume Builder. All rights reserved.</p>
           </div>
