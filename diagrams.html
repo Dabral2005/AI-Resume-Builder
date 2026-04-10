@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Resume Builder - System Diagrams</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', Arial, sans-serif; background: #f8f9fa; color: #333; }
+  .page { 
+    width: 1100px; margin: 40px auto; background: #fff; 
+    border: 1px solid #e0e0e0; border-radius: 4px; padding: 50px 60px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06); page-break-after: always;
+  }
+  .page:last-child { page-break-after: avoid; }
+  h1 { font-size: 22px; font-weight: 700; color: #1a1a2e; margin-bottom: 6px; text-align: center; }
+  .subtitle { font-size: 13px; color: #666; text-align: center; margin-bottom: 35px; }
+  svg text { font-family: 'Inter', Arial, sans-serif; }
+  @media print {
+    body { background: #fff; }
+    .page { border: none; box-shadow: none; margin: 0 auto; padding: 30px 40px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ==================== PAGE 1: E-R DIAGRAM ==================== -->
+<div class="page">
+<h1>Entity-Relationship (E-R) Diagram</h1>
+<p class="subtitle">AI Resume Builder — Database Schema</p>
+<svg viewBox="0 0 980 620" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="arrow-er" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#666"/>
+    </marker>
+    <filter id="shadow1" x="-4%" y="-4%" width="108%" height="112%">
+      <feDropShadow dx="1" dy="2" stdDeviation="2" flood-color="#000" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <!-- USER Entity -->
+  <g filter="url(#shadow1)">
+    <rect x="30" y="40" width="220" height="180" rx="8" fill="#dae8fc" stroke="#6c8ebf" stroke-width="1.5"/>
+    <rect x="30" y="40" width="220" height="36" rx="8" fill="#6c8ebf"/>
+    <rect x="30" y="68" width="220" height="8" fill="#6c8ebf"/>
+    <text x="140" y="64" text-anchor="middle" fill="#fff" font-size="14" font-weight="700">USER</text>
+    <text x="44" y="98" fill="#333" font-size="11.5">🔑 userId : String (PK)</text>
+    <text x="44" y="118" fill="#333" font-size="11.5">     email : String</text>
+    <text x="44" y="138" fill="#333" font-size="11.5">     firstName : String</text>
+    <text x="44" y="158" fill="#333" font-size="11.5">     lastName : String</text>
+    <text x="44" y="178" fill="#333" font-size="11.5">     profileImage : String</text>
+    <text x="44" y="198" fill="#333" font-size="11.5">     authProvider : String</text>
+  </g>
+
+  <!-- RESUME Entity -->
+  <g filter="url(#shadow1)">
+    <rect x="350" y="10" width="260" height="260" rx="8" fill="#d5e8d4" stroke="#82b366" stroke-width="1.5"/>
+    <rect x="350" y="10" width="260" height="36" rx="8" fill="#82b366"/>
+    <rect x="350" y="38" width="260" height="8" fill="#82b366"/>
+    <text x="480" y="34" text-anchor="middle" fill="#fff" font-size="14" font-weight="700">RESUME</text>
+    <text x="364" y="68" fill="#333" font-size="11.5">🔑 documentId : String (PK)</text>
+    <text x="364" y="88" fill="#333" font-size="11.5">     userEmail : String (FK)</text>
+    <text x="364" y="108" fill="#333" font-size="11.5">     title : String</text>
+    <text x="364" y="128" fill="#333" font-size="11.5">     firstName : String</text>
+    <text x="364" y="148" fill="#333" font-size="11.5">     lastName : String</text>
+    <text x="364" y="168" fill="#333" font-size="11.5">     jobTitle : String</text>
+    <text x="364" y="188" fill="#333" font-size="11.5">     email : String</text>
+    <text x="364" y="208" fill="#333" font-size="11.5">     phone : String</text>
+    <text x="364" y="228" fill="#333" font-size="11.5">     address : String</text>
+    <text x="364" y="248" fill="#333" font-size="11.5">     themeColor : String</text>
+  </g>
+
+  <!-- EXPERIENCE Entity -->
+  <g filter="url(#shadow1)">
+    <rect x="710" y="20" width="240" height="220" rx="8" fill="#fff2cc" stroke="#d6b656" stroke-width="1.5"/>
+    <rect x="710" y="20" width="240" height="36" rx="8" fill="#d6b656"/>
+    <rect x="710" y="48" width="240" height="8" fill="#d6b656"/>
+    <text x="830" y="44" text-anchor="middle" fill="#fff" font-size="14" font-weight="700">EXPERIENCE</text>
+    <text x="724" y="78" fill="#333" font-size="11.5">🔑 id : Integer (PK)</text>
+    <text x="724" y="98" fill="#333" font-size="11.5">     title : String</text>
+    <text x="724" y="118" fill="#333" font-size="11.5">     companyName : String</text>
+    <text x="724" y="138" fill="#333" font-size="11.5">     city : String</text>
+    <text x="724" y="158" fill="#333" font-size="11.5">     state : String</text>
+    <text x="724" y="178" fill="#333" font-size="11.5">     startDate : String</text>
+    <text x="724" y="198" fill="#333" font-size="11.5">     endDate : String</text>
+    <text x="724" y="218" fill="#333" font-size="11.5">     currentlyWorking : Bool</text>
+  </g>
+
+  <!-- EDUCATION Entity -->
+  <g filter="url(#shadow1)">
+    <rect x="350" y="340" width="260" height="200" rx="8" fill="#e1d5e7" stroke="#9673a6" stroke-width="1.5"/>
+    <rect x="350" y="340" width="260" height="36" rx="8" fill="#9673a6"/>
+    <rect x="350" y="368" width="260" height="8" fill="#9673a6"/>
+    <text x="480" y="364" text-anchor="middle" fill="#fff" font-size="14" font-weight="700">EDUCATION</text>
+    <text x="364" y="398" fill="#333" font-size="11.5">🔑 id : Integer (PK)</text>
+    <text x="364" y="418" fill="#333" font-size="11.5">     universityName : String</text>
+    <text x="364" y="438" fill="#333" font-size="11.5">     degree : String</text>
+    <text x="364" y="458" fill="#333" font-size="11.5">     major : String</text>
+    <text x="364" y="478" fill="#333" font-size="11.5">     startDate : String</text>
+    <text x="364" y="498" fill="#333" font-size="11.5">     endDate : String</text>
+    <text x="364" y="518" fill="#333" font-size="11.5">     description : Text</text>
+  </g>
+
+  <!-- SKILL Entity -->
+  <g filter="url(#shadow1)">
+    <rect x="710" y="370" width="240" height="150" rx="8" fill="#f8cecc" stroke="#b85450" stroke-width="1.5"/>
+    <rect x="710" y="370" width="240" height="36" rx="8" fill="#b85450"/>
+    <rect x="710" y="398" width="240" height="8" fill="#b85450"/>
+    <text x="830" y="394" text-anchor="middle" fill="#fff" font-size="14" font-weight="700">SKILL</text>
+    <text x="724" y="428" fill="#333" font-size="11.5">🔑 id : Integer (PK)</text>
+    <text x="724" y="448" fill="#333" font-size="11.5">     name : String</text>
+    <text x="724" y="468" fill="#333" font-size="11.5">     rating : Integer</text>
+  </g>
+
+  <!-- SUMMARY Entity (linked to Resume) -->
+  <g filter="url(#shadow1)">
+    <rect x="30" y="320" width="220" height="120" rx="8" fill="#f5f5f5" stroke="#999" stroke-width="1.5"/>
+    <rect x="30" y="320" width="220" height="36" rx="8" fill="#999"/>
+    <rect x="30" y="348" width="220" height="8" fill="#999"/>
+    <text x="140" y="344" text-anchor="middle" fill="#fff" font-size="14" font-weight="700">SUMMARY</text>
+    <text x="44" y="378" fill="#333" font-size="11.5">     summery : Text</text>
+    <text x="44" y="398" fill="#333" font-size="11.5">     (Embedded in Resume)</text>
+  </g>
+
+  <!-- Relationship Lines -->
+  <!-- User -> Resume -->
+  <line x1="250" y1="130" x2="350" y2="130" stroke="#666" stroke-width="1.8" marker-end="url(#arrow-er)"/>
+  <text x="290" y="118" text-anchor="middle" fill="#444" font-size="10" font-weight="600">1</text>
+  <text x="340" y="118" text-anchor="middle" fill="#444" font-size="10" font-weight="600">N</text>
+  <rect x="268" y="124" width="44" height="18" rx="3" fill="#fff" stroke="#aaa" stroke-width="0.8"/>
+  <text x="290" y="137" text-anchor="middle" fill="#555" font-size="9" font-weight="500">creates</text>
+
+  <!-- Resume -> Experience -->
+  <line x1="610" y1="130" x2="710" y2="130" stroke="#666" stroke-width="1.8" marker-end="url(#arrow-er)"/>
+  <text x="630" y="118" text-anchor="middle" fill="#444" font-size="10" font-weight="600">1</text>
+  <text x="700" y="118" text-anchor="middle" fill="#444" font-size="10" font-weight="600">N</text>
+  <rect x="640" y="124" width="30" height="18" rx="3" fill="#fff" stroke="#aaa" stroke-width="0.8"/>
+  <text x="655" y="137" text-anchor="middle" fill="#555" font-size="9" font-weight="500">has</text>
+
+  <!-- Resume -> Education -->
+  <line x1="480" y1="270" x2="480" y2="340" stroke="#666" stroke-width="1.8" marker-end="url(#arrow-er)"/>
+  <text x="468" y="288" fill="#444" font-size="10" font-weight="600">1</text>
+  <text x="468" y="334" fill="#444" font-size="10" font-weight="600">N</text>
+  <rect x="485" y="295" width="30" height="18" rx="3" fill="#fff" stroke="#aaa" stroke-width="0.8"/>
+  <text x="500" y="308" text-anchor="middle" fill="#555" font-size="9" font-weight="500">has</text>
+
+  <!-- Resume -> Skill -->
+  <path d="M 610 240 L 660 240 Q 680 240 680 260 L 680 440 L 710 440" fill="none" stroke="#666" stroke-width="1.8" marker-end="url(#arrow-er)"/>
+  <text x="620" y="232" fill="#444" font-size="10" font-weight="600">1</text>
+  <text x="700" y="432" fill="#444" font-size="10" font-weight="600">N</text>
+  <rect x="665" y="330" width="30" height="18" rx="3" fill="#fff" stroke="#aaa" stroke-width="0.8"/>
+  <text x="680" y="343" text-anchor="middle" fill="#555" font-size="9" font-weight="500">has</text>
+
+  <!-- Resume -> Summary -->
+  <line x1="350" y1="220" x2="250" y2="360" stroke="#666" stroke-width="1.5" stroke-dasharray="6 3"/>
+  <text x="280" y="280" fill="#555" font-size="9" font-weight="500">contains</text>
+
+  <!-- Legend -->
+  <rect x="30" y="560" width="920" height="45" rx="6" fill="#fafafa" stroke="#e0e0e0"/>
+  <text x="50" y="587" fill="#555" font-size="11" font-weight="600">Legend:</text>
+  <text x="115" y="587" fill="#555" font-size="11">🔑 = Primary Key</text>
+  <text x="260" y="587" fill="#555" font-size="11">FK = Foreign Key</text>
+  <text x="400" y="587" fill="#555" font-size="11">1 ── N = One-to-Many Relationship</text>
+  <line x1="620" y1="582" x2="670" y2="582" stroke="#666" stroke-width="1.5" stroke-dasharray="6 3"/>
+  <text x="680" y="587" fill="#555" font-size="11">= Embedded / Part of</text>
+</svg>
+</div>
+
+<!-- ==================== PAGE 2: 0-LEVEL DFD ==================== -->
+<div class="page">
+<h1>0-Level DFD (Context Diagram)</h1>
+<p class="subtitle">AI Resume Builder — System Boundary</p>
+<svg viewBox="0 0 980 520" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="arrow-dfd0" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#333"/>
+    </marker>
+  </defs>
+
+  <!-- External Entity: User -->
+  <rect x="30" y="190" width="180" height="80" rx="0" fill="#dae8fc" stroke="#6c8ebf" stroke-width="2"/>
+  <text x="120" y="225" text-anchor="middle" fill="#333" font-size="14" font-weight="700">User</text>
+  <text x="120" y="245" text-anchor="middle" fill="#555" font-size="11">(Job Seeker)</text>
+
+  <!-- Central Process: AI Resume Builder -->
+  <circle cx="490" cy="230" r="120" fill="#d5e8d4" stroke="#82b366" stroke-width="2.5"/>
+  <text x="490" y="218" text-anchor="middle" fill="#333" font-size="15" font-weight="700">AI Resume</text>
+  <text x="490" y="238" text-anchor="middle" fill="#333" font-size="15" font-weight="700">Builder</text>
+  <text x="490" y="258" text-anchor="middle" fill="#555" font-size="12">System</text>
+  <text x="490" y="195" text-anchor="middle" fill="#82b366" font-size="11" font-weight="600">0</text>
+
+  <!-- External Entity: Clerk Auth -->
+  <rect x="770" y="60" width="180" height="80" rx="0" fill="#fff2cc" stroke="#d6b656" stroke-width="2"/>
+  <text x="860" y="95" text-anchor="middle" fill="#333" font-size="14" font-weight="700">Clerk Auth</text>
+  <text x="860" y="115" text-anchor="middle" fill="#555" font-size="11">Service</text>
+
+  <!-- External Entity: Google Gemini AI -->
+  <rect x="770" y="310" width="180" height="80" rx="0" fill="#e1d5e7" stroke="#9673a6" stroke-width="2"/>
+  <text x="860" y="340" text-anchor="middle" fill="#333" font-size="14" font-weight="700">Google</text>
+  <text x="860" y="360" text-anchor="middle" fill="#333" font-size="14" font-weight="700">Gemini AI</text>
+
+  <!-- External Entity: Browser Storage -->
+  <rect x="380" y="430" width="220" height="70" rx="0" fill="#f8cecc" stroke="#b85450" stroke-width="2"/>
+  <text x="490" y="462" text-anchor="middle" fill="#333" font-size="14" font-weight="700">Browser</text>
+  <text x="490" y="482" text-anchor="middle" fill="#333" font-size="14" font-weight="700">LocalStorage</text>
+
+  <!-- Data Flow: User → System -->
+  <line x1="210" y1="210" x2="368" y2="210" stroke="#333" stroke-width="1.6" marker-end="url(#arrow-dfd0)"/>
+  <rect x="230" y="192" width="100" height="18" rx="3" fill="#fff" stroke="#ccc" stroke-width="0.8"/>
+  <text x="280" y="205" text-anchor="middle" fill="#333" font-size="10">Resume Data,</text>
+  <text x="280" y="186" text-anchor="middle" fill="#333" font-size="10">Personal Info</text>
+
+  <!-- System → User -->
+  <line x1="370" y1="250" x2="210" y2="250" stroke="#333" stroke-width="1.6" marker-end="url(#arrow-dfd0)"/>
+  <rect x="230" y="254" width="105" height="18" rx="3" fill="#fff" stroke="#ccc" stroke-width="0.8"/>
+  <text x="283" y="266" text-anchor="middle" fill="#333" font-size="10">Resume PDF,</text>
+  <text x="283" y="280" text-anchor="middle" fill="#333" font-size="10">Preview, Share URL</text>
+
+  <!-- System → Clerk -->
+  <line x1="580" y1="150" x2="770" y2="100" stroke="#333" stroke-width="1.6" marker-end="url(#arrow-dfd0)"/>
+  <text x="660" y="108" text-anchor="middle" fill="#333" font-size="10">Auth Request</text>
+
+  <!-- Clerk → System -->
+  <line x1="770" y1="120" x2="590" y2="170" stroke="#333" stroke-width="1.6" marker-end="url(#arrow-dfd0)"/>
+  <text x="700" y="155" text-anchor="middle" fill="#333" font-size="10">User Token,</text>
+  <text x="700" y="168" text-anchor="middle" fill="#333" font-size="10">Profile Data</text>
+
+  <!-- System → Gemini AI -->
+  <line x1="590" y1="310" x2="770" y2="340" stroke="#333" stroke-width="1.6" marker-end="url(#arrow-dfd0)"/>
+  <text x="670" y="310" text-anchor="middle" fill="#333" font-size="10">Content Prompt</text>
+
+  <!-- Gemini AI → System -->
+  <line x1="770" y1="360" x2="595" y2="330" stroke="#333" stroke-width="1.6" marker-end="url(#arrow-dfd0)"/>
+  <text x="700" y="358" text-anchor="middle" fill="#333" font-size="10">AI-Generated</text>
+  <text x="700" y="371" text-anchor="middle" fill="#333" font-size="10">Content (JSON)</text>
+
+  <!-- System → Storage -->
+  <line x1="470" y1="350" x2="470" y2="428" stroke="#333" stroke-width="1.6" marker-end="url(#arrow-dfd0)"/>
+  <text x="445" y="390" text-anchor="end" fill="#333" font-size="10">Save Resume</text>
+
+  <!-- Storage → System -->
+  <line x1="510" y1="430" x2="510" y2="350" stroke="#333" stroke-width="1.6" marker-end="url(#arrow-dfd0)"/>
+  <text x="535" y="390" fill="#333" font-size="10">Load Resume</text>
+
+  <!-- Legend -->
+  <rect x="30" y="465" width="300" height="45" rx="6" fill="#fafafa" stroke="#e0e0e0"/>
+  <text x="50" y="485" fill="#555" font-size="11" font-weight="600">Legend:</text>
+  <rect x="110" y="476" width="30" height="16" fill="#dae8fc" stroke="#6c8ebf" stroke-width="1"/>
+  <text x="148" y="489" fill="#555" font-size="10">External Entity</text>
+  <circle cx="255" cy="484" r="10" fill="#d5e8d4" stroke="#82b366" stroke-width="1"/>
+  <text x="272" y="489" fill="#555" font-size="10">Process</text>
+</svg>
+</div>
+
+<!-- ==================== PAGE 3: 1-LEVEL DFD ==================== -->
+<div class="page">
+<h1>1-Level DFD</h1>
+<p class="subtitle">AI Resume Builder — Major Processes</p>
+<svg viewBox="0 0 980 680" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="arrow-dfd1" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#333"/>
+    </marker>
+  </defs>
+
+  <!-- External Entity: User -->
+  <rect x="10" y="270" width="140" height="70" fill="#dae8fc" stroke="#6c8ebf" stroke-width="2"/>
+  <text x="80" y="300" text-anchor="middle" fill="#333" font-size="13" font-weight="700">User</text>
+  <text x="80" y="318" text-anchor="middle" fill="#555" font-size="10">(Job Seeker)</text>
+
+  <!-- External Entity: Clerk -->
+  <rect x="10" y="50" width="140" height="60" fill="#fff2cc" stroke="#d6b656" stroke-width="2"/>
+  <text x="80" y="80" text-anchor="middle" fill="#333" font-size="13" font-weight="700">Clerk Auth</text>
+  <text x="80" y="95" text-anchor="middle" fill="#555" font-size="10">Service</text>
+
+  <!-- External Entity: Gemini AI -->
+  <rect x="10" y="530" width="140" height="60" fill="#e1d5e7" stroke="#9673a6" stroke-width="2"/>
+  <text x="80" y="556" text-anchor="middle" fill="#333" font-size="13" font-weight="700">Google</text>
+  <text x="80" y="572" text-anchor="middle" fill="#333" font-size="13" font-weight="700">Gemini AI</text>
+
+  <!-- Process 1: User Authentication -->
+  <circle cx="300" cy="80" r="55" fill="#d5e8d4" stroke="#82b366" stroke-width="2"/>
+  <text x="300" y="72" text-anchor="middle" fill="#82b366" font-size="10" font-weight="700">1.0</text>
+  <text x="300" y="86" text-anchor="middle" fill="#333" font-size="11" font-weight="600">User</text>
+  <text x="300" y="99" text-anchor="middle" fill="#333" font-size="11" font-weight="600">Authentication</text>
+
+  <!-- Process 2: Resume Management -->
+  <circle cx="500" cy="240" r="55" fill="#d5e8d4" stroke="#82b366" stroke-width="2"/>
+  <text x="500" y="228" text-anchor="middle" fill="#82b366" font-size="10" font-weight="700">2.0</text>
+  <text x="500" y="243" text-anchor="middle" fill="#333" font-size="11" font-weight="600">Resume</text>
+  <text x="500" y="256" text-anchor="middle" fill="#333" font-size="11" font-weight="600">Management</text>
+
+  <!-- Process 3: Resume Editing -->
+  <circle cx="500" cy="420" r="55" fill="#d5e8d4" stroke="#82b366" stroke-width="2"/>
+  <text x="500" y="408" text-anchor="middle" fill="#82b366" font-size="10" font-weight="700">3.0</text>
+  <text x="500" y="423" text-anchor="middle" fill="#333" font-size="11" font-weight="600">Resume</text>
+  <text x="500" y="436" text-anchor="middle" fill="#333" font-size="11" font-weight="600">Editing</text>
+
+  <!-- Process 4: AI Content Generation -->
+  <circle cx="300" cy="560" r="55" fill="#d5e8d4" stroke="#82b366" stroke-width="2"/>
+  <text x="300" y="548" text-anchor="middle" fill="#82b366" font-size="10" font-weight="700">4.0</text>
+  <text x="300" y="563" text-anchor="middle" fill="#333" font-size="11" font-weight="600">AI Content</text>
+  <text x="300" y="576" text-anchor="middle" fill="#333" font-size="11" font-weight="600">Generation</text>
+
+  <!-- Process 5: Preview & Export -->
+  <circle cx="770" cy="420" r="55" fill="#d5e8d4" stroke="#82b366" stroke-width="2"/>
+  <text x="770" y="408" text-anchor="middle" fill="#82b366" font-size="10" font-weight="700">5.0</text>
+  <text x="770" y="423" text-anchor="middle" fill="#333" font-size="11" font-weight="600">Preview</text>
+  <text x="770" y="436" text-anchor="middle" fill="#333" font-size="11" font-weight="600">& Export</text>
+
+  <!-- Data Store: D1 Resume Data -->
+  <g>
+    <line x1="680" y1="220" x2="920" y2="220" stroke="#333" stroke-width="1.5"/>
+    <line x1="680" y1="260" x2="920" y2="260" stroke="#333" stroke-width="1.5"/>
+    <line x1="680" y1="220" x2="680" y2="260" stroke="#333" stroke-width="1.5"/>
+    <rect x="681" y="221" width="238" height="38" fill="#f5f5f5"/>
+    <text x="690" y="245" fill="#333" font-size="12" font-weight="700">D1</text>
+    <line x1="715" y1="220" x2="715" y2="260" stroke="#333" stroke-width="1"/>
+    <text x="810" y="245" text-anchor="middle" fill="#333" font-size="12" font-weight="600">Resume Data Store</text>
+  </g>
+
+  <!-- Flows -->
+  <!-- User → P1 Auth -->
+  <line x1="130" y1="270" x2="260" y2="120" stroke="#333" stroke-width="1.4" marker-end="url(#arrow-dfd1)"/>
+  <text x="175" y="180" fill="#333" font-size="9.5">Login / Signup</text>
+
+  <!-- P1 → User (auth result) -->
+  <line x1="260" y1="100" x2="148" y2="285" stroke="#333" stroke-width="1.4" marker-end="url(#arrow-dfd1)"/>
+  <text x="176" y="210" fill="#333" font-size="9.5">Auth Token</text>
+
+  <!-- Clerk ↔ P1 -->
+  <line x1="150" y1="78" x2="245" y2="78" stroke="#333" stroke-width="1.4" marker-end="url(#arrow-dfd1)"/>
+  <text x="195" y="72" text-anchor="middle" fill="#333" font-size="9.5">Credentials</text>
+  <line x1="245" y1="90" x2="150" y2="90" stroke="#333" stroke-width="1.4" marker-end="url(#arrow-dfd1)"/>
+  <text x="195" y="104" text-anchor="middle" fill="#333" font-size="9.5">Verification</text>
+
+  <!-- User → P2 Resume Mgmt -->
+  <line x1="150" y1="295" x2="445" y2="240" stroke="#333" stroke-width="1.4" marker-end="url(#arrow-dfd1)"/>
+  <text x="290" y="250" fill="#333" font-size="9.5">Create / Delete Request</text>
+
+  <!-- P2 → User -->
+  <line x1="445" y1="258" x2="150" y2="310" stroke="#333" stroke-width="1.4" marker-end="url(#arrow-dfd1)"/>
+  <text x="290" y="296" fill="#333" font-size="9.5">Resume List</text>
+
+  <!-- P2 ↔ D1 -->
+  <line x1="555" y1="230" x2="678" y2="235" stroke="#333" stroke-width="1.4" marker-end="url(#arrow-dfd1)"/>
+  <text x="613" y="222" text-anchor="middle" fill="#333" font-size="9.5">Store / Delete</text>
+  <line x1="680" y1="250" x2="555" y2="248" stroke="#333" stroke-width="1.4" marker-end="url(#arrow-dfd1)"/>
+  <text x="613" y="266" text-anchor="middle" fill="#333" font-size="9.5">Retrieve</text>
+
+  <!-- User → P3 Edit -->
+  <line x1="150" y1="320" x2="445" y2="410" stroke="#333" stroke-width="1.4" marker-end="url(#arrow-dfd1)"/>
+  <text x="270" y="380" fill="#333" font-size="9.5">Form Data Input</text>
+
+  <!-- P3 ↔ D1 -->
+  <path d="M 555 420 Q 620 380 700 320 Q 750 290 800 260" fill="none" stroke="#333" stroke-width="1.4" marker-end="url(#arrow-dfd1)"/>
+  <text x="680" y="340" fill="#333" font-size="9.5">Update</text>
+
+  <!-- P3 → P5 -->
+  <line x1="555" y1="420" x2="715" y2="420" stroke="#333" stroke-width="1.4" marker-end="url(#arrow-dfd1)"/>
+  <text x="635" y="412" text-anchor="middle" fill="#333" font-size="9.5">Resume Data</text>
+
+  <!-- P3 ↔ P4 AI -->
+  <line x1="470" y1="473" x2="330" y2="520" stroke="#333" stroke-width="1.4" marker-end="url(#arrow-dfd1)"/>
+  <text x="380" y="500" fill="#333" font-size="9.5">AI Request</text>
+  <line x1="340" y1="510" x2="460" y2="462" stroke="#333" stroke-width="1.4" marker-end="url(#arrow-dfd1)"/>
+  <text x="415" y="479" fill="#333" font-size="9.5">AI Content</text>
+
+  <!-- Gemini ↔ P4 -->
+  <line x1="150" y1="555" x2="245" y2="557" stroke="#333" stroke-width="1.4" marker-end="url(#arrow-dfd1)"/>
+  <text x="195" y="548" text-anchor="middle" fill="#333" font-size="9.5">Prompt</text>
+  <line x1="245" y1="570" x2="150" y2="568" stroke="#333" stroke-width="1.4" marker-end="url(#arrow-dfd1)"/>
+  <text x="195" y="586" text-anchor="middle" fill="#333" font-size="9.5">Generated Text</text>
+
+  <!-- P5 → User -->
+  <path d="M 770 475 Q 770 600 450 600 Q 150 600 80 340" fill="none" stroke="#333" stroke-width="1.4" marker-end="url(#arrow-dfd1)"/>
+  <text x="500" y="618" text-anchor="middle" fill="#333" font-size="9.5">PDF Download / Share URL / Preview</text>
+
+  <!-- Legend -->
+  <rect x="680" y="600" width="280" height="65" rx="6" fill="#fafafa" stroke="#e0e0e0"/>
+  <text x="700" y="620" fill="#555" font-size="10" font-weight="600">Legend:</text>
+  <rect x="700" y="630" width="20" height="14" fill="#dae8fc" stroke="#6c8ebf" stroke-width="1"/>
+  <text x="726" y="642" fill="#555" font-size="9.5">External Entity</text>
+  <circle cx="810" cy="637" r="8" fill="#d5e8d4" stroke="#82b366" stroke-width="1"/>
+  <text x="824" y="641" fill="#555" font-size="9.5">Process</text>
+  <line x1="890" y1="632" x2="940" y2="632" stroke="#333" stroke-width="1.2"/>
+  <line x1="890" y1="644" x2="940" y2="644" stroke="#333" stroke-width="1.2"/>
+  <text x="900" y="656" fill="#555" font-size="9.5">Data Store</text>
+</svg>
+</div>
+
+<!-- ==================== PAGE 4: 2-LEVEL DFD ==================== -->
+<div class="page">
+<h1>2-Level DFD</h1>
+<p class="subtitle">AI Resume Builder — Detailed Process Decomposition</p>
+<svg viewBox="0 0 980 820" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="arrow-dfd2" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#333"/>
+    </marker>
+  </defs>
+
+  <!-- Section Label: Process 2 Decomposition -->
+  <rect x="20" y="10" width="460" height="380" rx="10" fill="none" stroke="#82b366" stroke-width="1.5" stroke-dasharray="8 4"/>
+  <text x="40" y="32" fill="#82b366" font-size="12" font-weight="700">Process 2.0 — Resume Management (Decomposed)</text>
+
+  <!-- Ext: User -->
+  <rect x="30" y="155" width="110" height="55" fill="#dae8fc" stroke="#6c8ebf" stroke-width="1.8"/>
+  <text x="85" y="180" text-anchor="middle" fill="#333" font-size="12" font-weight="700">User</text>
+  <text x="85" y="196" text-anchor="middle" fill="#555" font-size="9">(Job Seeker)</text>
+
+  <!-- P2.1 Create Resume -->
+  <circle cx="262" cy="80" r="42" fill="#d5e8d4" stroke="#82b366" stroke-width="1.8"/>
+  <text x="262" y="72" text-anchor="middle" fill="#82b366" font-size="9" font-weight="700">2.1</text>
+  <text x="262" y="85" text-anchor="middle" fill="#333" font-size="10" font-weight="600">Create</text>
+  <text x="262" y="96" text-anchor="middle" fill="#333" font-size="10" font-weight="600">Resume</text>
+
+  <!-- P2.2 List Resumes -->
+  <circle cx="262" cy="190" r="42" fill="#d5e8d4" stroke="#82b366" stroke-width="1.8"/>
+  <text x="262" y="182" text-anchor="middle" fill="#82b366" font-size="9" font-weight="700">2.2</text>
+  <text x="262" y="195" text-anchor="middle" fill="#333" font-size="10" font-weight="600">List</text>
+  <text x="262" y="206" text-anchor="middle" fill="#333" font-size="10" font-weight="600">Resumes</text>
+
+  <!-- P2.3 Delete Resume -->
+  <circle cx="262" cy="310" r="42" fill="#d5e8d4" stroke="#82b366" stroke-width="1.8"/>
+  <text x="262" y="302" text-anchor="middle" fill="#82b366" font-size="9" font-weight="700">2.3</text>
+  <text x="262" y="315" text-anchor="middle" fill="#333" font-size="10" font-weight="600">Delete</text>
+  <text x="262" y="326" text-anchor="middle" fill="#333" font-size="10" font-weight="600">Resume</text>
+
+  <!-- D1 Store (for Process 2) -->
+  <g>
+    <line x1="370" y1="168" x2="470" y2="168" stroke="#333" stroke-width="1.3"/>
+    <line x1="370" y1="200" x2="470" y2="200" stroke="#333" stroke-width="1.3"/>
+    <line x1="370" y1="168" x2="370" y2="200" stroke="#333" stroke-width="1.3"/>
+    <rect x="371" y="169" width="98" height="30" fill="#f5f5f5"/>
+    <text x="378" y="188" fill="#333" font-size="10" font-weight="700">D1</text>
+    <line x1="400" y1="168" x2="400" y2="200" stroke="#333" stroke-width="0.8"/>
+    <text x="434" y="189" text-anchor="middle" fill="#333" font-size="10">Resume</text>
+  </g>
+
+  <!-- User → 2.1 -->
+  <line x1="140" y1="160" x2="220" y2="100" stroke="#333" stroke-width="1.3" marker-end="url(#arrow-dfd2)"/>
+  <text x="162" y="118" fill="#333" font-size="9">Title, Email</text>
+
+  <!-- User → 2.2 -->
+  <line x1="140" y1="182" x2="220" y2="185" stroke="#333" stroke-width="1.3" marker-end="url(#arrow-dfd2)"/>
+  <text x="170" y="176" fill="#333" font-size="9">Email</text>
+
+  <!-- 2.2 → User -->
+  <line x1="220" y1="200" x2="140" y2="195" stroke="#333" stroke-width="1.3" marker-end="url(#arrow-dfd2)"/>
+  <text x="170" y="212" fill="#333" font-size="9">Resume List</text>
+
+  <!-- User → 2.3 -->
+  <line x1="120" y1="210" x2="230" y2="280" stroke="#333" stroke-width="1.3" marker-end="url(#arrow-dfd2)"/>
+  <text x="146" y="256" fill="#333" font-size="9">Resume ID</text>
+
+  <!-- 2.1 → D1 -->
+  <line x1="304" y1="90" x2="400" y2="168" stroke="#333" stroke-width="1.3" marker-end="url(#arrow-dfd2)"/>
+  <text x="360" y="118" fill="#333" font-size="9">New Resume</text>
+
+  <!-- 2.2 ↔ D1 -->
+  <line x1="304" y1="184" x2="370" y2="184" stroke="#333" stroke-width="1.3" marker-end="url(#arrow-dfd2)"/>
+  <text x="335" y="178" text-anchor="middle" fill="#333" font-size="9">Query</text>
+
+  <!-- 2.3 → D1 -->
+  <line x1="304" y1="306" x2="420" y2="200" stroke="#333" stroke-width="1.3" marker-end="url(#arrow-dfd2)"/>
+  <text x="380" y="262" fill="#333" font-size="9">Delete</text>
+
+  <!-- ============ Section: Process 3 Decomposition ============ -->
+  <rect x="510" y="10" width="460" height="530" rx="10" fill="none" stroke="#9673a6" stroke-width="1.5" stroke-dasharray="8 4"/>
+  <text x="530" y="32" fill="#9673a6" font-size="12" font-weight="700">Process 3.0 — Resume Editing (Decomposed)</text>
+
+  <!-- P3.1 Edit Personal Details -->
+  <circle cx="620" cy="80" r="38" fill="#e1d5e7" stroke="#9673a6" stroke-width="1.8"/>
+  <text x="620" y="72" text-anchor="middle" fill="#9673a6" font-size="9" font-weight="700">3.1</text>
+  <text x="620" y="84" text-anchor="middle" fill="#333" font-size="9.5" font-weight="600">Edit Personal</text>
+  <text x="620" y="95" text-anchor="middle" fill="#333" font-size="9.5" font-weight="600">Details</text>
+
+  <!-- P3.2 Edit Summary -->
+  <circle cx="830" cy="80" r="38" fill="#e1d5e7" stroke="#9673a6" stroke-width="1.8"/>
+  <text x="830" y="72" text-anchor="middle" fill="#9673a6" font-size="9" font-weight="700">3.2</text>
+  <text x="830" y="84" text-anchor="middle" fill="#333" font-size="9.5" font-weight="600">Edit</text>
+  <text x="830" y="95" text-anchor="middle" fill="#333" font-size="9.5" font-weight="600">Summary</text>
+
+  <!-- P3.3 Edit Experience -->
+  <circle cx="620" cy="200" r="38" fill="#e1d5e7" stroke="#9673a6" stroke-width="1.8"/>
+  <text x="620" y="192" text-anchor="middle" fill="#9673a6" font-size="9" font-weight="700">3.3</text>
+  <text x="620" y="204" text-anchor="middle" fill="#333" font-size="9.5" font-weight="600">Edit</text>
+  <text x="620" y="215" text-anchor="middle" fill="#333" font-size="9.5" font-weight="600">Experience</text>
+
+  <!-- P3.4 Edit Education -->
+  <circle cx="830" cy="200" r="38" fill="#e1d5e7" stroke="#9673a6" stroke-width="1.8"/>
+  <text x="830" y="192" text-anchor="middle" fill="#9673a6" font-size="9" font-weight="700">3.4</text>
+  <text x="830" y="204" text-anchor="middle" fill="#333" font-size="9.5" font-weight="600">Edit</text>
+  <text x="830" y="215" text-anchor="middle" fill="#333" font-size="9.5" font-weight="600">Education</text>
+
+  <!-- P3.5 Edit Skills -->
+  <circle cx="720" cy="320" r="38" fill="#e1d5e7" stroke="#9673a6" stroke-width="1.8"/>
+  <text x="720" y="312" text-anchor="middle" fill="#9673a6" font-size="9" font-weight="700">3.5</text>
+  <text x="720" y="324" text-anchor="middle" fill="#333" font-size="9.5" font-weight="600">Edit</text>
+  <text x="720" y="335" text-anchor="middle" fill="#333" font-size="9.5" font-weight="600">Skills</text>
+
+  <!-- D1 Store (for Process 3) -->
+  <g>
+    <line x1="580" y1="420" x2="860" y2="420" stroke="#333" stroke-width="1.3"/>
+    <line x1="580" y1="450" x2="860" y2="450" stroke="#333" stroke-width="1.3"/>
+    <line x1="580" y1="420" x2="580" y2="450" stroke="#333" stroke-width="1.3"/>
+    <rect x="581" y="421" width="278" height="28" fill="#f5f5f5"/>
+    <text x="590" y="440" fill="#333" font-size="10" font-weight="700">D1</text>
+    <line x1="612" y1="420" x2="612" y2="450" stroke="#333" stroke-width="0.8"/>
+    <text x="730" y="440" text-anchor="middle" fill="#333" font-size="10">Resume Data Store</text>
+  </g>
+
+  <!-- Gemini AI (for Process 3) -->
+  <rect x="580" y="490" width="130" height="40" fill="#fff2cc" stroke="#d6b656" stroke-width="1.5"/>
+  <text x="645" y="514" text-anchor="middle" fill="#333" font-size="11" font-weight="700">Gemini AI</text>
+
+  <!-- 3.1 → D1 -->
+  <line x1="620" y1="118" x2="620" y2="420" stroke="#333" stroke-width="1.1" marker-end="url(#arrow-dfd2)" stroke-dasharray="4 3"/>
+  <!-- 3.2 → D1 -->
+  <line x1="830" y1="118" x2="830" y2="420" stroke="#333" stroke-width="1.1" marker-end="url(#arrow-dfd2)" stroke-dasharray="4 3"/>
+  <!-- 3.3 → D1 -->
+  <line x1="640" y1="238" x2="660" y2="420" stroke="#333" stroke-width="1.1" marker-end="url(#arrow-dfd2)" stroke-dasharray="4 3"/>
+  <!-- 3.4 → D1 -->
+  <line x1="820" y1="238" x2="800" y2="420" stroke="#333" stroke-width="1.1" marker-end="url(#arrow-dfd2)" stroke-dasharray="4 3"/>
+  <!-- 3.5 → D1 -->
+  <line x1="720" y1="358" x2="720" y2="420" stroke="#333" stroke-width="1.1" marker-end="url(#arrow-dfd2)" stroke-dasharray="4 3"/>
+  <text x="748" y="390" fill="#333" font-size="9">Update Data</text>
+
+  <!-- 3.2 → Gemini (AI summary) -->
+  <path d="M 830 118 Q 880 300 730 490" fill="none" stroke="#d6b656" stroke-width="1.3" marker-end="url(#arrow-dfd2)"/>
+  <text x="840" y="310" fill="#d6b656" font-size="9" font-weight="600">Summary Prompt</text>
+
+  <!-- 3.3 → Gemini (AI experience) -->
+  <line x1="640" y1="236" x2="645" y2="490" stroke="#d6b656" stroke-width="1.3" marker-end="url(#arrow-dfd2)"/>
+  <text x="555" y="370" fill="#d6b656" font-size="9" font-weight="600">Experience Prompt</text>
+
+  <!-- ============ Section: Process 5 Decomposition ============ -->
+  <rect x="20" y="420" width="460" height="380" rx="10" fill="none" stroke="#b85450" stroke-width="1.5" stroke-dasharray="8 4"/>
+  <text x="40" y="442" fill="#b85450" font-size="12" font-weight="700">Process 5.0 — Preview & Export (Decomposed)</text>
+
+  <!-- P5.1 Generate Preview -->
+  <circle cx="150" cy="530" r="38" fill="#f8cecc" stroke="#b85450" stroke-width="1.8"/>
+  <text x="150" y="522" text-anchor="middle" fill="#b85450" font-size="9" font-weight="700">5.1</text>
+  <text x="150" y="534" text-anchor="middle" fill="#333" font-size="9.5" font-weight="600">Generate</text>
+  <text x="150" y="545" text-anchor="middle" fill="#333" font-size="9.5" font-weight="600">Preview</text>
+
+  <!-- P5.2 Download PDF -->
+  <circle cx="300" cy="630" r="38" fill="#f8cecc" stroke="#b85450" stroke-width="1.8"/>
+  <text x="300" y="622" text-anchor="middle" fill="#b85450" font-size="9" font-weight="700">5.2</text>
+  <text x="300" y="634" text-anchor="middle" fill="#333" font-size="9.5" font-weight="600">Download</text>
+  <text x="300" y="645" text-anchor="middle" fill="#333" font-size="9.5" font-weight="600">PDF</text>
+
+  <!-- P5.3 Share Resume -->
+  <circle cx="380" cy="530" r="38" fill="#f8cecc" stroke="#b85450" stroke-width="1.8"/>
+  <text x="380" y="522" text-anchor="middle" fill="#b85450" font-size="9" font-weight="700">5.3</text>
+  <text x="380" y="534" text-anchor="middle" fill="#333" font-size="9.5" font-weight="600">Share</text>
+  <text x="380" y="545" text-anchor="middle" fill="#333" font-size="9.5" font-weight="600">Resume</text>
+
+  <!-- D1 Store (for Process 5) -->
+  <g>
+    <line x1="70" y1="460" x2="250" y2="460" stroke="#333" stroke-width="1.3"/>
+    <line x1="70" y1="486" x2="250" y2="486" stroke="#333" stroke-width="1.3"/>
+    <line x1="70" y1="460" x2="70" y2="486" stroke="#333" stroke-width="1.3"/>
+    <rect x="71" y="461" width="178" height="24" fill="#f5f5f5"/>
+    <text x="78" y="478" fill="#333" font-size="10" font-weight="700">D1</text>
+    <line x1="98" y1="460" x2="98" y2="486" stroke="#333" stroke-width="0.8"/>
+    <text x="170" y="478" text-anchor="middle" fill="#333" font-size="10">Resume Data</text>
+  </g>
+
+  <!-- User (for Process 5) -->
+  <rect x="40" y="660" width="100" height="50" fill="#dae8fc" stroke="#6c8ebf" stroke-width="1.5"/>
+  <text x="90" y="690" text-anchor="middle" fill="#333" font-size="11" font-weight="700">User</text>
+
+  <!-- D1 → 5.1 -->
+  <line x1="150" y1="486" x2="150" y2="492" stroke="#333" stroke-width="1.3" marker-end="url(#arrow-dfd2)"/>
+  <text x="165" y="498" fill="#333" font-size="9">Resume Data</text>
+
+  <!-- 5.1 → 5.2 -->
+  <line x1="170" y1="562" x2="272" y2="610" stroke="#333" stroke-width="1.3" marker-end="url(#arrow-dfd2)"/>
+  <text x="200" y="590" fill="#333" font-size="9">Rendered HTML</text>
+
+  <!-- 5.1 → 5.3 -->
+  <line x1="188" y1="530" x2="342" y2="530" stroke="#333" stroke-width="1.3" marker-end="url(#arrow-dfd2)"/>
+  <text x="265" y="522" text-anchor="middle" fill="#333" font-size="9">Preview Data</text>
+
+  <!-- 5.2 → User -->
+  <line x1="268" y1="650" x2="140" y2="670" stroke="#333" stroke-width="1.3" marker-end="url(#arrow-dfd2)"/>
+  <text x="190" y="652" fill="#333" font-size="9">PDF File</text>
+
+  <!-- 5.3 → User -->
+  <line x1="360" y1="565" x2="130" y2="660" stroke="#333" stroke-width="1.3" marker-end="url(#arrow-dfd2)"/>
+  <text x="260" y="630" fill="#333" font-size="9">Shareable URL</text>
+
+  <!-- Legend -->
+  <rect x="540" y="560" width="420" height="220" rx="8" fill="#fafafa" stroke="#e0e0e0"/>
+  <text x="560" y="585" fill="#555" font-size="12" font-weight="700">Legend</text>
+  <rect x="560" y="600" width="28" height="18" fill="#dae8fc" stroke="#6c8ebf" stroke-width="1"/>
+  <text x="596" y="614" fill="#555" font-size="10">External Entity</text>
+  <circle cx="574" cy="640" r="12" fill="#d5e8d4" stroke="#82b366" stroke-width="1.2"/>
+  <text x="596" y="644" fill="#555" font-size="10">Process (Green = Mgmt)</text>
+  <circle cx="574" cy="670" r="12" fill="#e1d5e7" stroke="#9673a6" stroke-width="1.2"/>
+  <text x="596" y="674" fill="#555" font-size="10">Process (Purple = Editing)</text>
+  <circle cx="574" cy="700" r="12" fill="#f8cecc" stroke="#b85450" stroke-width="1.2"/>
+  <text x="596" y="704" fill="#555" font-size="10">Process (Red = Export)</text>
+  <line x1="560" y1="730" x2="590" y2="730" stroke="#333" stroke-width="1.3"/>
+  <line x1="560" y1="746" x2="590" y2="746" stroke="#333" stroke-width="1.3"/>
+  <line x1="560" y1="730" x2="560" y2="746" stroke="#333" stroke-width="1.3"/>
+  <text x="596" y="742" fill="#555" font-size="10">Data Store (LocalStorage)</text>
+  <line x1="560" y1="762" x2="590" y2="762" stroke="#333" stroke-width="1.3" marker-end="url(#arrow-dfd2)"/>
+  <text x="596" y="766" fill="#555" font-size="10">Data Flow</text>
+</svg>
+</div>
+
+</body>
+</html>
