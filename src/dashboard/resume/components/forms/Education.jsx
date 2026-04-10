@@ -13,15 +13,35 @@ function Education() {
   const {resumeInfo, setResumeInfo} = useContext(ResumeInfoContext);
   const params = useParams();
   const [educationalList, setEducationalList] = useState([]);
+  const [dateErrors, setDateErrors] = useState({});
 
   useEffect(() => {
     resumeInfo?.education?.length > 0 && setEducationalList(resumeInfo?.education)
   }, [])
 
+  const validateDates = (index, startDate, endDate) => {
+    const errors = { ...dateErrors };
+    if (startDate && endDate && new Date(endDate) < new Date(startDate)) {
+      errors[index] = 'End date must be after start date';
+    } else {
+      delete errors[index];
+    }
+    setDateErrors(errors);
+    return !errors[index];
+  };
+
   const handleChange = (event, index) => {
     const newEntries = [...educationalList];
     const {name, value} = event.target;
     newEntries[index][name] = value;
+
+    // Validate dates when either date field changes
+    if (name === 'startDate' || name === 'endDate') {
+      const start = name === 'startDate' ? value : newEntries[index].startDate;
+      const end = name === 'endDate' ? value : newEntries[index].endDate;
+      validateDates(index, start, end);
+    }
+
     setEducationalList(newEntries);
   }
 
@@ -33,11 +53,34 @@ function Education() {
 
   const RemoveEducation = () => {
     if (educationalList.length > 0) {
+      const lastIndex = educationalList.length - 1;
+      const errors = { ...dateErrors };
+      delete errors[lastIndex];
+      setDateErrors(errors);
       setEducationalList(educationalList => educationalList.slice(0, -1));
     }
   }
 
   const onSave = () => {
+    // Validate all entries before saving
+    let hasErrors = false;
+
+    for (let i = 0; i < educationalList.length; i++) {
+      const edu = educationalList[i];
+      if (!edu.universityName || !edu.degree || !edu.major || !edu.startDate) {
+        toast.error(`Education #${i + 1}: University, degree, major, and start date are required`);
+        hasErrors = true;
+        break;
+      }
+      if (edu.endDate && edu.startDate && new Date(edu.endDate) < new Date(edu.startDate)) {
+        toast.error(`Education #${i + 1}: End date must be after start date`);
+        hasErrors = true;
+        break;
+      }
+    }
+
+    if (hasErrors || Object.keys(dateErrors).length > 0) return;
+
     setLoading(true)
     const data = {
       data: {
@@ -63,6 +106,15 @@ function Education() {
     }
   }, [educationalList])
 
+  // Helper to format date for display in the input (YYYY-MM-DD)
+  const formatDateForInput = (dateStr) => {
+    if (!dateStr) return '';
+    if (/^\d{4}-\d{2}-\d{2}$/.test(dateStr)) return dateStr;
+    const d = new Date(dateStr);
+    if (isNaN(d.getTime())) return '';
+    return d.toISOString().split('T')[0];
+  };
+
   return (
     <div className='card-premium p-8 border-t-4 border-t-violet-600 mt-6'>
       <div className='mb-6'>
@@ -82,28 +134,29 @@ function Education() {
             
             <div className='grid grid-cols-1 md:grid-cols-2 gap-5 mb-5'>
               <div className='space-y-1.5 col-span-1 md:col-span-2'>
-                <label className='text-sm font-medium text-gray-700'>University / School Name</label>
-                <Input name="universityName" onChange={(e) => handleChange(e, index)} defaultValue={item?.universityName} className="bg-gray-50/50 rounded-xl focus:ring-violet-500 focus:border-violet-500"/>
+                <label className='text-sm font-medium text-gray-700'>University / School Name <span className='text-red-500'>*</span></label>
+                <Input name="universityName" required maxLength={300} onChange={(e) => handleChange(e, index)} defaultValue={item?.universityName} className="bg-gray-50/50 rounded-xl focus:ring-violet-500 focus:border-violet-500" placeholder="e.g., Indian Institute of Technology"/>
               </div>
               <div className='space-y-1.5'>
-                <label className='text-sm font-medium text-gray-700'>Degree (e.g. Bachelor's)</label>
-                <Input name="degree" onChange={(e) => handleChange(e, index)} defaultValue={item?.degree} className="bg-gray-50/50 rounded-xl focus:ring-violet-500 focus:border-violet-500"/>
+                <label className='text-sm font-medium text-gray-700'>Degree <span className='text-red-500'>*</span></label>
+                <Input name="degree" required maxLength={100} onChange={(e) => handleChange(e, index)} defaultValue={item?.degree} className="bg-gray-50/50 rounded-xl focus:ring-violet-500 focus:border-violet-500" placeholder="e.g., Bachelor's, Master's"/>
               </div>
               <div className='space-y-1.5'>
-                <label className='text-sm font-medium text-gray-700'>Field of Study / Major</label>
-                <Input name="major" onChange={(e) => handleChange(e, index)} defaultValue={item?.major} className="bg-gray-50/50 rounded-xl focus:ring-violet-500 focus:border-violet-500"/>
+                <label className='text-sm font-medium text-gray-700'>Field of Study / Major <span className='text-red-500'>*</span></label>
+                <Input name="major" required maxLength={200} onChange={(e) => handleChange(e, index)} defaultValue={item?.major} className="bg-gray-50/50 rounded-xl focus:ring-violet-500 focus:border-violet-500" placeholder="e.g., Computer Science"/>
               </div>
               <div className='space-y-1.5'>
-                <label className='text-sm font-medium text-gray-700'>Start Date</label>
-                <Input type="date" name="startDate" onChange={(e) => handleChange(e, index)} defaultValue={item?.startDate} className="bg-gray-50/50 rounded-xl focus:ring-violet-500 focus:border-violet-500"/>
+                <label className='text-sm font-medium text-gray-700'>Start Date <span className='text-red-500'>*</span></label>
+                <Input type="date" name="startDate" required max={new Date().toISOString().split('T')[0]} onChange={(e) => handleChange(e, index)} defaultValue={formatDateForInput(item?.startDate)} className="bg-gray-50/50 rounded-xl focus:ring-violet-500 focus:border-violet-500"/>
               </div>
               <div className='space-y-1.5'>
                 <label className='text-sm font-medium text-gray-700'>End Date (or Expected)</label>
-                <Input type="date" name="endDate" onChange={(e) => handleChange(e, index)} defaultValue={item?.endDate} className="bg-gray-50/50 rounded-xl focus:ring-violet-500 focus:border-violet-500"/>
+                <Input type="date" name="endDate" onChange={(e) => handleChange(e, index)} defaultValue={formatDateForInput(item?.endDate)} className={`bg-gray-50/50 rounded-xl focus:ring-violet-500 focus:border-violet-500 ${dateErrors[index] ? 'border-red-400 ring-1 ring-red-400' : ''}`}/>
+                {dateErrors[index] && <p className='text-[11px] text-red-500 font-medium px-1'>{dateErrors[index]}</p>}
               </div>
               <div className='space-y-1.5 col-span-1 md:col-span-2'>
                 <label className='text-sm font-medium text-gray-700'>Additional Description / Honors</label>
-                <Textarea name="description" onChange={(e) => handleChange(e, index)} defaultValue={item?.description} className="bg-gray-50/50 rounded-xl focus:ring-violet-500 focus:border-violet-500 resize-y min-h-[100px]"/>
+                <Textarea name="description" maxLength={2000} onChange={(e) => handleChange(e, index)} defaultValue={item?.description} className="bg-gray-50/50 rounded-xl focus:ring-violet-500 focus:border-violet-500 resize-y min-h-[100px]" placeholder="e.g., Graduated with honors, relevant coursework..."/>
               </div>
             </div>
           </div>

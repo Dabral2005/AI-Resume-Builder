@@ -36,6 +36,18 @@ function Skills() {
     }
 
     const onSave = () => {
+        // Validate all entries before saving
+        for (let i = 0; i < skillsList.length; i++) {
+            if (!skillsList[i].name || skillsList[i].name.trim() === '') {
+                toast.error(`Skill #${i + 1}: Skill name is required`);
+                return;
+            }
+            if (skillsList[i].rating < 0 || skillsList[i].rating > 5) {
+                toast.error(`Skill #${i + 1}: Rating must be between 0 and 5`);
+                return;
+            }
+        }
+
         setLoading(true);
         const data = {
             data: {
@@ -71,10 +83,12 @@ function Skills() {
                 {skillsList.map((item, index) => (
                     <div key={index} className='flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 p-4 rounded-2xl border border-gray-100 bg-white hover:border-violet-200 transition-colors shadow-sm'>
                         <div className='w-full sm:w-1/2'>
-                            <label className='text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1 block'>Skill Name</label>
+                            <label className='text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1 block'>Skill Name <span className='text-red-500'>*</span></label>
                             <Input 
                                 className="w-full bg-gray-50/50 rounded-xl focus:ring-violet-500 focus:border-violet-500 border-gray-200"
                                 placeholder="e.g. React, Python, Project Management"
+                                required
+                                maxLength={100}
                                 defaultValue={item.name}
                                 onChange={(e) => handleChange(index, 'name', e.target.value)} 
                             />

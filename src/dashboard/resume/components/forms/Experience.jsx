@@ -13,15 +13,35 @@ function Experience() {
     const {resumeInfo, setResumeInfo} = useContext(ResumeInfoContext);
     const params = useParams();
     const [loading, setLoading] = useState(false);
+    const [dateErrors, setDateErrors] = useState({});
 
     useEffect(() => {
         resumeInfo?.Experience?.length > 0 && setExperinceList(resumeInfo?.Experience)
     }, [])
 
+    const validateDates = (index, startDate, endDate) => {
+        const errors = { ...dateErrors };
+        if (startDate && endDate && new Date(endDate) < new Date(startDate)) {
+            errors[index] = 'End date must be after start date';
+        } else {
+            delete errors[index];
+        }
+        setDateErrors(errors);
+        return !errors[index];
+    };
+
     const handleChange = (index, event) => {
         const newEntries = [...experinceList];
         const {name, value} = event.target;
         newEntries[index][name] = value;
+
+        // Validate dates when either date field changes
+        if (name === 'startDate' || name === 'endDate') {
+            const start = name === 'startDate' ? value : newEntries[index].startDate;
+            const end = name === 'endDate' ? value : newEntries[index].endDate;
+            validateDates(index, start, end);
+        }
+
         setExperinceList(newEntries);
     }
 
@@ -33,12 +53,16 @@ function Experience() {
 
     const AddNewExperience = () => {
         setExperinceList([...experinceList, {
-            title: '', companyName: '', city: '', state: '', startDate: '', endDate: '', workSummery: ''
+            title: '', companyName: '', city: '', state: '', startDate: '', endDate: '', currentlyWorking: false, workSummery: ''
         }])
     }
 
     const RemoveExperience = () => {
         if (experinceList.length > 0) {
+            const lastIndex = experinceList.length - 1;
+            const errors = { ...dateErrors };
+            delete errors[lastIndex];
+            setDateErrors(errors);
             setExperinceList(experinceList => experinceList.slice(0, -1))
         }
     }
@@ -51,6 +75,25 @@ function Experience() {
     }, [experinceList]);
 
     const onSave = () => {
+        // Validate all entries before saving
+        let hasErrors = false;
+
+        for (let i = 0; i < experinceList.length; i++) {
+            const exp = experinceList[i];
+            if (!exp.title || !exp.companyName || !exp.startDate) {
+                toast.error(`Experience #${i + 1}: Position title, company name, and start date are required`);
+                hasErrors = true;
+                break;
+            }
+            if (exp.endDate && exp.startDate && new Date(exp.endDate) < new Date(exp.startDate)) {
+                toast.error(`Experience #${i + 1}: End date must be after start date`);
+                hasErrors = true;
+                break;
+            }
+        }
+
+        if (hasErrors || Object.keys(dateErrors).length > 0) return;
+
         setLoading(true)
         const data = {
             data: {
@@ -65,6 +108,17 @@ function Experience() {
             toast.error('Failed to update experience');
         })
     }
+
+    // Helper to format date for display in the input (YYYY-MM-DD)
+    const formatDateForInput = (dateStr) => {
+        if (!dateStr) return '';
+        // If already in YYYY-MM-DD format, return as is
+        if (/^\d{4}-\d{2}-\d{2}$/.test(dateStr)) return dateStr;
+        // Try to parse other formats
+        const d = new Date(dateStr);
+        if (isNaN(d.getTime())) return '';
+        return d.toISOString().split('T')[0];
+    };
 
     return (
         <div className='card-premium p-8 border-t-4 border-t-violet-600 mt-6'>
@@ -84,28 +138,29 @@ function Experience() {
                         </div>
                         <div className='grid grid-cols-1 md:grid-cols-2 gap-5 mb-5'>
                             <div className='space-y-1.5'>
-                                <label className='text-sm font-medium text-gray-700'>Position Title</label>
-                                <Input name="title" onChange={(e) => handleChange(index, e)} defaultValue={item?.title} className="bg-gray-50/50 rounded-xl focus:ring-violet-500 focus:border-violet-500"/>
+                                <label className='text-sm font-medium text-gray-700'>Position Title <span className='text-red-500'>*</span></label>
+                                <Input name="title" required onChange={(e) => handleChange(index, e)} defaultValue={item?.title} className="bg-gray-50/50 rounded-xl focus:ring-violet-500 focus:border-violet-500" placeholder="e.g., Software Engineer"/>
                             </div>
                             <div className='space-y-1.5'>
-                                <label className='text-sm font-medium text-gray-700'>Company Name</label>
-                                <Input name="companyName" onChange={(e) => handleChange(index, e)} defaultValue={item?.companyName} className="bg-gray-50/50 rounded-xl focus:ring-violet-500 focus:border-violet-500"/>
+                                <label className='text-sm font-medium text-gray-700'>Company Name <span className='text-red-500'>*</span></label>
+                                <Input name="companyName" required onChange={(e) => handleChange(index, e)} defaultValue={item?.companyName} className="bg-gray-50/50 rounded-xl focus:ring-violet-500 focus:border-violet-500" placeholder="e.g., Google"/>
                             </div>
                             <div className='space-y-1.5'>
                                 <label className='text-sm font-medium text-gray-700'>City</label>
-                                <Input name="city" onChange={(e) => handleChange(index, e)} defaultValue={item?.city} className="bg-gray-50/50 rounded-xl focus:ring-violet-500 focus:border-violet-500"/>
+                                <Input name="city" onChange={(e) => handleChange(index, e)} defaultValue={item?.city} className="bg-gray-50/50 rounded-xl focus:ring-violet-500 focus:border-violet-500" placeholder="e.g., Bangalore"/>
                             </div>
                             <div className='space-y-1.5'>
                                 <label className='text-sm font-medium text-gray-700'>State</label>
-                                <Input name="state" onChange={(e) => handleChange(index, e)} defaultValue={item?.state} className="bg-gray-50/50 rounded-xl focus:ring-violet-500 focus:border-violet-500"/>
+                                <Input name="state" onChange={(e) => handleChange(index, e)} defaultValue={item?.state} className="bg-gray-50/50 rounded-xl focus:ring-violet-500 focus:border-violet-500" placeholder="e.g., Karnataka"/>
                             </div>
                             <div className='space-y-1.5'>
-                                <label className='text-sm font-medium text-gray-700'>Start Date</label>
-                                <Input type="date" name="startDate" onChange={(e) => handleChange(index, e)} defaultValue={item?.startDate} className="bg-gray-50/50 rounded-xl focus:ring-violet-500 focus:border-violet-500"/>
+                                <label className='text-sm font-medium text-gray-700'>Start Date <span className='text-red-500'>*</span></label>
+                                <Input type="date" name="startDate" required onChange={(e) => handleChange(index, e)} defaultValue={formatDateForInput(item?.startDate)} max={new Date().toISOString().split('T')[0]} className="bg-gray-50/50 rounded-xl focus:ring-violet-500 focus:border-violet-500"/>
                             </div>
                             <div className='space-y-1.5'>
                                 <label className='text-sm font-medium text-gray-700'>End Date (Leave blank if present)</label>
-                                <Input type="date" name="endDate" onChange={(e) => handleChange(index, e)} defaultValue={item?.endDate} className="bg-gray-50/50 rounded-xl focus:ring-violet-500 focus:border-violet-500"/>
+                                <Input type="date" name="endDate" onChange={(e) => handleChange(index, e)} defaultValue={formatDateForInput(item?.endDate)} max={new Date().toISOString().split('T')[0]} className={`bg-gray-50/50 rounded-xl focus:ring-violet-500 focus:border-violet-500 ${dateErrors[index] ? 'border-red-400 ring-1 ring-red-400' : ''}`}/>
+                                {dateErrors[index] && <p className='text-[11px] text-red-500 font-medium px-1'>{dateErrors[index]}</p>}
                             </div>
                             <div className='col-span-1 md:col-span-2 mt-2'>
                                 <RichTextEditor index={index} defaultValue={item?.workSummery} onRichTextEditorChange={(e) => handleRichTextEditor(e, 'workSummery', index)}/>
