@@ -121,44 +121,47 @@ function Experience() {
     };
 
     return (
-        <div className='card-premium p-8 border-t-4 border-t-violet-600 mt-6'>
-            <div className='mb-6'>
-                <h2 className='text-2xl font-bold bg-gradient-to-r from-violet-600 to-indigo-600 bg-clip-text text-transparent'>Professional Experience</h2>
-                <p className='text-gray-500 mt-1'>Add your previous job experience and achievements</p>
-            </div>
-            
-            <div className='space-y-6'>
-                {experinceList.map((item, index) => (
-                    <div key={index} className='p-6 rounded-2xl border border-gray-100 bg-white shadow-sm hover:shadow-md hover:border-violet-100 transition-all duration-300 group'>
-                        <div className='flex items-center justify-between mb-4 border-b border-gray-50 pb-4'>
-                            <h3 className='font-bold text-gray-700 bg-gray-50 px-4 py-1.5 rounded-full text-sm flex items-center gap-2'>
-                                <div className='w-2 h-2 rounded-full bg-violet-500'></div>
-                                Experience #{index + 1}
-                            </h3>
-                        </div>
-                        <div className='grid grid-cols-1 md:grid-cols-2 gap-5 mb-5'>
-                            <div className='space-y-1.5'>
-                                <label className='text-sm font-medium text-gray-700'>Position Title <span className='text-red-500'>*</span></label>
+        <div className='card-premium p-10 mt-6 relative overflow-hidden group/form'>
+            <div className='absolute top-0 right-0 w-32 h-32 bg-brand-primary/5 rounded-full blur-2xl -mr-16 -mt-16'></div>
+            <div className='relative z-10'>
+                <div className='mb-8'>
+                    <h2 className='text-3xl font-black text-slate-900 font-brand tracking-tight'>Professional Experience</h2>
+                    <p className='text-slate-500 mt-2 font-medium'>Add your previous job experience and achievements</p>
+                </div>
+                
+                <div className='space-y-10'>
+                    {experinceList.map((item, index) => (
+                        <div key={index} className='p-8 rounded-[2rem] border border-slate-100 bg-white shadow-sm hover:shadow-xl hover:border-brand-primary/20 transition-all duration-500 group'>
+                            <div className='flex items-center justify-between mb-8 pb-6 border-b border-slate-50'>
+                                <h3 className='font-black text-slate-400 uppercase tracking-[0.2em] text-[10px] flex items-center gap-2'>
+                                    <div className='w-2 h-2 rounded-full bg-brand-primary'></div>
+                                    Experience #{index + 1}
+                                </h3>
+                            </div>
+                            <div className='grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6'>
+                                <div className='space-y-2'>
+                                    <label className='text-[11px] font-black uppercase tracking-[0.2em] text-slate-500'>Position Title <span className='text-red-500'>*</span></label>
+
                                 <Input name="title" required onChange={(e) => handleChange(index, e)} defaultValue={item?.title} className="bg-gray-50/50 rounded-xl focus:ring-violet-500 focus:border-violet-500" placeholder="e.g., Software Engineer"/>
                             </div>
                             <div className='space-y-1.5'>
-                                <label className='text-sm font-medium text-gray-700'>Company Name <span className='text-red-500'>*</span></label>
+                                <label className='text-[11px] font-black uppercase tracking-[0.2em] text-slate-500'>Company Name <span className='text-red-500'>*</span></label>
                                 <Input name="companyName" required onChange={(e) => handleChange(index, e)} defaultValue={item?.companyName} className="bg-gray-50/50 rounded-xl focus:ring-violet-500 focus:border-violet-500" placeholder="e.g., Google"/>
                             </div>
                             <div className='space-y-1.5'>
-                                <label className='text-sm font-medium text-gray-700'>City</label>
+                                <label className='text-[11px] font-black uppercase tracking-[0.2em] text-slate-500'>City</label>
                                 <Input name="city" onChange={(e) => handleChange(index, e)} defaultValue={item?.city} className="bg-gray-50/50 rounded-xl focus:ring-violet-500 focus:border-violet-500" placeholder="e.g., Bangalore"/>
                             </div>
                             <div className='space-y-1.5'>
-                                <label className='text-sm font-medium text-gray-700'>State</label>
+                                <label className='text-[11px] font-black uppercase tracking-[0.2em] text-slate-500'>State</label>
                                 <Input name="state" onChange={(e) => handleChange(index, e)} defaultValue={item?.state} className="bg-gray-50/50 rounded-xl focus:ring-violet-500 focus:border-violet-500" placeholder="e.g., Karnataka"/>
                             </div>
                             <div className='space-y-1.5'>
-                                <label className='text-sm font-medium text-gray-700'>Start Date <span className='text-red-500'>*</span></label>
+                                <label className='text-[11px] font-black uppercase tracking-[0.2em] text-slate-500'>Start Date <span className='text-red-500'>*</span></label>
                                 <Input type="date" name="startDate" required onChange={(e) => handleChange(index, e)} defaultValue={formatDateForInput(item?.startDate)} max={new Date().toISOString().split('T')[0]} className="bg-gray-50/50 rounded-xl focus:ring-violet-500 focus:border-violet-500"/>
                             </div>
                             <div className='space-y-1.5'>
-                                <label className='text-sm font-medium text-gray-700'>End Date (Leave blank if present)</label>
+                                <label className='text-[11px] font-black uppercase tracking-[0.2em] text-slate-500'>End Date (Leave blank if present)</label>
                                 <Input type="date" name="endDate" onChange={(e) => handleChange(index, e)} defaultValue={formatDateForInput(item?.endDate)} max={new Date().toISOString().split('T')[0]} className={`bg-gray-50/50 rounded-xl focus:ring-violet-500 focus:border-violet-500 ${dateErrors[index] ? 'border-red-400 ring-1 ring-red-400' : ''}`}/>
                                 {dateErrors[index] && <p className='text-[11px] text-red-500 font-medium px-1'>{dateErrors[index]}</p>}
                             </div>
@@ -176,22 +179,23 @@ function Experience() {
                 </div>
             )}
 
-            <div className='flex flex-col sm:flex-row justify-between items-center gap-4 mt-8 pt-6 border-t border-gray-100'>
-                <div className='flex gap-3 w-full sm:w-auto'>
-                    <Button variant="outline" onClick={AddNewExperience} className="text-violet-700 border-violet-200 hover:bg-violet-50 rounded-xl gap-2 flex-1 sm:flex-none"> 
-                        <Plus className='w-4 h-4' /> Add Experience
+            <div className='flex flex-col sm:flex-row justify-between items-center gap-6 mt-12 pt-10 border-t border-slate-100'>
+                <div className='flex gap-4 w-full sm:w-auto'>
+                    <Button variant="outline" onClick={AddNewExperience} className="text-brand-primary border-slate-200 hover:bg-brand-primary/5 hover:border-brand-primary rounded-2xl gap-2 flex-1 sm:flex-none h-12 px-6 font-bold shadow-sm transition-all"> 
+                        <Plus className='w-5 h-5' /> Add Experience
                     </Button>
                     {experinceList.length > 0 && (
-                        <Button variant="outline" onClick={RemoveExperience} className="text-red-600 border-red-200 hover:bg-red-50 hover:text-red-700 rounded-xl gap-2 flex-1 sm:flex-none"> 
-                            <Trash2 className='w-4 h-4' /> Remove
+                        <Button variant="ghost" onClick={RemoveExperience} className="text-slate-400 hover:bg-red-50 hover:text-red-600 rounded-2xl gap-2 flex-1 sm:flex-none h-12 font-bold px-6 border border-transparent hover:border-red-100"> 
+                            <Trash2 className='w-5 h-5' /> Remove
                         </Button>
                     )}
                 </div>
-                <Button disabled={loading} onClick={onSave} className="btn-premium w-full sm:w-auto px-8">
-                    {loading ? <Loader2 className='animate-spin w-4 h-4' /> : 'Save Changes'}    
+                <Button disabled={loading} onClick={onSave} className="btn-premium w-full sm:w-auto px-10 h-12 rounded-2xl text-lg">
+                    {loading ? <Loader2 className='animate-spin w-5 h-5' /> : 'Save Experience'}    
                 </Button>
             </div>
         </div>
+    </div>
     )
 }
 

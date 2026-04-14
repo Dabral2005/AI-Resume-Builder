@@ -1,349 +1,349 @@
-<mxfile version="21.1.2">
-  <!-- ER Diagram -->
-  <diagram id="er" name="ER Diagram">
-    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850">
-      <root>
-        <mxCell id="0" />
-        <mxCell id="1" parent="0" />
+  <mxfile version="21.1.2">
+    <!-- ER Diagram -->
+    <diagram id="er" name="ER Diagram">
+      <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850">
+        <root>
+          <mxCell id="0" />
+          <mxCell id="1" parent="0" />
 
-        <mxCell id="user_box" value="&lt;b&gt;USER&lt;/b&gt;&lt;br&gt;&lt;hr&gt;🔑 userId : String (PK)&lt;br&gt;email : String&lt;br&gt;firstName : String&lt;br&gt;lastName : String&lt;br&gt;profileImage : String&lt;br&gt;authProvider : String" style="rounded=1;arcSize=4;whiteSpace=wrap;html=1;align=left;spacingLeft=10;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
-          <mxGeometry x="50" y="80" width="220" height="150" as="geometry" />
-        </mxCell>
+          <mxCell id="user_box" value="&lt;b&gt;USER&lt;/b&gt;&lt;br&gt;&lt;hr&gt;🔑 userId : String (PK)&lt;br&gt;email : String&lt;br&gt;firstName : String&lt;br&gt;lastName : String&lt;br&gt;profileImage : String&lt;br&gt;authProvider : String" style="rounded=1;arcSize=4;whiteSpace=wrap;html=1;align=left;spacingLeft=10;fillColor=#f8fafc;strokeColor=#4f46e5;" vertex="1" parent="1">
+            <mxGeometry x="50" y="80" width="220" height="150" as="geometry" />
+          </mxCell>
 
-        <mxCell id="resume_box" value="&lt;b&gt;RESUME&lt;/b&gt;&lt;br&gt;&lt;hr&gt;🔑 documentId : String (PK)&lt;br&gt;userEmail : String (FK)&lt;br&gt;title : String&lt;br&gt;firstName : String&lt;br&gt;lastName : String&lt;br&gt;jobTitle : String&lt;br&gt;email : String&lt;br&gt;phone : String&lt;br&gt;address : String&lt;br&gt;themeColor : String" style="rounded=1;arcSize=4;whiteSpace=wrap;html=1;align=left;spacingLeft=10;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
-          <mxGeometry x="380" y="50" width="260" height="230" as="geometry" />
-        </mxCell>
+          <mxCell id="resume_box" value="&lt;b&gt;RESUME&lt;/b&gt;&lt;br&gt;&lt;hr&gt;🔑 documentId : String (PK)&lt;br&gt;userEmail : String (FK)&lt;br&gt;title : String&lt;br&gt;firstName : String&lt;br&gt;lastName : String&lt;br&gt;jobTitle : String&lt;br&gt;email : String&lt;br&gt;phone : String&lt;br&gt;address : String&lt;br&gt;themeColor : String" style="rounded=1;arcSize=4;whiteSpace=wrap;html=1;align=left;spacingLeft=10;fillColor=#f8fafc;strokeColor=#6366f1;" vertex="1" parent="1">
+            <mxGeometry x="380" y="50" width="260" height="230" as="geometry" />
+          </mxCell>
 
-        <mxCell id="exp_box" value="&lt;b&gt;EXPERIENCE&lt;/b&gt;&lt;br&gt;&lt;hr&gt;🔑 id : Integer (PK)&lt;br&gt;title : String&lt;br&gt;companyName : String&lt;br&gt;city : String&lt;br&gt;state : String&lt;br&gt;startDate : String&lt;br&gt;endDate : String&lt;br&gt;currentlyWorking : Bool" style="rounded=1;arcSize=4;whiteSpace=wrap;html=1;align=left;spacingLeft=10;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
-          <mxGeometry x="750" y="50" width="240" height="180" as="geometry" />
-        </mxCell>
+          <mxCell id="exp_box" value="&lt;b&gt;EXPERIENCE&lt;/b&gt;&lt;br&gt;&lt;hr&gt;🔑 id : Integer (PK)&lt;br&gt;title : String&lt;br&gt;companyName : String&lt;br&gt;city : String&lt;br&gt;state : String&lt;br&gt;startDate : String&lt;br&gt;endDate : String&lt;br&gt;currentlyWorking : Bool" style="rounded=1;arcSize=4;whiteSpace=wrap;html=1;align=left;spacingLeft=10;fillColor=#f8fafc;strokeColor=#94a3b8;" vertex="1" parent="1">
+            <mxGeometry x="750" y="50" width="240" height="180" as="geometry" />
+          </mxCell>
 
-        <mxCell id="edu_box" value="&lt;b&gt;EDUCATION&lt;/b&gt;&lt;br&gt;&lt;hr&gt;🔑 id : Integer (PK)&lt;br&gt;universityName : String&lt;br&gt;degree : String&lt;br&gt;major : String&lt;br&gt;startDate : String&lt;br&gt;endDate : String&lt;br&gt;description : Text" style="rounded=1;arcSize=4;whiteSpace=wrap;html=1;align=left;spacingLeft=10;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
-          <mxGeometry x="380" y="380" width="260" height="170" as="geometry" />
-        </mxCell>
+          <mxCell id="edu_box" value="&lt;b&gt;EDUCATION&lt;/b&gt;&lt;br&gt;&lt;hr&gt;🔑 id : Integer (PK)&lt;br&gt;universityName : String&lt;br&gt;degree : String&lt;br&gt;major : String&lt;br&gt;startDate : String&lt;br&gt;endDate : String&lt;br&gt;description : Text" style="rounded=1;arcSize=4;whiteSpace=wrap;html=1;align=left;spacingLeft=10;fillColor=#f8fafc;strokeColor=#94a3b8;" vertex="1" parent="1">
+            <mxGeometry x="380" y="380" width="260" height="170" as="geometry" />
+          </mxCell>
 
-        <mxCell id="skill_box" value="&lt;b&gt;SKILL&lt;/b&gt;&lt;br&gt;&lt;hr&gt;🔑 id : Integer (PK)&lt;br&gt;name : String&lt;br&gt;rating : Integer" style="rounded=1;arcSize=4;whiteSpace=wrap;html=1;align=left;spacingLeft=10;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
-          <mxGeometry x="750" y="380" width="240" height="120" as="geometry" />
-        </mxCell>
+          <mxCell id="skill_box" value="&lt;b&gt;SKILL&lt;/b&gt;&lt;br&gt;&lt;hr&gt;🔑 id : Integer (PK)&lt;br&gt;name : String&lt;br&gt;rating : Integer" style="rounded=1;arcSize=4;whiteSpace=wrap;html=1;align=left;spacingLeft=10;fillColor=#f8fafc;strokeColor=#94a3b8;" vertex="1" parent="1">
+            <mxGeometry x="750" y="380" width="240" height="120" as="geometry" />
+          </mxCell>
 
-        <mxCell id="summary_box" value="&lt;b&gt;SUMMARY&lt;/b&gt;&lt;br&gt;&lt;hr&gt;summery : Text&lt;br&gt;(Embedded in Resume)" style="rounded=1;arcSize=4;whiteSpace=wrap;html=1;align=left;spacingLeft=10;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="1">
-          <mxGeometry x="50" y="380" width="220" height="100" as="geometry" />
-        </mxCell>
+          <mxCell id="summary_box" value="&lt;b&gt;SUMMARY&lt;/b&gt;&lt;br&gt;&lt;hr&gt;summery : Text&lt;br&gt;(Embedded in Resume)" style="rounded=1;arcSize=4;whiteSpace=wrap;html=1;align=left;spacingLeft=10;fillColor=#f8fafc;strokeColor=#cbd5e1;" vertex="1" parent="1">
+            <mxGeometry x="50" y="380" width="220" height="100" as="geometry" />
+          </mxCell>
 
-        <!-- ER Edges -->
-        <mxCell id="edge1" value="1&amp;nbsp;&amp;nbsp;&amp;nbsp;creates&amp;nbsp;&amp;nbsp;&amp;nbsp;N" style="endArrow=classic;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.25;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="user_box" target="resume_box">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="edge2" value="1&amp;nbsp;&amp;nbsp;&amp;nbsp;has&amp;nbsp;&amp;nbsp;&amp;nbsp;N" style="endArrow=classic;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="resume_box" target="exp_box">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="edge3" value="1&amp;nbsp;&amp;nbsp;&amp;nbsp;has&amp;nbsp;&amp;nbsp;&amp;nbsp;N" style="endArrow=classic;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="resume_box" target="edu_box">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="edge4" value="1&amp;nbsp;&amp;nbsp;&amp;nbsp;has&amp;nbsp;&amp;nbsp;&amp;nbsp;N" style="endArrow=classic;html=1;exitX=1;exitY=0.75;entryX=0;entryY=0.25;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="resume_box" target="skill_box">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="edge5" value="contains" style="endArrow=classic;dashed=1;html=1;exitX=0;exitY=0.75;entryX=1;entryY=0.5;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="resume_box" target="summary_box">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-      </root>
-    </mxGraphModel>
-  </diagram>
+          <!-- ER Edges -->
+          <mxCell id="edge1" value="1&amp;nbsp;&amp;nbsp;&amp;nbsp;creates&amp;nbsp;&amp;nbsp;&amp;nbsp;N" style="endArrow=classic;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.25;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="user_box" target="resume_box">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+          <mxCell id="edge2" value="1&amp;nbsp;&amp;nbsp;&amp;nbsp;has&amp;nbsp;&amp;nbsp;&amp;nbsp;N" style="endArrow=classic;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="resume_box" target="exp_box">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+          <mxCell id="edge3" value="1&amp;nbsp;&amp;nbsp;&amp;nbsp;has&amp;nbsp;&amp;nbsp;&amp;nbsp;N" style="endArrow=classic;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="resume_box" target="edu_box">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+          <mxCell id="edge4" value="1&amp;nbsp;&amp;nbsp;&amp;nbsp;has&amp;nbsp;&amp;nbsp;&amp;nbsp;N" style="endArrow=classic;html=1;exitX=1;exitY=0.75;entryX=0;entryY=0.25;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="resume_box" target="skill_box">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+          <mxCell id="edge5" value="contains" style="endArrow=classic;dashed=1;html=1;exitX=0;exitY=0.75;entryX=1;entryY=0.5;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="resume_box" target="summary_box">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </root>
+      </mxGraphModel>
+    </diagram>
 
-  <!-- 0-Level DFD -->
-  <diagram id="dfd0" name="0-Level DFD">
-    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850">
-      <root>
-        <mxCell id="0" />
-        <mxCell id="1" parent="0" />
+    <!-- 0-Level DFD -->
+    <diagram id="dfd0" name="0-Level DFD">
+      <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850">
+        <root>
+          <mxCell id="0" />
+          <mxCell id="1" parent="0" />
 
-        <mxCell id="d0_user" value="User&lt;br&gt;&lt;i&gt;(Job Seeker)&lt;/i&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1" vertex="1" parent="1">
-          <mxGeometry x="100" y="250" width="160" height="80" as="geometry" />
-        </mxCell>
+          <mxCell id="d0_user" value="User&lt;br&gt;&lt;i&gt;(Job Seeker)&lt;/i&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f1f5f9;strokeColor=#cbd5e1;fontStyle=1" vertex="1" parent="1">
+            <mxGeometry x="100" y="250" width="160" height="80" as="geometry" />
+          </mxCell>
 
-        <mxCell id="d0_system" value="&lt;b&gt;0.0&lt;/b&gt;&lt;br&gt;&lt;hr&gt;&lt;b&gt;AI Resume Builder&lt;/b&gt;&lt;br&gt;System" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;align=center;" vertex="1" parent="1">
-          <mxGeometry x="450" y="210" width="160" height="160" as="geometry" />
-        </mxCell>
+          <mxCell id="d0_system" value="&lt;b&gt;0.0&lt;/b&gt;&lt;br&gt;&lt;hr&gt;&lt;b&gt;AI Resume Builder&lt;/b&gt;&lt;br&gt;System" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#4f46e5;align=center;" vertex="1" parent="1">
+            <mxGeometry x="450" y="210" width="160" height="160" as="geometry" />
+          </mxCell>
 
-        <mxCell id="d0_clerk" value="Clerk Auth Service" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1" vertex="1" parent="1">
-          <mxGeometry x="800" y="100" width="160" height="80" as="geometry" />
-        </mxCell>
+          <mxCell id="d0_clerk" value="Clerk Auth Service" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f1f5f9;strokeColor=#cbd5e1;fontStyle=1" vertex="1" parent="1">
+            <mxGeometry x="800" y="100" width="160" height="80" as="geometry" />
+          </mxCell>
 
-        <mxCell id="d0_gemini" value="Google Gemini AI" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontStyle=1" vertex="1" parent="1">
-          <mxGeometry x="800" y="400" width="160" height="80" as="geometry" />
-        </mxCell>
+          <mxCell id="d0_gemini" value="Google Gemini AI" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f1f5f9;strokeColor=#cbd5e1;fontStyle=1" vertex="1" parent="1">
+            <mxGeometry x="800" y="400" width="160" height="80" as="geometry" />
+          </mxCell>
 
-        <mxCell id="d0_db" value="Browser LocalStorage" style="shape=partialRectangle;right=0;left=0;bottom=1;top=1;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontStyle=1;whiteSpace=wrap;" vertex="1" parent="1">
-          <mxGeometry x="450" y="520" width="160" height="60" as="geometry" />
-        </mxCell>
+          <mxCell id="d0_db" value="Browser LocalStorage" style="shape=partialRectangle;right=0;left=0;bottom=1;top=1;html=1;fillColor=#f8fafc;strokeColor=#cbd5e1;fontStyle=1;whiteSpace=wrap;" vertex="1" parent="1">
+            <mxGeometry x="450" y="520" width="160" height="60" as="geometry" />
+          </mxCell>
 
-        <!-- DFD 0 Edges -->
-        <mxCell id="e0_1" value="Resume Data,&lt;br&gt;Personal Info" style="endArrow=classic;html=1;exitX=1;exitY=0.25;entryX=0;entryY=0.25;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="d0_user" target="d0_system">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="e0_2" value="Resume PDF,&lt;br&gt;Preview, Share URL" style="endArrow=classic;html=1;exitX=0;exitY=0.75;entryX=1;entryY=0.75;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="d0_system" target="d0_user">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
+          <!-- DFD 0 Edges -->
+          <mxCell id="e0_1" value="Resume Data,&lt;br&gt;Personal Info" style="endArrow=classic;html=1;exitX=1;exitY=0.25;entryX=0;entryY=0.25;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="d0_user" target="d0_system">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+          <mxCell id="e0_2" value="Resume PDF,&lt;br&gt;Preview, Share URL" style="endArrow=classic;html=1;exitX=0;exitY=0.75;entryX=1;entryY=0.75;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="d0_system" target="d0_user">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
 
-        <mxCell id="e0_3" value="Auth Request" style="endArrow=classic;html=1;exitX=0.8;exitY=0.1;entryX=0;entryY=0.5;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="d0_system" target="d0_clerk">
-          <mxGeometry x="-0.2" relative="1" as="geometry">
-            <mxPoint as="offset" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="e0_4" value="User Token,&lt;br&gt;Profile Data" style="endArrow=classic;html=1;exitX=0.2;exitY=1;entryX=1;entryY=0.3;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="d0_clerk" target="d0_system">
-          <mxGeometry x="-0.1" relative="1" as="geometry">
-            <mxPoint as="offset" />
-          </mxGeometry>
-        </mxCell>
+          <mxCell id="e0_3" value="Auth Request" style="endArrow=classic;html=1;exitX=0.8;exitY=0.1;entryX=0;entryY=0.5;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="d0_system" target="d0_clerk">
+            <mxGeometry x="-0.2" relative="1" as="geometry">
+              <mxPoint as="offset" />
+            </mxGeometry>
+          </mxCell>
+          <mxCell id="e0_4" value="User Token,&lt;br&gt;Profile Data" style="endArrow=classic;html=1;exitX=0.2;exitY=1;entryX=1;entryY=0.3;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="d0_clerk" target="d0_system">
+            <mxGeometry x="-0.1" relative="1" as="geometry">
+              <mxPoint as="offset" />
+            </mxGeometry>
+          </mxCell>
 
-        <mxCell id="e0_5" value="Content Prompt" style="endArrow=classic;html=1;exitX=0.8;exitY=0.9;entryX=0;entryY=0.25;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="d0_system" target="d0_gemini">
-          <mxGeometry x="0.1" relative="1" as="geometry">
-            <mxPoint as="offset" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="e0_6" value="AI-Generated Content" style="endArrow=classic;html=1;exitX=0;exitY=0.75;entryX=0.6;entryY=1;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="d0_gemini" target="d0_system">
-          <mxGeometry x="-0.1" relative="1" as="geometry">
-            <mxPoint as="offset" />
-          </mxGeometry>
-        </mxCell>
+          <mxCell id="e0_5" value="Content Prompt" style="endArrow=classic;html=1;exitX=0.8;exitY=0.9;entryX=0;entryY=0.25;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="d0_system" target="d0_gemini">
+            <mxGeometry x="0.1" relative="1" as="geometry">
+              <mxPoint as="offset" />
+            </mxGeometry>
+          </mxCell>
+          <mxCell id="e0_6" value="AI-Generated Content" style="endArrow=classic;html=1;exitX=0;exitY=0.75;entryX=0.6;entryY=1;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="d0_gemini" target="d0_system">
+            <mxGeometry x="-0.1" relative="1" as="geometry">
+              <mxPoint as="offset" />
+            </mxGeometry>
+          </mxCell>
 
-        <mxCell id="e0_7" value="Save / Load&lt;br&gt;Resume" style="endArrow=classic;html=1;startArrow=classic;exitX=0.5;exitY=1;entryX=0.5;entryY=0;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="d0_system" target="d0_db">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-      </root>
-    </mxGraphModel>
-  </diagram>
+          <mxCell id="e0_7" value="Save / Load&lt;br&gt;Resume" style="endArrow=classic;html=1;startArrow=classic;exitX=0.5;exitY=1;entryX=0.5;entryY=0;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="d0_system" target="d0_db">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </root>
+      </mxGraphModel>
+    </diagram>
 
-  <!-- 1-Level DFD -->
-  <diagram id="dfd1" name="1-Level DFD">
-    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850">
-      <root>
-        <mxCell id="0" />
-        <mxCell id="1" parent="0" />
+    <!-- 1-Level DFD -->
+    <diagram id="dfd1" name="1-Level DFD">
+      <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850">
+        <root>
+          <mxCell id="0" />
+          <mxCell id="1" parent="0" />
 
-        <!-- External Entities -->
-        <mxCell id="d1_user" value="User" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1" vertex="1" parent="1">
-          <mxGeometry x="50" y="250" width="120" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="d1_clerk" value="Clerk Auth" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1" vertex="1" parent="1">
-          <mxGeometry x="50" y="50" width="120" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="d1_gemini" value="Google Gemini AI" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontStyle=1" vertex="1" parent="1">
-          <mxGeometry x="50" y="550" width="120" height="60" as="geometry" />
-        </mxCell>
+          <!-- External Entities -->
+          <mxCell id="d1_user" value="User" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f1f5f9;strokeColor=#cbd5e1;fontStyle=1" vertex="1" parent="1">
+            <mxGeometry x="50" y="250" width="120" height="60" as="geometry" />
+          </mxCell>
+          <mxCell id="d1_clerk" value="Clerk Auth" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f1f5f9;strokeColor=#cbd5e1;fontStyle=1" vertex="1" parent="1">
+            <mxGeometry x="50" y="50" width="120" height="60" as="geometry" />
+          </mxCell>
+          <mxCell id="d1_gemini" value="Google Gemini AI" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f1f5f9;strokeColor=#cbd5e1;fontStyle=1" vertex="1" parent="1">
+            <mxGeometry x="50" y="550" width="120" height="60" as="geometry" />
+          </mxCell>
 
-        <!-- Processes -->
-        <mxCell id="p1" value="&lt;b&gt;1.0&lt;/b&gt;&lt;br&gt;&lt;hr&gt;User Authentication" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;align=center;" vertex="1" parent="1">
-          <mxGeometry x="280" y="60" width="120" height="120" as="geometry" />
-        </mxCell>
-        <mxCell id="p2" value="&lt;b&gt;2.0&lt;/b&gt;&lt;br&gt;&lt;hr&gt;Resume Management" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;align=center;" vertex="1" parent="1">
-          <mxGeometry x="450" y="200" width="120" height="120" as="geometry" />
-        </mxCell>
-        <mxCell id="p3" value="&lt;b&gt;3.0&lt;/b&gt;&lt;br&gt;&lt;hr&gt;Resume Editing" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;align=center;" vertex="1" parent="1">
-          <mxGeometry x="450" y="400" width="120" height="120" as="geometry" />
-        </mxCell>
-        <mxCell id="p4" value="&lt;b&gt;4.0&lt;/b&gt;&lt;br&gt;&lt;hr&gt;AI Content Generation" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;align=center;" vertex="1" parent="1">
-          <mxGeometry x="280" y="520" width="120" height="120" as="geometry" />
-        </mxCell>
-        <mxCell id="p5" value="&lt;b&gt;5.0&lt;/b&gt;&lt;br&gt;&lt;hr&gt;Preview &amp; Export" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;align=center;" vertex="1" parent="1">
-          <mxGeometry x="750" y="400" width="120" height="120" as="geometry" />
-        </mxCell>
+          <!-- Processes -->
+          <mxCell id="p1" value="&lt;b&gt;1.0&lt;/b&gt;&lt;br&gt;&lt;hr&gt;User Authentication" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#4f46e5;align=center;" vertex="1" parent="1">
+            <mxGeometry x="280" y="60" width="120" height="120" as="geometry" />
+          </mxCell>
+          <mxCell id="p2" value="&lt;b&gt;2.0&lt;/b&gt;&lt;br&gt;&lt;hr&gt;Resume Management" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#4f46e5;align=center;" vertex="1" parent="1">
+            <mxGeometry x="450" y="200" width="120" height="120" as="geometry" />
+          </mxCell>
+          <mxCell id="p3" value="&lt;b&gt;3.0&lt;/b&gt;&lt;br&gt;&lt;hr&gt;Resume Editing" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#4f46e5;align=center;" vertex="1" parent="1">
+            <mxGeometry x="450" y="400" width="120" height="120" as="geometry" />
+          </mxCell>
+          <mxCell id="p4" value="&lt;b&gt;4.0&lt;/b&gt;&lt;br&gt;&lt;hr&gt;AI Content Generation" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#4f46e5;align=center;" vertex="1" parent="1">
+            <mxGeometry x="280" y="520" width="120" height="120" as="geometry" />
+          </mxCell>
+          <mxCell id="p5" value="&lt;b&gt;5.0&lt;/b&gt;&lt;br&gt;&lt;hr&gt;Preview &amp; Export" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#4f46e5;align=center;" vertex="1" parent="1">
+            <mxGeometry x="750" y="400" width="120" height="120" as="geometry" />
+          </mxCell>
 
-        <!-- Data Store -->
-        <mxCell id="d1_db" value="&lt;b&gt;D1&lt;/b&gt; | Resume Data Store" style="shape=partialRectangle;right=0;left=0;bottom=1;top=1;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontStyle=0;whiteSpace=wrap;align=center;" vertex="1" parent="1">
-          <mxGeometry x="700" y="230" width="220" height="60" as="geometry" />
-        </mxCell>
+          <!-- Data Store -->
+          <mxCell id="d1_db" value="&lt;b&gt;D1&lt;/b&gt; | Resume Data Store" style="shape=partialRectangle;right=0;left=0;bottom=1;top=1;html=1;fillColor=#f8fafc;strokeColor=#94a3b8;fontStyle=0;whiteSpace=wrap;align=center;" vertex="1" parent="1">
+            <mxGeometry x="700" y="230" width="220" height="60" as="geometry" />
+          </mxCell>
 
-        <!-- Edges -->
-        <mxCell id="e1_1" value="Login / Signup" style="endArrow=classic;html=1;exitX=1;exitY=0;entryX=0;entryY=0.5;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="d1_user" target="p1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="e1_2" value="Auth Token" style="endArrow=classic;html=1;exitX=0;exitY=0.75;entryX=0.75;entryY=0;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="p1" target="d1_user">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
+          <!-- Edges -->
+          <mxCell id="e1_1" value="Login / Signup" style="endArrow=classic;html=1;exitX=1;exitY=0;entryX=0;entryY=0.5;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="d1_user" target="p1">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+          <mxCell id="e1_2" value="Auth Token" style="endArrow=classic;html=1;exitX=0;exitY=0.75;entryX=0.75;entryY=0;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="p1" target="d1_user">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
 
-        <mxCell id="e1_3" value="Credentials" style="endArrow=classic;html=1;exitX=0.25;exitY=0;entryX=1;entryY=0.25;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="p1" target="d1_clerk">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="e1_4" value="Verification" style="endArrow=classic;html=1;exitX=1;exitY=0.75;entryX=0;entryY=0.25;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="d1_clerk" target="p1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
+          <mxCell id="e1_3" value="Credentials" style="endArrow=classic;html=1;exitX=0.25;exitY=0;entryX=1;entryY=0.25;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="p1" target="d1_clerk">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+          <mxCell id="e1_4" value="Verification" style="endArrow=classic;html=1;exitX=1;exitY=0.75;entryX=0;entryY=0.25;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="d1_clerk" target="p1">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
 
-        <mxCell id="e1_5" value="Create / Delete Request" style="endArrow=classic;html=1;exitX=1;exitY=0.25;entryX=0;entryY=0.5;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="d1_user" target="p2">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="e1_6" value="Resume List" style="endArrow=classic;html=1;exitX=0;exitY=0.75;entryX=1;entryY=0.5;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="p2" target="d1_user">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
+          <mxCell id="e1_5" value="Create / Delete Request" style="endArrow=classic;html=1;exitX=1;exitY=0.25;entryX=0;entryY=0.5;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="d1_user" target="p2">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+          <mxCell id="e1_6" value="Resume List" style="endArrow=classic;html=1;exitX=0;exitY=0.75;entryX=1;entryY=0.5;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="p2" target="d1_user">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
 
-        <mxCell id="e1_7" value="Store / Delete" style="endArrow=classic;html=1;exitX=1;exitY=0.25;entryX=0;entryY=0.25;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="p2" target="d1_db">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="e1_8" value="Retrieve" style="endArrow=classic;html=1;exitX=0;exitY=0.75;entryX=1;entryY=0.75;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="d1_db" target="p2">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
+          <mxCell id="e1_7" value="Store / Delete" style="endArrow=classic;html=1;exitX=1;exitY=0.25;entryX=0;entryY=0.25;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="p2" target="d1_db">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+          <mxCell id="e1_8" value="Retrieve" style="endArrow=classic;html=1;exitX=0;exitY=0.75;entryX=1;entryY=0.75;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="d1_db" target="p2">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
 
-        <mxCell id="e1_9" value="Form Data Input" style="endArrow=classic;html=1;exitX=1;exitY=0.75;entryX=0;entryY=0.5;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="d1_user" target="p3">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
+          <mxCell id="e1_9" value="Form Data Input" style="endArrow=classic;html=1;exitX=1;exitY=0.75;entryX=0;entryY=0.5;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="d1_user" target="p3">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
 
-        <mxCell id="e1_10" value="Update" style="endArrow=classic;html=1;exitX=1;exitY=0;entryX=0.25;entryY=1;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="p3" target="d1_db">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
+          <mxCell id="e1_10" value="Update" style="endArrow=classic;html=1;exitX=1;exitY=0;entryX=0.25;entryY=1;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="p3" target="d1_db">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
 
-        <mxCell id="e1_11" value="Resume Data" style="endArrow=classic;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="p3" target="p5">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
+          <mxCell id="e1_11" value="Resume Data" style="endArrow=classic;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="p3" target="p5">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
 
-        <mxCell id="e1_12" value="AI Request" style="endArrow=classic;html=1;exitX=0;exitY=0.75;entryX=1;entryY=0.25;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="p3" target="p4">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="e1_13" value="AI Content" style="endArrow=classic;html=1;exitX=1;exitY=0.75;entryX=0.25;entryY=1;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="p4" target="p3">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
+          <mxCell id="e1_12" value="AI Request" style="endArrow=classic;html=1;exitX=0;exitY=0.75;entryX=1;entryY=0.25;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="p3" target="p4">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+          <mxCell id="e1_13" value="AI Content" style="endArrow=classic;html=1;exitX=1;exitY=0.75;entryX=0.25;entryY=1;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="p4" target="p3">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
 
-        <mxCell id="e1_14" value="Prompt" style="endArrow=classic;html=1;exitX=0;exitY=0.5;entryX=1;entryY=0.25;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="p4" target="d1_gemini">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="e1_15" value="Generated Text" style="endArrow=classic;html=1;exitX=1;exitY=0.75;entryX=0.25;entryY=1;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="d1_gemini" target="p4">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
+          <mxCell id="e1_14" value="Prompt" style="endArrow=classic;html=1;exitX=0;exitY=0.5;entryX=1;entryY=0.25;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="p4" target="d1_gemini">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+          <mxCell id="e1_15" value="Generated Text" style="endArrow=classic;html=1;exitX=1;exitY=0.75;entryX=0.25;entryY=1;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="d1_gemini" target="p4">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
 
-        <mxCell id="e1_16" value="PDF Download / Share URL" style="endArrow=classic;html=1;exitX=0.5;exitY=1;entryX=0.25;entryY=1;edgeStyle=orthogonalEdgeStyle;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="p5" target="d1_user">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="810" y="650" />
-              <mxPoint x="80" y="650" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
+          <mxCell id="e1_16" value="PDF Download / Share URL" style="endArrow=classic;html=1;exitX=0.5;exitY=1;entryX=0.25;entryY=1;edgeStyle=orthogonalEdgeStyle;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="p5" target="d1_user">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="810" y="650" />
+                <mxPoint x="80" y="650" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
 
-      </root>
-    </mxGraphModel>
-  </diagram>
+        </root>
+      </mxGraphModel>
+    </diagram>
 
-  <!-- 2-Level DFD -->
-  <diagram id="dfd2" name="2-Level DFD">
-    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850">
-      <root>
-        <mxCell id="0" />
-        <mxCell id="1" parent="0" />
+    <!-- 2-Level DFD -->
+    <diagram id="dfd2" name="2-Level DFD">
+      <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850">
+        <root>
+          <mxCell id="0" />
+          <mxCell id="1" parent="0" />
 
-        <!-- Boundaries -->
-        <mxCell id="b_p2" value="Process 2.0 (Decomposed)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#82b366;dashed=1;align=left;verticalAlign=top;spacingLeft=10;" vertex="1" parent="1">
-          <mxGeometry x="240" y="40" width="300" height="300" as="geometry" />
-        </mxCell>
-        <mxCell id="b_p3" value="Process 3.0 (Decomposed)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#9673a6;dashed=1;align=left;verticalAlign=top;spacingLeft=10;" vertex="1" parent="1">
-          <mxGeometry x="240" y="400" width="300" height="400" as="geometry" />
-        </mxCell>
-        <mxCell id="b_p5" value="Process 5.0 (Decomposed)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#b85450;dashed=1;align=left;verticalAlign=top;spacingLeft=10;" vertex="1" parent="1">
-          <mxGeometry x="680" y="100" width="300" height="300" as="geometry" />
-        </mxCell>
+          <!-- Boundaries -->
+          <mxCell id="b_p2" value="Process 2.0 (Decomposed)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#4f46e5;dashed=1;align=left;verticalAlign=top;spacingLeft=10;" vertex="1" parent="1">
+            <mxGeometry x="240" y="40" width="300" height="300" as="geometry" />
+          </mxCell>
+          <mxCell id="b_p3" value="Process 3.0 (Decomposed)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#cbd5e1;dashed=1;align=left;verticalAlign=top;spacingLeft=10;" vertex="1" parent="1">
+            <mxGeometry x="240" y="400" width="300" height="400" as="geometry" />
+          </mxCell>
+          <mxCell id="b_p5" value="Process 5.0 (Decomposed)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#94a3b8;dashed=1;align=left;verticalAlign=top;spacingLeft=10;" vertex="1" parent="1">
+            <mxGeometry x="680" y="100" width="300" height="300" as="geometry" />
+          </mxCell>
 
-        <mxCell id="d2_user" value="User" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1" vertex="1" parent="1">
-          <mxGeometry x="30" y="200" width="100" height="60" as="geometry" />
-        </mxCell>
-        
-        <!-- P2 subprocesses -->
-        <mxCell id="p2_1" value="&lt;b&gt;2.1&lt;/b&gt;&lt;br&gt;Create Resume" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
-          <mxGeometry x="280" y="80" width="100" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="p2_2" value="&lt;b&gt;2.2&lt;/b&gt;&lt;br&gt;List Resumes" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
-          <mxGeometry x="280" y="170" width="100" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="p2_3" value="&lt;b&gt;2.3&lt;/b&gt;&lt;br&gt;Delete Resume" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
-          <mxGeometry x="280" y="260" width="100" height="60" as="geometry" />
-        </mxCell>
+          <mxCell id="d2_user" value="User" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f1f5f9;strokeColor=#cbd5e1;fontStyle=1" vertex="1" parent="1">
+            <mxGeometry x="30" y="200" width="100" height="60" as="geometry" />
+          </mxCell>
+          
+          <!-- P2 subprocesses -->
+          <mxCell id="p2_1" value="&lt;b&gt;2.1&lt;/b&gt;&lt;br&gt;Create Resume" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#4f46e5;" vertex="1" parent="1">
+            <mxGeometry x="280" y="80" width="100" height="60" as="geometry" />
+          </mxCell>
+          <mxCell id="p2_2" value="&lt;b&gt;2.2&lt;/b&gt;&lt;br&gt;List Resumes" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#4f46e5;" vertex="1" parent="1">
+            <mxGeometry x="280" y="170" width="100" height="60" as="geometry" />
+          </mxCell>
+          <mxCell id="p2_3" value="&lt;b&gt;2.3&lt;/b&gt;&lt;br&gt;Delete Resume" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#4f46e5;" vertex="1" parent="1">
+            <mxGeometry x="280" y="260" width="100" height="60" as="geometry" />
+          </mxCell>
 
-        <mxCell id="d2_db1" value="&lt;b&gt;D1&lt;/b&gt; | Resume Data" style="shape=partialRectangle;right=0;left=0;bottom=1;top=1;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontStyle=0;whiteSpace=wrap;" vertex="1" parent="1">
-          <mxGeometry x="460" y="180" width="160" height="40" as="geometry" />
-        </mxCell>
+          <mxCell id="d2_db1" value="&lt;b&gt;D1&lt;/b&gt; | Resume Data" style="shape=partialRectangle;right=0;left=0;bottom=1;top=1;html=1;fillColor=#f8fafc;strokeColor=#94a3b8;fontStyle=0;whiteSpace=wrap;" vertex="1" parent="1">
+            <mxGeometry x="460" y="180" width="160" height="40" as="geometry" />
+          </mxCell>
 
-        <!-- Edges P2 -->
-        <mxCell id="e_p2_1" value="Title, Email" style="endArrow=classic;html=1;exitX=1;exitY=0.25;entryX=0;entryY=0.5;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="d2_user" target="p2_1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="e_p2_2" value="Email" style="endArrow=classic;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.25;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="d2_user" target="p2_2">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="e_p2_3" value="Resume List" style="endArrow=classic;html=1;exitX=0;exitY=0.75;entryX=1;entryY=0.75;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="p2_2" target="d2_user">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="e_p2_4" value="Resume ID" style="endArrow=classic;html=1;exitX=1;exitY=0.75;entryX=0;entryY=0.5;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="d2_user" target="p2_3">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        
-        <mxCell id="e_p2_5" value="New Data" style="endArrow=classic;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="p2_1" target="d2_db1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="e_p2_6" value="Query" style="endArrow=classic;html=1;startArrow=classic;exitX=1;exitY=0.5;entryX=0;entryY=0.5;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="p2_2" target="d2_db1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="e_p2_7" value="Delete Data" style="endArrow=classic;html=1;exitX=1;exitY=0.5;entryX=0;entryY=1;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="p2_3" target="d2_db1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
+          <!-- Edges P2 -->
+          <mxCell id="e_p2_1" value="Title, Email" style="endArrow=classic;html=1;exitX=1;exitY=0.25;entryX=0;entryY=0.5;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="d2_user" target="p2_1">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+          <mxCell id="e_p2_2" value="Email" style="endArrow=classic;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.25;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="d2_user" target="p2_2">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+          <mxCell id="e_p2_3" value="Resume List" style="endArrow=classic;html=1;exitX=0;exitY=0.75;entryX=1;entryY=0.75;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="p2_2" target="d2_user">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+          <mxCell id="e_p2_4" value="Resume ID" style="endArrow=classic;html=1;exitX=1;exitY=0.75;entryX=0;entryY=0.5;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="d2_user" target="p2_3">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+          
+          <mxCell id="e_p2_5" value="New Data" style="endArrow=classic;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="p2_1" target="d2_db1">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+          <mxCell id="e_p2_6" value="Query" style="endArrow=classic;html=1;startArrow=classic;exitX=1;exitY=0.5;entryX=0;entryY=0.5;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="p2_2" target="d2_db1">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+          <mxCell id="e_p2_7" value="Delete Data" style="endArrow=classic;html=1;exitX=1;exitY=0.5;entryX=0;entryY=1;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="p2_3" target="d2_db1">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
 
-        <!-- P3 subprocesses -->
-        <mxCell id="p3_1" value="&lt;b&gt;3.1&lt;/b&gt;&lt;br&gt;Edit Details" style="ellipse;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
-          <mxGeometry x="270" y="440" width="100" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="p3_2" value="&lt;b&gt;3.2&lt;/b&gt;&lt;br&gt;Edit Summary" style="ellipse;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
-          <mxGeometry x="400" y="440" width="100" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="p3_3" value="&lt;b&gt;3.3&lt;/b&gt;&lt;br&gt;Edit Exp" style="ellipse;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
-          <mxGeometry x="270" y="540" width="100" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="p3_4" value="&lt;b&gt;3.4&lt;/b&gt;&lt;br&gt;Edit Edu" style="ellipse;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
-          <mxGeometry x="400" y="540" width="100" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="p3_5" value="&lt;b&gt;3.5&lt;/b&gt;&lt;br&gt;Edit Skills" style="ellipse;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
-          <mxGeometry x="340" y="650" width="100" height="60" as="geometry" />
-        </mxCell>
+          <!-- P3 subprocesses -->
+          <mxCell id="p3_1" value="&lt;b&gt;3.1&lt;/b&gt;&lt;br&gt;Edit Details" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f1f5f9;strokeColor=#cbd5e1;" vertex="1" parent="1">
+            <mxGeometry x="270" y="440" width="100" height="60" as="geometry" />
+          </mxCell>
+          <mxCell id="p3_2" value="&lt;b&gt;3.2&lt;/b&gt;&lt;br&gt;Edit Summary" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f1f5f9;strokeColor=#cbd5e1;" vertex="1" parent="1">
+            <mxGeometry x="400" y="440" width="100" height="60" as="geometry" />
+          </mxCell>
+          <mxCell id="p3_3" value="&lt;b&gt;3.3&lt;/b&gt;&lt;br&gt;Edit Exp" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f1f5f9;strokeColor=#cbd5e1;" vertex="1" parent="1">
+            <mxGeometry x="270" y="540" width="100" height="60" as="geometry" />
+          </mxCell>
+          <mxCell id="p3_4" value="&lt;b&gt;3.4&lt;/b&gt;&lt;br&gt;Edit Edu" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f1f5f9;strokeColor=#cbd5e1;" vertex="1" parent="1">
+            <mxGeometry x="400" y="540" width="100" height="60" as="geometry" />
+          </mxCell>
+          <mxCell id="p3_5" value="&lt;b&gt;3.5&lt;/b&gt;&lt;br&gt;Edit Skills" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f1f5f9;strokeColor=#cbd5e1;" vertex="1" parent="1">
+            <mxGeometry x="340" y="650" width="100" height="60" as="geometry" />
+          </mxCell>
 
-        <mxCell id="d2_db2" value="&lt;b&gt;D1&lt;/b&gt; | Resume Data" style="shape=partialRectangle;right=0;left=0;bottom=1;top=1;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontStyle=0;whiteSpace=wrap;" vertex="1" parent="1">
-          <mxGeometry x="580" y="550" width="160" height="40" as="geometry" />
-        </mxCell>
+          <mxCell id="d2_db2" value="&lt;b&gt;D1&lt;/b&gt; | Resume Data" style="shape=partialRectangle;right=0;left=0;bottom=1;top=1;html=1;fillColor=#f8fafc;strokeColor=#94a3b8;fontStyle=0;whiteSpace=wrap;" vertex="1" parent="1">
+            <mxGeometry x="580" y="550" width="160" height="40" as="geometry" />
+          </mxCell>
 
-        <!-- Edges P3 -->
-        <mxCell id="e_p3_1" value="Update Data" style="endArrow=classic;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="p3_2" target="d2_db2">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="e_p3_2" value="Update Data" style="endArrow=classic;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="p3_4" target="d2_db2">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="e_p3_3" value="Update Data" style="endArrow=classic;html=1;exitX=1;exitY=0.5;entryX=0.25;entryY=1;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="p3_5" target="d2_db2">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="e_p3_4" value="Form Input" style="endArrow=classic;html=1;exitX=0.5;exitY=1;entryX=0;entryY=0.5;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="d2_user" target="p3_3">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="80" y="570" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
+          <!-- Edges P3 -->
+          <mxCell id="e_p3_1" value="Update Data" style="endArrow=classic;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="p3_2" target="d2_db2">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+          <mxCell id="e_p3_2" value="Update Data" style="endArrow=classic;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="p3_4" target="d2_db2">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+          <mxCell id="e_p3_3" value="Update Data" style="endArrow=classic;html=1;exitX=1;exitY=0.5;entryX=0.25;entryY=1;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="p3_5" target="d2_db2">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+          <mxCell id="e_p3_4" value="Form Input" style="endArrow=classic;html=1;exitX=0.5;exitY=1;entryX=0;entryY=0.5;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="d2_user" target="p3_3">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="80" y="570" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
 
-        <!-- P5 subprocesses -->
-        <mxCell id="p5_1" value="&lt;b&gt;5.1&lt;/b&gt;&lt;br&gt;Generate Preview" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
-          <mxGeometry x="720" y="150" width="100" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="p5_2" value="&lt;b&gt;5.2&lt;/b&gt;&lt;br&gt;Download PDF" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
-          <mxGeometry x="840" y="240" width="100" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="p5_3" value="&lt;b&gt;5.3&lt;/b&gt;&lt;br&gt;Share Resume" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
-          <mxGeometry x="720" y="310" width="100" height="60" as="geometry" />
-        </mxCell>
+          <!-- P5 subprocesses -->
+          <mxCell id="p5_1" value="&lt;b&gt;5.1&lt;/b&gt;&lt;br&gt;Generate Preview" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#94a3b8;" vertex="1" parent="1">
+            <mxGeometry x="720" y="150" width="100" height="60" as="geometry" />
+          </mxCell>
+          <mxCell id="p5_2" value="&lt;b&gt;5.2&lt;/b&gt;&lt;br&gt;Download PDF" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#94a3b8;" vertex="1" parent="1">
+            <mxGeometry x="840" y="240" width="100" height="60" as="geometry" />
+          </mxCell>
+          <mxCell id="p5_3" value="&lt;b&gt;5.3&lt;/b&gt;&lt;br&gt;Share Resume" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#94a3b8;" vertex="1" parent="1">
+            <mxGeometry x="720" y="310" width="100" height="60" as="geometry" />
+          </mxCell>
 
-        <mxCell id="e_p5_1" value="Load Data" style="endArrow=classic;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="d2_db1" target="p5_1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="e_p5_2" value="HTML" style="endArrow=classic;html=1;exitX=1;exitY=0.5;entryX=0.5;entryY=0;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="p5_1" target="p5_2">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="e_p5_3" value="Data" style="endArrow=classic;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="p5_1" target="p5_3">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
+          <mxCell id="e_p5_1" value="Load Data" style="endArrow=classic;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="d2_db1" target="p5_1">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+          <mxCell id="e_p5_2" value="HTML" style="endArrow=classic;html=1;exitX=1;exitY=0.5;entryX=0.5;entryY=0;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="p5_1" target="p5_2">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+          <mxCell id="e_p5_3" value="Data" style="endArrow=classic;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="p5_1" target="p5_3">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
 
-      </root>
-    </mxGraphModel>
-  </diagram>
-</mxfile>
+        </root>
+      </mxGraphModel>
+    </diagram>
+  </mxfile>

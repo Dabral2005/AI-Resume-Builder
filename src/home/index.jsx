@@ -259,15 +259,11 @@ function Home() {
       <footer className='border-t border-gray-100 py-12 px-4 bg-white'>
         <div className='max-w-6xl mx-auto'>
           <div className='flex flex-col md:flex-row justify-between items-center gap-6'>
-            <div className='flex items-center gap-2'>
-              <div className='w-8 h-8 rounded-lg bg-gradient-to-br from-violet-600 to-purple-500 flex items-center justify-center'>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                  <polyline points="14 2 14 8 20 8"></polyline>
-                </svg>
-              </div>
-              <span className='font-bold text-gray-800'>
-                <span className='gradient-text'>AI</span>Resume
+            <div className='flex items-center gap-3'>
+              <img src="/logo.png" alt="CVera Logo" className="w-8 h-8 object-contain rounded-lg" />
+              <span className='font-black text-slate-800 text-lg tracking-tight flex items-center gap-0.5'>
+                <span className='text-slate-900'>CV</span>
+                <span className='gradient-text'>era</span>
               </span>
             </div>
             <div className='flex gap-8 text-sm text-gray-500'>
@@ -275,7 +271,7 @@ function Home() {
               <Link to='/terms' className='hover:text-violet-600 transition-colors'>Terms</Link>
               <Link to='/support' className='hover:text-violet-600 transition-colors'>Support</Link>
             </div>
-            <p className='text-sm text-gray-400'>© 2024 AI Resume Builder. All rights reserved.</p>
+            <p className='text-sm text-gray-400'>© 2024 CVera AI. All rights reserved.</p>
           </div>
         </div>
       </footer>

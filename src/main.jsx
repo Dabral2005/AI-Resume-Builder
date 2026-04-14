@@ -15,6 +15,10 @@ import Support from './pages/Support.jsx'
 
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY
 
+if (!PUBLISHABLE_KEY) {
+  throw new Error("Missing VITE_CLERK_PUBLISHABLE_KEY in .env file")
+}
+
 const router = createBrowserRouter([
   {
     path: '/',

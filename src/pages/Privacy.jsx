@@ -45,7 +45,7 @@ function Privacy() {
                   How We Use Your Information
                 </h2>
                 <ul className='list-disc list-inside text-gray-600 space-y-2 ml-2'>
-                  <li>To provide, maintain, and improve our AI Resume Builder services.</li>
+                  <li>To provide, maintain, and improve our CVera services.</li>
                   <li>To provide AI-powered content suggestions based on your job history.</li>
                   <li>To protect our users and ensure a secure environment.</li>
                   <li>To communicate with you about updates, security alerts, and support.</li>
@@ -66,7 +66,7 @@ function Privacy() {
               <section className='p-6 rounded-2xl bg-violet-50 border border-violet-100'>
                 <h2 className='text-lg font-bold text-violet-900 mb-2'>Contact Us</h2>
                 <p className='text-violet-700 text-sm'>
-                  If you have any questions about this Privacy Policy, please contact us at dabralmohit78@gmail.com
+                  If you have any questions about CVera Privacy Policy, please contact us at dabralmohit78@gmail.com
                 </p>
               </section>
             </div>

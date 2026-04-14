@@ -1,30 +1,36 @@
 import { ResumeInfoContext } from '@/context/ResumeInfoContext'
 import React, { useContext } from 'react'
-import PersonalDetailPreview from './preview/PersonalDetailPreview'
-import SummeryPreview from './preview/SummeryPreview'
-import ExperiencePreview from './preview/ExperiencePreview'
-import EducationalPreview from './preview/EducationalPreview'
-import SkillsPreview from './preview/SkillsPreview'
+import Template1 from './templates/Template1'
+import Template2 from './templates/Template2'
+import Template3 from './templates/Template3'
+import Template4 from './templates/Template4'
+import Template5 from './templates/Template5'
 
 function ResumePreview() {
     const {resumeInfo, setResumeInfo} = useContext(ResumeInfoContext)
 
+    const renderTemplate = () => {
+        // Fallback or explicit mapping
+        switch(resumeInfo?.templateName) {
+            case 'Template1':
+                return <Template1 resumeInfo={resumeInfo} />;
+            case 'Template2':
+                return <Template2 resumeInfo={resumeInfo} />;
+            case 'Template3':
+                return <Template3 resumeInfo={resumeInfo} />;
+            case 'Template4':
+                return <Template4 resumeInfo={resumeInfo} />;
+            case 'Template5':
+                return <Template5 resumeInfo={resumeInfo} />;
+            default:
+                // Default to Template1 if none provided (for old resumes)
+                return <Template1 resumeInfo={resumeInfo} />;
+        }
+    };
+
   return (
-    <div className='shadow-xl h-full p-14 border-t-[20px] rounded-lg bg-white
-        hover:shadow-2xl transition-shadow duration-300'
-    style={{
-        borderColor: resumeInfo?.themeColor
-    }}>
-        {/* Personal Detail */}
-            <PersonalDetailPreview resumeInfo={resumeInfo} />
-        {/* Summary */}
-            <SummeryPreview resumeInfo={resumeInfo} />
-        {/* Professional Experience */}
-           {resumeInfo?.Experience?.length > 0 && <ExperiencePreview resumeInfo={resumeInfo} />}
-        {/* Education */}
-        {resumeInfo?.education?.length > 0 && <EducationalPreview resumeInfo={resumeInfo} />}
-        {/* Skills */}
-        {resumeInfo?.skills?.length > 0 && <SkillsPreview resumeInfo={resumeInfo}/>}
+    <div className='w-full'>
+        {renderTemplate()}
     </div>
   )
 }

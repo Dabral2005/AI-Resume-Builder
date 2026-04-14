@@ -19,6 +19,7 @@ import {
 } from "@/components/ui/alert-dialog"
 import GlobalApi from './../../../service/GlobalApi'
 import { toast } from 'sonner'
+import MiniResumePreview from '../resume/components/MiniResumePreview'
 
 function ResumeCardItem({ resume, refreshData }) {
   const navigation = useNavigate();
@@ -42,39 +43,17 @@ function ResumeCardItem({ resume, refreshData }) {
       <Link to={'/dashboard/resume/' + resume.documentId + "/edit"}>
         <div className='card-premium h-[300px] overflow-hidden'>
           {/* Card Top - Visual */}
-          <div className='h-[220px] relative overflow-hidden rounded-t-2xl'
-            style={{
-              background: `linear-gradient(135deg, ${resume?.themeColor || '#7c3aed'}15, ${resume?.themeColor || '#7c3aed'}08)`
-            }}
-          >
-            {/* Decorative elements */}
-            <div className='absolute top-4 right-4 w-20 h-20 rounded-full opacity-20'
-              style={{ background: resume?.themeColor || '#7c3aed' }}
-            ></div>
-            <div className='absolute bottom-8 left-4 w-12 h-12 rounded-lg opacity-10'
-              style={{ background: resume?.themeColor || '#7c3aed' }}
-            ></div>
-
-            {/* Resume Icon */}
-            <div className='flex items-center justify-center h-full'>
-              <div className='w-20 h-24 bg-white rounded-lg shadow-lg p-3 group-hover:scale-105 transition-transform duration-300 relative'>
-                <div className='space-y-1.5'>
-                  <div className='h-2 rounded-full w-full' style={{ background: resume?.themeColor || '#7c3aed' }}></div>
-                  <div className='h-1 bg-gray-200 rounded-full w-3/4'></div>
-                  <div className='h-1 bg-gray-100 rounded-full w-full'></div>
-                  <div className='h-1 bg-gray-100 rounded-full w-5/6'></div>
-                  <div className='h-1 bg-gray-100 rounded-full w-full'></div>
-                  <div className='h-1.5 rounded-full w-2/3 mt-1' style={{ background: resume?.themeColor || '#7c3aed', opacity: 0.3 }}></div>
-                  <div className='h-1 bg-gray-100 rounded-full w-full'></div>
-                  <div className='h-1 bg-gray-100 rounded-full w-4/5'></div>
-                </div>
-              </div>
-            </div>
-
-            {/* Top color bar */}
-            <div className='absolute top-0 left-0 right-0 h-1'
-              style={{ background: resume?.themeColor || '#7c3aed' }}
-            ></div>
+          {/* Real Resume Preview */}
+          <div className='h-[220px] relative overflow-hidden rounded-t-2xl group-hover:scale-105 transition-transform duration-500'>
+             <MiniResumePreview resumeInfo={resume} scale={0.28} />
+             
+             {/* Gradient Overlay for better depth */}
+             <div className='absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500'></div>
+             
+             {/* Top color bar */}
+             <div className='absolute top-0 left-0 right-0 h-1.5'
+               style={{ background: resume?.themeColor || '#7c3aed' }}
+             ></div>
           </div>
 
           {/* Card Bottom - Info */}

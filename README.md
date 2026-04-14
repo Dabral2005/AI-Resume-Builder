@@ -1,178 +1,109 @@
-# AI-Resume-Builder
+# AI Resume Builder 🚀
 
 ![React](https://img.shields.io/badge/-React-blue?logo=react&logoColor=white)
+![TailwindCSS](https://img.shields.io/badge/-TailwindCSS-38B2AC?logo=tailwind-css&logoColor=white)
+![Clerk](https://img.shields.io/badge/-Clerk-6C47FF?logo=clerk&logoColor=white)
+![Google Gemini](https://img.shields.io/badge/-Google%20Gemini-4285F4?logo=google&logoColor=white)
 
 ## 📝 Description
 
-AI-Resume-Builder is a React-based web application that helps users create professional resumes easily. It offers a simple interface to build and customize resumes based on career needs. With secure authentication, users can save their progress and manage multiple resume versions. It is suitable for both students and professionals who want to create clear and effective resumes quickly.
+**AI Resume Builder** is a premium, minimal, and highly efficient web application designed for the modern job seeker. Built with a **Slate & Indigo** professional design system, it leverages **Google Gemini AI** to help you craft editorial-grade resumes in minutes. Whether you are a student or a seasoned professional, our application provides a seamless, "no-line" editorial experience that ensures your profile stands out.
 
-## ✨ Features
+## ✨ Key Features
 
-- 🔐 Auth
-- 🕸️ Web
-
+- **🤖 AI-Powered Content**: Generate professional summaries and experience descriptions using Google Gemini AI.
+- **🎨 Professional Design System**: A clean, minimal Slate & Indigo aesthetic with smooth hover effects and responsive layouts.
+- **📁 Data Persistence**: Optimized profile image handling and real-time form saving to ensure your progress is never lost.
+- **🖼️ Diverse Templates**: Multiple editorial-grade resume templates with realistic mock data to visualize your final output.
+- **🔐 Secure Authentication**: Integrated with Clerk for a seamless and secure login experience.
+- **📄 Export & Share**: High-quality PDF export and live sharing options for easy application.
 
 ## 🛠️ Tech Stack
 
-- ⚛️ React
-
+- **Frontend**: React.js, TailwindCSS, Lucide React
+- **Authentication**: Clerk Auth
+- **AI Integration**: Google Generative AI (Gemini)
+- **Styling**: Vanilla CSS + Tailwind Utility Classes
+- **State Management**: React Context API
+- **Backend API**: Strapi (Managed Storage)
 
 ## 📦 Key Dependencies
 
-```
-@clerk/clerk-react: ^5.2.4
-@google/generative-ai: ^0.12.0
-@radix-ui/react-alert-dialog: ^1.0.5
-@radix-ui/react-dialog: ^1.0.5
-@radix-ui/react-dropdown-menu: ^2.0.6
-@radix-ui/react-popover: ^1.0.7
-@radix-ui/react-slot: ^1.0.2
-@smastrom/react-rating: ^1.5.0
-axios: ^1.7.2
-class-variance-authority: ^0.7.0
-clsx: ^2.1.1
-lucide-react: ^0.394.0
-next-themes: ^0.3.0
-react: ^18.2.0
-react-dom: ^18.2.0
+```json
+{
+  "@clerk/clerk-react": "^5.2.4",
+  "@google/generative-ai": "^0.12.0",
+  "lucide-react": "^0.394.0",
+  "axios": "^1.7.2",
+  "sonner": "^1.4.0",
+  "react-router-dom": "^6.23.1"
+}
 ```
 
-## 🚀 Run Commands
+## 🚀 Getting Started
 
-- **dev**: `npm run dev`
-- **build**: `npm run build`
-- **lint**: `npm run lint`
-- **preview**: `npm run preview`
+### Prerequisites
+- Node.js (v18.0.0 or higher)
+- NPM or Yarn
 
+### Installation
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/Dabral2005/AI-Resume-Builder.git
+   ```
+2. **Install dependencies**:
+   ```bash
+   npm install
+   ```
+3. **Environment Setup**:
+   Create a `.env.local` file and add your API keys:
+   ```env
+   VITE_STRAPI_API_KEY=your_strapi_key
+   VITE_GOOGLE_AI_API_KEY=your_gemini_key
+   VITE_CLERK_PUBLISHABLE_KEY=your_clerk_key
+   ```
+4. **Run development server**:
+   ```bash
+   npm run dev
+   ```
 
 ## 📁 Project Structure
 
-```
-.
-├── components.json
-├── index.html
-├── jsconfig.json
-├── package.json
-├── postcss.config.js
-├── public
-│   ├── cv.png
-│   └── logo.svg
-├── service
-│   ├── AIModal.js
-│   └── GlobalApi.js
+```text
 ├── src
-│   ├── App.css
-│   ├── App.jsx
-│   ├── assets
-│   │   └── react.svg
-│   ├── auth
-│   │   └── sign-in
-│   │       └── index.jsx
-│   ├── components
-│   │   ├── custom
-│   │   │   └── Header.jsx
-│   │   └── ui
-│   │       ├── alert-dialog.jsx
-│   │       ├── button.jsx
-│   │       ├── dialog.jsx
-│   │       ├── dropdown-menu.jsx
-│   │       ├── input.jsx
-│   │       ├── popover.jsx
-│   │       ├── sonner.jsx
-│   │       └── textarea.jsx
-│   ├── context
-│   │   └── ResumeInfoContext.jsx
-│   ├── dashboard
-│   │   ├── components
-│   │   │   ├── AddResume.jsx
-│   │   │   └── ResumeCardItem.jsx
-│   │   ├── index.jsx
-│   │   └── resume
-│   │       ├── [resumeId]
-│   │       │   └── edit
-│   │       │       └── index.jsx
-│   │       └── components
-│   │           ├── FormSection.jsx
-│   │           ├── ResumePreview.jsx
-│   │           ├── RichTextEditor.jsx
-│   │           ├── ThemeColor.jsx
-│   │           ├── forms
-│   │           │   ├── Education.jsx
-│   │           │   ├── Experience.jsx
-│   │           │   ├── PersonalDetail.jsx
-│   │           │   ├── Skills.jsx
-│   │           │   └── Summery.jsx
-│   │           └── preview
-│   │               ├── EducationalPreview.jsx
-│   │               ├── ExperiencePreview.jsx
-│   │               ├── PersonalDetailPreview.jsx
-│   │               ├── SkillsPreview.jsx
-│   │               └── SummeryPreview.jsx
-│   ├── data
-│   │   └── dummy.jsx
-│   ├── home
-│   │   └── index.jsx
-│   ├── index.css
-│   ├── lib
-│   │   └── utils.js
-│   ├── main.jsx
-│   └── my-resume
-│       └── [resumeId]
-│           └── view
-│               └── index.jsx
-├── tailwind.config.js
-└── vite.config.js
+│   ├── components      # UI and Custom Shared Components
+│   ├── dashboard       # Dashboard and Resume Editor
+│   │   ├── components  # Resume Forms & Preview logic
+│   │   └── resume      # Resume-specific routing
+│   ├── context         # Global State (ResumeInfoContext)
+│   ├── home            # Professional Landing Page
+│   ├── my-resume       # Final Preview & Share views
+│   └── service         # AI & Backend API integrations
 ```
-
-## 🛠️ Development Setup
-
-### Node.js/JavaScript Setup
-1. Install Node.js (v18+ recommended)
-2. Install dependencies: `npm install` or `yarn install`
-3. Start development server: (Check scripts in `package.json`, e.g., `npm run dev`)
-
 
 ## 👥 Contributing
 
-Contributions are welcome! Here's how you can help:
+Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
-1. **Fork** the repository
-2. **Clone** your fork: `git clone https://github.com/Dabral2005/AI-Resume-Builder.git`
-3. **Create** a new branch: `git checkout -b feature/your-feature`
-4. **Commit** your changes: `git commit -am 'Add some feature'`
-5. **Push** to your branch: `git push origin feature/your-feature`
-6. **Open** a pull request
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-Please ensure your code follows the project's style guidelines and includes tests where applicable.
+---
 
+# 🖼️ Brand Experience
+*The UI has been recently upgraded to a Professional Slate & Indigo theme. Below are highlights of the editorial experience:*
 
-# 🖼️ Images
-## Default Page
-<img width="1856" height="911" alt="image" src="https://github.com/user-attachments/assets/fbf2a915-cdc0-4f30-b3eb-54c9bb61211b" />
-<img width="1853" height="915" alt="image" src="https://github.com/user-attachments/assets/a5a3d12e-9659-4ae9-93db-6c3bc8f1d685" />
-
-## Testimonials
-<img width="1854" height="799" alt="image" src="https://github.com/user-attachments/assets/e9599327-be56-465b-a906-9f075a33043c" />
-
-## Sign Up
-<img width="1730" height="796" alt="image" src="https://github.com/user-attachments/assets/32e0bfcf-6757-4236-8804-fb0392d7de03" />
-
-## Sign In
-<img width="1852" height="903" alt="image" src="https://github.com/user-attachments/assets/9b3166a7-f0d4-4da3-bc6d-f93003e20c54" />
-
-## Create Resume
-<img width="1851" height="897" alt="image" src="https://github.com/user-attachments/assets/d571f713-0373-4b02-8162-1b9a6a3f5156" />
-
-## Finish
-<img width="1850" height="907" alt="image" src="https://github.com/user-attachments/assets/5f6acab4-b130-4a0e-a958-f70a96dca91e" />
-
-## Download & Share Options
-<img width="1483" height="829" alt="image" src="https://github.com/user-attachments/assets/5dbb6766-0a9d-4be6-9f07-78c649798363" />
-<img width="1849" height="909" alt="image" src="https://github.com/user-attachments/assets/68379c58-da05-43b4-9965-33ee6fd584bc" />
+- **Minimalist Dashboard**: Clean card-based management.
+- **AI Assistant**: Smart content generation integrated directly into the editor.
+- **Editorial Templates**: Modern, high-contrast resume layouts.
 
 ---
 
 # 📫 Contact
-GitHub: Dabral2005
+**Mohit Dabral** - [dabralmohit78@gmail.com](mailto:dabralmohit78@gmail.com)
+GitHub: [Dabral2005](https://github.com/Dabral2005)
 
-**For any questions or suggestions: dabralmohit78@gmail.com**
+**Professional Resume Building Made Simple.**

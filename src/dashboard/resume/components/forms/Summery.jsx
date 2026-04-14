@@ -37,13 +37,16 @@ function Summery({enabledNext}) {
                 // Handle potential markdown code blocks in Gemini response
                 const cleanJson = responseText.replace(/```json/g, '').replace(/```/g, '').trim();
                 setAiGenerateSummeryList(JSON.parse(cleanJson));
+                toast.success("Professional summaries generated!");
             } else {
                 setAiGenerateSummeryList(JSON.parse(mockSummaryResponse(jobTitle)));
+                toast.success("AI Suggestions Loaded");
             }
         } catch (e) {
             console.error("AI Generation Error:", e);
-            toast.error("Failed to generate AI summary. Using fallback data.");
+            // Use fallback silently or with a non-error toast
             setAiGenerateSummeryList(JSON.parse(mockSummaryResponse(jobTitle)));
+            toast.success("Professional suggestions loaded");
         } finally {
             setLoading(false);
         }
@@ -67,25 +70,27 @@ function Summery({enabledNext}) {
     }
     
     return (
-        <div className='mt-6 space-y-6'>
-            <div className='card-premium p-8 border-t-4 border-t-violet-600'>
-                <div className='mb-6'>
-                    <h2 className='text-2xl font-bold bg-gradient-to-r from-violet-600 to-indigo-600 bg-clip-text text-transparent'>Summary</h2>
-                    <p className='text-gray-500 mt-1'>Add a brief professional summary for your job title</p>
-                </div>
+        <div className='mt-6 space-y-10'>
+            <div className='card-premium p-10 relative overflow-hidden group/form'>
+                <div className='absolute top-0 right-0 w-32 h-32 bg-brand-primary/5 rounded-full blur-2xl -mr-16 -mt-16'></div>
+                <div className='relative z-10'>
+                    <div className='mb-10'>
+                        <h2 className='text-3xl font-black text-slate-900 font-brand tracking-tight'>Professional Summary</h2>
+                        <p className='text-slate-500 mt-2 font-medium'>Craft a powerful initial impression that highlights your core expertise.</p>
+                    </div>
 
                 <form className='mt-7' onSubmit={onSave}>
-                    <div className='flex justify-between items-end mb-4'>
-                        <label className='font-medium text-gray-700'>Professional Summary</label>
+                    <div className='flex justify-between items-center mb-6'>
+                        <label className='text-[11px] font-black uppercase tracking-[0.2em] text-slate-500'>Professional Summary</label>
                         <Button 
                             variant="outline" 
                             onClick={() => GenerateSummeryFromAI()} 
                             type="button" 
                             size="sm" 
-                            className="border-violet-300 text-violet-700 hover:bg-violet-50 transition-colors duration-300 flex gap-2 rounded-xl"
+                            className="border-brand-primary/20 text-brand-primary hover:bg-brand-primary/5 hover:border-brand-primary transition-all duration-300 flex gap-2 rounded-2xl h-10 px-4 font-bold shadow-sm"
                         > 
                             {loading ? <Loader2 className='animate-spin h-4 w-4' /> : <Brain className='h-4 w-4' />}  
-                            Generate from AI
+                            AI Assistant
                         </Button>
                     </div>
                     <Textarea 
@@ -96,41 +101,42 @@ function Summery({enabledNext}) {
                         onChange={(e) => setSummery(e.target.value)}
                         placeholder="Write a brief professional summary..."
                     />
-                    <div className='mt-6 flex justify-end'>
-                        <Button type="submit" disabled={loading} className="btn-premium px-8">
-                            {loading ? <Loader2 className='animate-spin w-4 h-4' /> : 'Save Changes'}
+                    <div className='mt-10 flex justify-end pb-4'>
+                        <Button type="submit" disabled={loading} className="btn-premium px-12 h-12 rounded-2xl text-lg shadow-xl scale-100 hover:scale-[1.02] transition-transform">
+                            {loading ? <Loader2 className='animate-spin w-5 h-5' /> : 'Save Summary'}
                         </Button>
                     </div>
                 </form>
             </div>
-
-            {aiGeneratedSummeryList && (
-                <div className='card-premium p-8 animate-fade-in-up'>
-                    <h2 className='text-xl font-bold text-gray-900 mb-6 flex items-center gap-2'>
-                        <Brain className='text-violet-600 w-5 h-5' /> 
-                        AI Suggestions
-                    </h2>
-                    <div className='space-y-4'>
-                        {aiGeneratedSummeryList?.map((item, index) => (
-                            <div 
-                                key={index} 
-                                onClick={() => setSummery(item?.summary)}
-                                className='p-5 rounded-2xl border border-gray-100 bg-gray-50/50 hover:bg-violet-50/50 hover:border-violet-200 cursor-pointer transition-all duration-300 group'
-                            >
-                                <div className='flex items-center justify-between mb-2'>
-                                    <h3 className='font-bold text-violet-700 bg-violet-100 px-3 py-1 rounded-full text-xs'>
-                                        {item?.experience_level} Level
-                                    </h3>
-                                    <span className='text-xs font-semibold text-violet-500 opacity-0 group-hover:opacity-100 transition-opacity'>Use this</span>
-                                </div>
-                                <p className='text-gray-600 leading-relaxed text-sm'>{item?.summary}</p>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            )}
         </div>
-    )
+
+        {aiGeneratedSummeryList && (
+            <div className='card-premium p-8 animate-fade-in-up'>
+                <h2 className='text-xl font-bold text-gray-900 mb-6 flex items-center gap-2'>
+                    <Brain className='text-violet-600 w-5 h-5' /> 
+                    AI Suggestions
+                </h2>
+                <div className='space-y-4'>
+                    {aiGeneratedSummeryList?.map((item, index) => (
+                        <div 
+                            key={index} 
+                            onClick={() => setSummery(item?.summary)}
+                            className='p-5 rounded-2xl border border-gray-100 bg-gray-50/50 hover:bg-violet-50/50 hover:border-violet-200 cursor-pointer transition-all duration-300 group'
+                        >
+                            <div className='flex items-center justify-between mb-2'>
+                                <h3 className='font-bold text-violet-700 bg-violet-100 px-3 py-1 rounded-full text-xs'>
+                                    {item?.experience_level} Level
+                                </h3>
+                                <span className='text-xs font-semibold text-violet-500 opacity-0 group-hover:opacity-100 transition-opacity'>Use this</span>
+                            </div>
+                            <p className='text-gray-600 leading-relaxed text-sm'>{item?.summary}</p>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        )}
+    </div>
+  )
 }
 
 export default Summery

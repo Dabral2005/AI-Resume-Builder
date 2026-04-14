@@ -51,7 +51,7 @@ function Support() {
                 </div>
                 <div>
                   <h3 className='font-bold text-gray-900'>Email Us</h3>
-                  <p className='text-sm text-gray-500'>support@airesumebuilder.com</p>
+                  <p className='text-sm text-gray-500'>support@cvera.com</p>
                 </div>
               </div>
 

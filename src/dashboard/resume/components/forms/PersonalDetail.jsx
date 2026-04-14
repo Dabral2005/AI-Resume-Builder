@@ -25,7 +25,8 @@ function PersonalDetail({enabledNext}) {
                 jobTitle: resumeInfo?.jobTitle || '',
                 address: resumeInfo?.address || '',
                 phone: resumeInfo?.phone || '',
-                email: resumeInfo?.email || ''
+                email: resumeInfo?.email || '',
+                profileImage: resumeInfo?.profileImage || ''
             });
         }
     }, [resumeInfo])
@@ -104,17 +105,51 @@ function PersonalDetail({enabledNext}) {
         })
     }
     
+    const handleImageChange = (e) => {
+        const file = e.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                setFormData({
+                    ...formData,
+                    profileImage: reader.result
+                });
+                setResumeInfo({
+                    ...resumeInfo,
+                    profileImage: reader.result
+                });
+            };
+            reader.readAsDataURL(file);
+        }
+    }
+
     return (
-        <div className='card-premium p-8 border-t-4 border-t-violet-600 mt-6'>
-            <div className='mb-6'>
-                <h2 className='text-2xl font-bold bg-gradient-to-r from-violet-600 to-indigo-600 bg-clip-text text-transparent'>Personal Detail</h2>
-                <p className='text-gray-500 mt-1'>Get Started with the basic information</p>
-            </div>
+        <div className='card-premium p-10 mt-6 relative overflow-hidden group'>
+            <div className='absolute top-0 right-0 w-32 h-32 bg-brand-primary/5 rounded-full blur-2xl -mr-16 -mt-16'></div>
+            <div className='relative z-10'>
+                <div className='mb-8'>
+                    <h2 className='text-3xl font-black text-slate-900 font-brand tracking-tight'>Personal Detail</h2>
+                    <p className='text-slate-500 mt-2 font-medium'>Start with your core identity and professional contact details.</p>
+                </div>
 
             <form onSubmit={onSave}>
                 <div className='grid grid-cols-1 md:grid-cols-2 mt-5 gap-5'>
+                    <div className='space-y-2 col-span-1 md:col-span-2 mb-2'>
+                        <label className='text-[11px] font-black uppercase tracking-[0.2em] text-slate-500 mb-2 block'>Profile Image (Optional)</label>
+                        <div className='flex items-center gap-4'>
+                           {resumeInfo?.profileImage && (
+                               <img src={resumeInfo?.profileImage} alt='Profile' className='w-16 h-16 rounded-full object-cover border-2 border-violet-200' />
+                           )}
+                           <Input 
+                               type="file" 
+                               accept="image/*"
+                               onChange={handleImageChange}
+                               className="bg-gray-50/50 border-gray-200 focus:ring-violet-500 focus:border-violet-500 rounded-xl"
+                           />
+                        </div>
+                    </div>
                     <div className='space-y-2'>
-                        <label className='text-sm font-medium text-gray-700'>First Name <span className='text-red-500'>*</span></label>
+                        <label className='text-[11px] font-black uppercase tracking-[0.2em] text-slate-500'>First Name <span className='text-red-500'>*</span></label>
                         <Input 
                             name="firstName" 
                             defaultValue={resumeInfo?.firstName} 
@@ -126,7 +161,7 @@ function PersonalDetail({enabledNext}) {
                         />
                     </div>
                     <div className='space-y-2'>
-                        <label className='text-sm font-medium text-gray-700'>Last Name <span className='text-red-500'>*</span></label>
+                        <label className='text-[11px] font-black uppercase tracking-[0.2em] text-slate-500'>Last Name <span className='text-red-500'>*</span></label>
                         <Input 
                             name="lastName" 
                             required 
@@ -138,7 +173,7 @@ function PersonalDetail({enabledNext}) {
                         />
                     </div>
                     <div className='space-y-2 col-span-1 md:col-span-2'>
-                        <label className='text-sm font-medium text-gray-700'>Job Title <span className='text-red-500'>*</span></label>
+                        <label className='text-[11px] font-black uppercase tracking-[0.2em] text-slate-500'>Job Title <span className='text-red-500'>*</span></label>
                         <Input 
                             name="jobTitle" 
                             required 
@@ -150,7 +185,7 @@ function PersonalDetail({enabledNext}) {
                         />
                     </div>
                     <div className='space-y-2 col-span-1 md:col-span-2'>
-                        <label className='text-sm font-medium text-gray-700'>Address <span className='text-red-500'>*</span></label>
+                        <label className='text-[11px] font-black uppercase tracking-[0.2em] text-slate-500'>Address <span className='text-red-500'>*</span></label>
                         <Input 
                             name="address" 
                             required 
@@ -162,7 +197,7 @@ function PersonalDetail({enabledNext}) {
                         />
                     </div>
                     <div className='space-y-2'>
-                        <label className='text-sm font-medium text-gray-700'>Phone <span className='text-red-500'>*</span></label>
+                        <label className='text-[11px] font-black uppercase tracking-[0.2em] text-slate-500'>Phone <span className='text-red-500'>*</span></label>
                         <Input 
                             name="phone" 
                             type="tel"
@@ -176,7 +211,7 @@ function PersonalDetail({enabledNext}) {
                         {phoneError && <p className='text-[11px] text-red-500 font-medium px-1'>{phoneError}</p>}
                     </div>
                     <div className='space-y-2'>
-                        <label className='text-sm font-medium text-gray-700'>Email <span className='text-red-500'>*</span></label>
+                        <label className='text-[11px] font-black uppercase tracking-[0.2em] text-slate-500'>Email <span className='text-red-500'>*</span></label>
                         <Input 
                             name="email" 
                             type="email"
@@ -201,6 +236,7 @@ function PersonalDetail({enabledNext}) {
                 </div>
             </form>
         </div>
+    </div>
     )
 }
 

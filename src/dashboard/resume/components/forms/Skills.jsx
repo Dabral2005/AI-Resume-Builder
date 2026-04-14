@@ -73,17 +73,19 @@ function Skills() {
     }, [skillsList])
 
     return (
-        <div className='card-premium p-8 border-t-4 border-t-violet-600 mt-6'>
-            <div className='mb-6'>
-                <h2 className='text-2xl font-bold bg-gradient-to-r from-violet-600 to-indigo-600 bg-clip-text text-transparent'>Professional Skills</h2>
-                <p className='text-gray-500 mt-1'>Highlight your top technical and professional skills</p>
-            </div>
+        <div className='card-premium p-10 mt-6 relative overflow-hidden group/form'>
+            <div className='absolute top-0 right-0 w-32 h-32 bg-brand-primary/5 rounded-full blur-2xl -mr-16 -mt-16'></div>
+            <div className='relative z-10'>
+                <div className='mb-8'>
+                    <h2 className='text-3xl font-black text-slate-900 font-brand tracking-tight'>Professional Skills</h2>
+                    <p className='text-slate-500 mt-2 font-medium'>Highlight your top technical and professional skills for recruiters.</p>
+                </div>
 
             <div className='space-y-4 mb-8'>
                 {skillsList.map((item, index) => (
                     <div key={index} className='flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 p-4 rounded-2xl border border-gray-100 bg-white hover:border-violet-200 transition-colors shadow-sm'>
                         <div className='w-full sm:w-1/2'>
-                            <label className='text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1 block'>Skill Name <span className='text-red-500'>*</span></label>
+                            <label className='text-[11px] font-black uppercase tracking-[0.2em] text-slate-500 mb-1 block'>Skill Name <span className='text-red-500'>*</span></label>
                             <Input 
                                 className="w-full bg-gray-50/50 rounded-xl focus:ring-violet-500 focus:border-violet-500 border-gray-200"
                                 placeholder="e.g. React, Python, Project Management"
@@ -94,7 +96,7 @@ function Skills() {
                             />
                         </div>
                         <div className='w-full sm:w-auto mt-2 sm:mt-0'>
-                            <label className='text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2 block sm:hidden'>Proficiency</label>
+                            <label className='text-[11px] font-black uppercase tracking-[0.2em] text-slate-500 mb-2 block sm:hidden'>Proficiency</label>
                             <div className='bg-gray-50 p-2.5 rounded-xl border border-gray-100 flex items-center justify-center w-full sm:w-auto'>
                                 <Rating 
                                     style={{ maxWidth: 140 }} 
@@ -118,21 +120,22 @@ function Skills() {
                 </div>
             )}
 
-            <div className='flex flex-col sm:flex-row justify-between items-center gap-4 mt-8 pt-6 border-t border-gray-100'>
-                <div className='flex gap-3 w-full sm:w-auto'>
-                    <Button variant="outline" onClick={AddNewSkills} className="text-violet-700 border-violet-200 hover:bg-violet-50 rounded-xl gap-2 flex-1 sm:flex-none"> 
-                        <Plus className='w-4 h-4' /> Add Skill
+            <div className='flex flex-col sm:flex-row justify-between items-center gap-6 mt-12 pt-10 border-t border-slate-100'>
+                <div className='flex gap-4 w-full sm:w-auto'>
+                    <Button variant="outline" onClick={AddNewSkills} className="text-brand-primary border-slate-200 hover:bg-brand-primary/5 hover:border-brand-primary rounded-2xl gap-2 flex-1 sm:flex-none h-12 px-6 font-bold shadow-sm transition-all"> 
+                        <Plus className='w-5 h-5' /> Add Skill
                     </Button>
                     {skillsList.length > 0 && (
-                        <Button variant="outline" onClick={RemoveSkills} className="text-red-600 border-red-200 hover:bg-red-50 hover:text-red-700 rounded-xl gap-2 flex-1 sm:flex-none"> 
-                            <Trash2 className='w-4 h-4' /> Remove
+                        <Button variant="ghost" onClick={RemoveSkills} className="text-slate-400 hover:bg-red-50 hover:text-red-600 rounded-2xl gap-2 flex-1 sm:flex-none h-12 font-bold px-6 border border-transparent hover:border-red-100"> 
+                            <Trash2 className='w-5 h-5' /> Remove
                         </Button>
                     )}
                 </div>
-                <Button disabled={loading} onClick={onSave} className="btn-premium w-full sm:w-auto px-8">
-                    {loading ? <Loader2 className='animate-spin w-4 h-4' /> : 'Save Changes'}    
+                <Button disabled={loading} onClick={onSave} className="btn-premium w-full sm:w-auto px-10 h-12 rounded-2xl text-lg">
+                    {loading ? <Loader2 className='animate-spin w-5 h-5' /> : 'Save Skills'}    
                 </Button>
             </div>
+        </div>
         </div>
     )
 }

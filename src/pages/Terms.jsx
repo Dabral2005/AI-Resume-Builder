@@ -33,7 +33,7 @@ function Terms() {
                   1. Acceptance of Terms
                 </h2>
                 <p className='text-gray-600 leading-relaxed'>
-                  By accessing or using AI Resume Builder, you agree to be bound by these Terms of Service and all applicable laws and regulations. 
+                  By accessing or using CVera, you agree to be bound by these Terms of Service and all applicable laws and regulations. 
                   If you do not agree with any of these terms, you are prohibited from using or accessing this site.
                 </p>
               </section>
