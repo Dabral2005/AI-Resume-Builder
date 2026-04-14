@@ -11,8 +11,15 @@ import Dashboard from './dashboard/index.jsx'
 import SignInPage from './auth/sign-in/index.jsx'
 import EditResume from './dashboard/resume/[resumeId]/edit/index.jsx'
 import ViewResume from './my-resume/[resumeId]/view/index.jsx'
+import Privacy from './pages/Privacy.jsx'
+import Terms from './pages/Terms.jsx'
+import Support from './pages/Support.jsx'
 
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY
+
+if (!PUBLISHABLE_KEY) {
+  throw new Error("Missing VITE_CLERK_PUBLISHABLE_KEY in .env file")
+}
 
 const router = createBrowserRouter([
   {
@@ -40,6 +47,25 @@ const router = createBrowserRouter([
   {
     path: '/auth/sign-in',
     element: <SignInPage />
+<<<<<<< HEAD
+=======
+  },
+  {
+    path: '/my-resume/:resumeId/view',
+    element: <ViewResume />
+  },
+  {
+    path: '/privacy',
+    element: <Privacy />
+  },
+  {
+    path: '/terms',
+    element: <Terms />
+  },
+  {
+    path: '/support',
+    element: <Support />
+>>>>>>> ai-feature
   }
 ])
 

@@ -8,6 +8,7 @@ import Education from './forms/Education';
 import Skills from './forms/Skills';
 import { Link, Navigate, useParams } from 'react-router-dom';
 import ThemeColor from './ThemeColor';
+import TemplateSelector from './TemplateSelector';
 
 const steps = [
   { label: 'Personal', icon: User },
@@ -28,11 +29,12 @@ function FormSection() {
       <div className='flex justify-between items-center mb-6'>
         <div className='flex gap-3'>
           <Link to={"/dashboard"}>
-            <Button variant="outline" size="sm" className='rounded-xl border-gray-200 hover:bg-gray-50'>
+            <Button variant="outline" size="sm" className='rounded-xl border-gray-200 hover:bg-blue-500'>
               <Home className='w-4 h-4' />
             </Button>
           </Link>
           <ThemeColor />
+          <TemplateSelector />
         </div>
         <div className='flex gap-2'>
           {activeFormIndex > 1 &&

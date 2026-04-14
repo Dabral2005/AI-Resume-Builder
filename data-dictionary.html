@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Resume Builder — Data Dictionary</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', Arial, sans-serif;
+      background: #f4f5f7;
+      color: #1a1a2e;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 30px;
+    }
+
+    /* Title Header */
+    .header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .header h1 {
+      font-size: 28px;
+      font-weight: 800;
+      color: #1a1a2e;
+      margin-bottom: 6px;
+    }
+
+    .header .subtitle {
+      font-size: 14px;
+      color: #666;
+    }
+
+    .header .badge {
+      display: inline-block;
+      background: #eef2ff;
+      color: #4f46e5;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 4px 14px;
+      border-radius: 20px;
+      margin-bottom: 12px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    /* Section */
+    .section {
+      margin-bottom: 44px;
+    }
+
+    .section-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #fff;
+      padding: 12px 20px;
+      border-radius: 8px 8px 0 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-title .icon {
+      font-size: 18px;
+    }
+
+    .section-desc {
+      font-size: 12.5px;
+      color: #555;
+      background: #fafafa;
+      padding: 10px 20px;
+      border-left: 3px solid #e0e0e0;
+      border-right: 1px solid #e8e8e8;
+    }
+
+    /* Color themes for sections */
+    .theme-blue .section-title {
+      background: #4a6fa5;
+    }
+
+    .theme-green .section-title {
+      background: #5a9a6e;
+    }
+
+    .theme-amber .section-title {
+      background: #c4933f;
+    }
+
+    .theme-purple .section-title {
+      background: #7c5cbf;
+    }
+
+    .theme-red .section-title {
+      background: #b85450;
+    }
+
+    .theme-teal .section-title {
+      background: #3a8a8a;
+    }
+
+    .theme-indigo .section-title {
+      background: #5046a5;
+    }
+
+    .theme-orange .section-title {
+      background: #c2703e;
+    }
+
+    /* Table */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+      border: 1px solid #e0e0e0;
+      border-top: none;
+      border-radius: 0 0 8px 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    }
+
+    thead th {
+      background: #f8f9fb;
+      border-bottom: 2px solid #e0e0e0;
+      padding: 10px 16px;
+      text-align: left;
+      font-size: 11px;
+      font-weight: 700;
+      color: #555;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+    }
+
+    tbody td {
+      padding: 10px 16px;
+      border-bottom: 1px solid #f0f0f0;
+      font-size: 13px;
+      vertical-align: top;
+    }
+
+    tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    tbody tr:hover {
+      background: #f8faff;
+    }
+
+    /* Tags */
+    .tag {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 4px;
+      letter-spacing: 0.3px;
+    }
+
+    .tag-pk {
+      background: #fef3c7;
+      color: #92400e;
+    }
+
+    .tag-fk {
+      background: #dbeafe;
+      color: #1e40af;
+    }
+
+    .tag-req {
+      background: #fee2e2;
+      color: #991b1b;
+    }
+
+    .tag-opt {
+      background: #f0fdf4;
+      color: #166534;
+    }
+
+    .tag-auto {
+      background: #ede9fe;
+      color: #5b21b6;
+    }
+
+    .tag-default {
+      background: #f3f4f6;
+      color: #374151;
+    }
+
+    .type-col {
+      font-family: 'Courier New', monospace;
+      font-size: 12px;
+      color: #7c3aed;
+      font-weight: 600;
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 30px;
+      font-size: 12px;
+      color: #999;
+      border-top: 1px solid #e8e8e8;
+      margin-top: 20px;
+    }
+
+    /* DFD Data Dictionary Section */
+    .flow-table td:first-child {
+      font-weight: 600;
+      color: #333;
+      white-space: nowrap;
+    }
+
+    .flow-table .arrow {
+      color: #7c3aed;
+      font-weight: 700;
+    }
+
+    /* Print */
+    @media print {
+      body {
+        background: #fff;
+      }
+
+      .section {
+        page-break-inside: avoid;
+      }
+
+      table {
+        box-shadow: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <!-- ==================== HEADER ==================== -->
+    <div class="header">
+      <div class="badge">Project Documentation</div>
+      <h1>Data Dictionary</h1>
+      <p class="subtitle">AI Resume Builder — Complete Data Reference</p>
+    </div>
+
+    <!-- ============================================================ -->
+    <!--            SECTION 1: USER ENTITY                            -->
+    <!-- ============================================================ -->
+    <div class="section theme-blue">
+      <div class="section-title"><span class="icon">👤</span> Table 1 — User</div>
+      <div class="section-desc">
+        Stores authenticated user information. Managed externally by <strong>Clerk Authentication Service</strong>.
+        The application accesses user data through Clerk's <code>useUser()</code> hook.
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Sr. No.</th>
+            <th>Field Name</th>
+            <th>Data Type</th>
+            <th>Size</th>
+            <th>Constraints</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>userId</td>
+            <td class="type-col">String</td>
+            <td>255</td>
+            <td><span class="tag tag-pk">PK</span> <span class="tag tag-auto">Auto</span></td>
+            <td>Unique identifier auto-generated by Clerk</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>firstName</td>
+            <td class="type-col">String</td>
+            <td>100</td>
+            <td><span class="tag tag-req">Required</span></td>
+            <td>User's first name from auth provider profile</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>lastName</td>
+            <td class="type-col">String</td>
+            <td>100</td>
+            <td><span class="tag tag-opt">Optional</span></td>
+            <td>User's last name from auth provider profile</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>primaryEmailAddress</td>
+            <td class="type-col">String</td>
+            <td>255</td>
+            <td><span class="tag tag-req">Required</span> <span class="tag tag-default">Unique</span></td>
+            <td>Primary email address; used to link resumes to user</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>imageUrl</td>
+            <td class="type-col">String (URL)</td>
+            <td>500</td>
+            <td><span class="tag tag-opt">Optional</span></td>
+            <td>URL to the user's profile avatar image</td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td>createdAt</td>
+            <td class="type-col">DateTime</td>
+            <td>—</td>
+            <td><span class="tag tag-auto">Auto</span></td>
+            <td>Account creation timestamp (managed by Clerk)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ============================================================ -->
+    <!--            SECTION 2: RESUME ENTITY                          -->
+    <!-- ============================================================ -->
+    <div class="section theme-green">
+      <div class="section-title"><span class="icon">📄</span> Table 2 — Resume</div>
+      <div class="section-desc">
+        Core entity storing each resume document. Persisted in <strong>Browser LocalStorage</strong> under key
+        <code>ai_resume_builder_resumes</code>. Contains personal details, theme settings, and references embedded
+        sub-collections.
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Sr. No.</th>
+            <th>Field Name</th>
+            <th>Data Type</th>
+            <th>Size</th>
+            <th>Constraints</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>id</td>
+            <td class="type-col">Integer</td>
+            <td>—</td>
+            <td><span class="tag tag-auto">Auto</span></td>
+            <td>Auto-generated numeric ID via <code>Date.now()</code></td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>documentId</td>
+            <td class="type-col">String</td>
+            <td>255</td>
+            <td><span class="tag tag-pk">PK</span> <span class="tag tag-default">Unique</span></td>
+            <td>Unique document identifier; used in URL routing</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>userEmail</td>
+            <td class="type-col">String</td>
+            <td>255</td>
+            <td><span class="tag tag-fk">FK → User</span> <span class="tag tag-req">Required</span></td>
+            <td>Owner's email; links resume to authenticated user</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>title</td>
+            <td class="type-col">String</td>
+            <td>200</td>
+            <td><span class="tag tag-req">Required</span></td>
+            <td>Display title of the resume (e.g., "My Tech Resume")</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>firstName</td>
+            <td class="type-col">String</td>
+            <td>100</td>
+            <td><span class="tag tag-opt">Optional</span></td>
+            <td>First name displayed on the resume</td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td>lastName</td>
+            <td class="type-col">String</td>
+            <td>100</td>
+            <td><span class="tag tag-opt">Optional</span></td>
+            <td>Last name displayed on the resume</td>
+          </tr>
+          <tr>
+            <td>7</td>
+            <td>jobTitle</td>
+            <td class="type-col">String</td>
+            <td>200</td>
+            <td><span class="tag tag-opt">Optional</span></td>
+            <td>Target job title (e.g., "Full Stack Developer")</td>
+          </tr>
+          <tr>
+            <td>8</td>
+            <td>email</td>
+            <td class="type-col">Varchar (Email)</td>
+            <td>255</td>
+            <td><span class="tag tag-opt">Optional</span> <span class="tag tag-default">Regex Validated</span></td>
+            <td>Contact email; validated with email regex pattern (e.g., "name@example.com"). Input type="email"</td>
+          </tr>
+          <tr>
+            <td>9</td>
+            <td>phone</td>
+            <td class="type-col">Varchar (Tel)</td>
+            <td>20</td>
+            <td><span class="tag tag-opt">Optional</span> <span class="tag tag-default">7-15 digits</span></td>
+            <td>Contact phone number; validated with regex for 7-15 digits (e.g., "+91 9876543210"). Input type="tel"
+            </td>
+          </tr>
+          <tr>
+            <td>10</td>
+            <td>address</td>
+            <td class="type-col">String</td>
+            <td>500</td>
+            <td><span class="tag tag-opt">Optional</span></td>
+            <td>Physical address displayed on the resume</td>
+          </tr>
+          <tr>
+            <td>11</td>
+            <td>themeColor</td>
+            <td class="type-col">String</td>
+            <td>9</td>
+            <td><span class="tag tag-default">Default: #7c3aed</span></td>
+            <td>Hex color code for resume theme styling</td>
+          </tr>
+          <tr>
+            <td>12</td>
+            <td>summery</td>
+            <td class="type-col">Text</td>
+            <td>2000</td>
+            <td><span class="tag tag-opt">Optional</span></td>
+            <td>Professional summary paragraph (AI-generated or manual)</td>
+          </tr>
+          <tr>
+            <td>13</td>
+            <td>Experience</td>
+            <td class="type-col">Array&lt;Object&gt;</td>
+            <td>—</td>
+            <td><span class="tag tag-default">Default: []</span></td>
+            <td>Embedded array of work experience entries</td>
+          </tr>
+          <tr>
+            <td>14</td>
+            <td>education</td>
+            <td class="type-col">Array&lt;Object&gt;</td>
+            <td>—</td>
+            <td><span class="tag tag-default">Default: []</span></td>
+            <td>Embedded array of education entries</td>
+          </tr>
+          <tr>
+            <td>15</td>
+            <td>skills</td>
+            <td class="type-col">Array&lt;Object&gt;</td>
+            <td>—</td>
+            <td><span class="tag tag-default">Default: []</span></td>
+            <td>Embedded array of skill entries</td>
+          </tr>
+          <tr>
+            <td>16</td>
+            <td>createdAt</td>
+            <td class="type-col">String (ISO)</td>
+            <td>30</td>
+            <td><span class="tag tag-auto">Auto</span></td>
+            <td>ISO 8601 timestamp of resume creation</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ============================================================ -->
+    <!--            SECTION 3: EXPERIENCE ENTITY                      -->
+    <!-- ============================================================ -->
+    <div class="section theme-amber">
+      <div class="section-title"><span class="icon">💼</span> Table 3 — Experience</div>
+      <div class="section-desc">
+        Work experience entries embedded as an array inside each Resume object. Each entry represents one
+        job position held by the user. The <code>workSummery</code> field can be AI-generated.
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Sr. No.</th>
+            <th>Field Name</th>
+            <th>Data Type</th>
+            <th>Size</th>
+            <th>Constraints</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>id</td>
+            <td class="type-col">Integer</td>
+            <td>—</td>
+            <td><span class="tag tag-pk">PK</span> <span class="tag tag-auto">Auto</span></td>
+            <td>Unique identifier for the experience entry</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>title</td>
+            <td class="type-col">String</td>
+            <td>200</td>
+            <td><span class="tag tag-req">Required</span></td>
+            <td>Job title (e.g., "Full Stack Developer")</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>companyName</td>
+            <td class="type-col">String</td>
+            <td>200</td>
+            <td><span class="tag tag-req">Required</span></td>
+            <td>Name of the employer organization</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>city</td>
+            <td class="type-col">String</td>
+            <td>100</td>
+            <td><span class="tag tag-opt">Optional</span></td>
+            <td>City of the workplace</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>state</td>
+            <td class="type-col">String</td>
+            <td>100</td>
+            <td><span class="tag tag-opt">Optional</span></td>
+            <td>State/Province of the workplace</td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td>startDate</td>
+            <td class="type-col">Date (YYYY-MM-DD)</td>
+            <td>10</td>
+            <td><span class="tag tag-req">Required</span> <span class="tag tag-default">≤ Today</span></td>
+            <td>Employment start date; input type="date", max constrained to current date. Displayed as "Jan 2021" on
+              resume.</td>
+          </tr>
+          <tr>
+            <td>7</td>
+            <td>endDate</td>
+            <td class="type-col">Date (YYYY-MM-DD)</td>
+            <td>10</td>
+            <td><span class="tag tag-opt">Optional</span> <span class="tag tag-default">≥ startDate</span></td>
+            <td>Employment end date; validated to be after startDate. Empty if currently working.</td>
+          </tr>
+          <tr>
+            <td>8</td>
+            <td>currentlyWorking</td>
+            <td class="type-col">Boolean</td>
+            <td>—</td>
+            <td><span class="tag tag-default">Default: false</span></td>
+            <td>Whether user is currently employed at this position</td>
+          </tr>
+          <tr>
+            <td>9</td>
+            <td>workSummery</td>
+            <td class="type-col">Text (HTML)</td>
+            <td>5000</td>
+            <td><span class="tag tag-opt">Optional</span></td>
+            <td>Bullet-point description of responsibilities; supports HTML &lt;ul&gt;/&lt;li&gt; tags; can be
+              AI-generated via Gemini</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ============================================================ -->
+    <!--            SECTION 4: EDUCATION ENTITY                       -->
+    <!-- ============================================================ -->
+    <div class="section theme-purple">
+      <div class="section-title"><span class="icon">🎓</span> Table 4 — Education</div>
+      <div class="section-desc">
+        Academic education entries embedded as an array inside each Resume object. Each entry represents
+        one degree or certification earned by the user.
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Sr. No.</th>
+            <th>Field Name</th>
+            <th>Data Type</th>
+            <th>Size</th>
+            <th>Constraints</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>id</td>
+            <td class="type-col">Integer</td>
+            <td>—</td>
+            <td><span class="tag tag-pk">PK</span> <span class="tag tag-auto">Auto</span></td>
+            <td>Unique identifier for the education entry</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>universityName</td>
+            <td class="type-col">String</td>
+            <td>300</td>
+            <td><span class="tag tag-req">Required</span></td>
+            <td>Name of the educational institution</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>degree</td>
+            <td class="type-col">String</td>
+            <td>100</td>
+            <td><span class="tag tag-req">Required</span></td>
+            <td>Degree type (e.g., "Bachelor", "Master", "PhD")</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>major</td>
+            <td class="type-col">String</td>
+            <td>200</td>
+            <td><span class="tag tag-req">Required</span></td>
+            <td>Field of study (e.g., "Computer Science")</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>startDate</td>
+            <td class="type-col">Date (YYYY-MM-DD)</td>
+            <td>10</td>
+            <td><span class="tag tag-req">Required</span> <span class="tag tag-default">≤ Today</span></td>
+            <td>Education start date; input type="date", max constrained to current date. Displayed as "Aug 2018" on
+              resume.</td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td>endDate</td>
+            <td class="type-col">Date (YYYY-MM-DD)</td>
+            <td>10</td>
+            <td><span class="tag tag-opt">Optional</span> <span class="tag tag-default">≥ startDate</span></td>
+            <td>Education end date or expected graduation; validated to be after startDate.</td>
+          </tr>
+          <tr>
+            <td>7</td>
+            <td>description</td>
+            <td class="type-col">Text</td>
+            <td>2000</td>
+            <td><span class="tag tag-opt">Optional</span></td>
+            <td>Additional details about the degree, coursework, or achievements</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ============================================================ -->
+    <!--            SECTION 5: SKILL ENTITY                           -->
+    <!-- ============================================================ -->
+    <div class="section theme-red">
+      <div class="section-title"><span class="icon">⚡</span> Table 5 — Skill</div>
+      <div class="section-desc">
+        Professional skills embedded as an array inside each Resume object. Each entry includes a proficiency
+        rating displayed as a visual progress bar on the resume.
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Sr. No.</th>
+            <th>Field Name</th>
+            <th>Data Type</th>
+            <th>Size</th>
+            <th>Constraints</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>id</td>
+            <td class="type-col">Integer</td>
+            <td>—</td>
+            <td><span class="tag tag-pk">PK</span> <span class="tag tag-auto">Auto</span></td>
+            <td>Unique identifier for the skill entry</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>name</td>
+            <td class="type-col">String</td>
+            <td>100</td>
+            <td><span class="tag tag-req">Required</span></td>
+            <td>Skill name (e.g., "React", "Python", "MySQL")</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>rating</td>
+            <td class="type-col">Integer</td>
+            <td>—</td>
+            <td><span class="tag tag-req">Required</span> <span class="tag tag-default">Range: 0–5</span></td>
+            <td>Proficiency level (0–5 star rating); displayed as progress bar (rating × 20%) on resume preview</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ============================================================ -->
+    <!--            SECTION 6: DATA STORE                             -->
+    <!-- ============================================================ -->
+    <div class="section theme-teal">
+      <div class="section-title"><span class="icon">🗄️</span> Table 6 — Data Store (LocalStorage)</div>
+      <div class="section-desc">
+        The application uses <strong>Browser LocalStorage</strong> as its primary data store instead of a remote
+        database.
+        All resume data is serialized as JSON under a single storage key.
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Sr. No.</th>
+            <th>Store Name</th>
+            <th>Storage Key</th>
+            <th>Data Format</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Resume Data Store (D1)</td>
+            <td class="type-col">ai_resume_builder_resumes</td>
+            <td class="type-col">JSON Array</td>
+            <td>Stores all resume objects as a JSON array. Each element is a complete Resume object with embedded
+              Experience, Education, and Skills arrays.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ============================================================ -->
+    <!--     SECTION 7: DFD DATA FLOW DICTIONARY                     -->
+    <!-- ============================================================ -->
+    <div class="section theme-indigo">
+      <div class="section-title"><span class="icon">🔀</span> Table 7 — Data Flow Dictionary</div>
+      <div class="section-desc">
+        Documents all data flows between processes, external entities, and data stores as referenced in the DFD
+        diagrams.
+      </div>
+      <table class="flow-table">
+        <thead>
+          <tr>
+            <th>Sr. No.</th>
+            <th>Data Flow Name</th>
+            <th>Source</th>
+            <th></th>
+            <th>Destination</th>
+            <th>Data Elements</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Login / Signup Request</td>
+            <td>User</td>
+            <td class="arrow">→</td>
+            <td>P1.0 Authentication</td>
+            <td>Email, Password, OAuth Token</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Auth Credentials</td>
+            <td>P1.0 Authentication</td>
+            <td class="arrow">→</td>
+            <td>Clerk Auth Service</td>
+            <td>Email, Password, Provider Info</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Verification Response</td>
+            <td>Clerk Auth Service</td>
+            <td class="arrow">→</td>
+            <td>P1.0 Authentication</td>
+            <td>Auth Token, User Profile, Status</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>Auth Token</td>
+            <td>P1.0 Authentication</td>
+            <td class="arrow">→</td>
+            <td>User</td>
+            <td>Session Token, User ID, Profile Data</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>Create Resume Request</td>
+            <td>User</td>
+            <td class="arrow">→</td>
+            <td>P2.1 Create Resume</td>
+            <td>Resume Title, User Email</td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td>New Resume Data</td>
+            <td>P2.1 Create Resume</td>
+            <td class="arrow">→</td>
+            <td>D1 Resume Store</td>
+            <td>documentId, title, userEmail, themeColor, createdAt</td>
+          </tr>
+          <tr>
+            <td>7</td>
+            <td>List Request</td>
+            <td>User</td>
+            <td class="arrow">→</td>
+            <td>P2.2 List Resumes</td>
+            <td>User Email</td>
+          </tr>
+          <tr>
+            <td>8</td>
+            <td>Resume Query</td>
+            <td>P2.2 List Resumes</td>
+            <td class="arrow">→</td>
+            <td>D1 Resume Store</td>
+            <td>User Email (filter parameter)</td>
+          </tr>
+          <tr>
+            <td>9</td>
+            <td>Resume List</td>
+            <td>D1 Resume Store</td>
+            <td class="arrow">→</td>
+            <td>User</td>
+            <td>Array of Resume objects (title, id, themeColor)</td>
+          </tr>
+          <tr>
+            <td>10</td>
+            <td>Delete Request</td>
+            <td>User</td>
+            <td class="arrow">→</td>
+            <td>P2.3 Delete Resume</td>
+            <td>documentId</td>
+          </tr>
+          <tr>
+            <td>11</td>
+            <td>Form Data Input</td>
+            <td>User</td>
+            <td class="arrow">→</td>
+            <td>P3.0 Resume Editing</td>
+            <td>Personal details, Experience, Education, Skills</td>
+          </tr>
+          <tr>
+            <td>12</td>
+            <td>Updated Resume</td>
+            <td>P3.0 Resume Editing</td>
+            <td class="arrow">→</td>
+            <td>D1 Resume Store</td>
+            <td>Modified resume fields (partial update)</td>
+          </tr>
+          <tr>
+            <td>13</td>
+            <td>Summary AI Prompt</td>
+            <td>P3.2 Edit Summary</td>
+            <td class="arrow">→</td>
+            <td>P4.0 AI Generation</td>
+            <td>Job Title, Experience Level</td>
+          </tr>
+          <tr>
+            <td>14</td>
+            <td>Experience AI Prompt</td>
+            <td>P3.3 Edit Experience</td>
+            <td class="arrow">→</td>
+            <td>P4.0 AI Generation</td>
+            <td>Position Title, Company Name</td>
+          </tr>
+          <tr>
+            <td>15</td>
+            <td>AI Content Prompt</td>
+            <td>P4.0 AI Generation</td>
+            <td class="arrow">→</td>
+            <td>Google Gemini AI</td>
+            <td>Structured text prompt with context</td>
+          </tr>
+          <tr>
+            <td>16</td>
+            <td>AI Generated Content</td>
+            <td>Google Gemini AI</td>
+            <td class="arrow">→</td>
+            <td>P4.0 AI Generation</td>
+            <td>JSON response (summaries) or HTML (experience bullets)</td>
+          </tr>
+          <tr>
+            <td>17</td>
+            <td>Resume Preview Data</td>
+            <td>P3.0 Resume Editing</td>
+            <td class="arrow">→</td>
+            <td>P5.1 Generate Preview</td>
+            <td>Complete resume object for rendering</td>
+          </tr>
+          <tr>
+            <td>18</td>
+            <td>PDF Output</td>
+            <td>P5.2 Download PDF</td>
+            <td class="arrow">→</td>
+            <td>User</td>
+            <td>Rendered resume as PDF via browser print</td>
+          </tr>
+          <tr>
+            <td>19</td>
+            <td>Share URL</td>
+            <td>P5.3 Share Resume</td>
+            <td class="arrow">→</td>
+            <td>User</td>
+            <td>Shareable URL: <code>/my-resume/{resumeId}/view</code></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ============================================================ -->
+    <!--     SECTION 8: PROCESS DICTIONARY                            -->
+    <!-- ============================================================ -->
+    <div class="section theme-orange">
+      <div class="section-title"><span class="icon">⚙️</span> Table 8 — Process Dictionary</div>
+      <div class="section-desc">
+        Documents all processes referenced in the DFD diagrams, including their input, output, and logic descriptions.
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Process ID</th>
+            <th>Process Name</th>
+            <th>Input</th>
+            <th>Output</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>1.0</strong></td>
+            <td>User Authentication</td>
+            <td>Credentials / OAuth Token</td>
+            <td>Auth Session, User Profile</td>
+            <td>Handles sign-in/sign-up via Clerk; manages session tokens and redirects unauthorized users</td>
+          </tr>
+          <tr>
+            <td><strong>2.1</strong></td>
+            <td>Create Resume</td>
+            <td>Title, User Email</td>
+            <td>New Resume Object</td>
+            <td>Creates a new resume with default values (empty arrays, default theme) and stores in LocalStorage</td>
+          </tr>
+          <tr>
+            <td><strong>2.2</strong></td>
+            <td>List Resumes</td>
+            <td>User Email</td>
+            <td>Filtered Resume Array</td>
+            <td>Retrieves all resumes from LocalStorage filtered by the authenticated user's email address</td>
+          </tr>
+          <tr>
+            <td><strong>2.3</strong></td>
+            <td>Delete Resume</td>
+            <td>documentId</td>
+            <td>Confirmation</td>
+            <td>Removes a resume from LocalStorage by filtering out the matching documentId</td>
+          </tr>
+          <tr>
+            <td><strong>3.1</strong></td>
+            <td>Edit Personal Details</td>
+            <td>Name, Job Title, Contact Info</td>
+            <td>Updated Resume</td>
+            <td>Updates firstName, lastName, jobTitle, email, phone, address fields</td>
+          </tr>
+          <tr>
+            <td><strong>3.2</strong></td>
+            <td>Edit Summary</td>
+            <td>Manual text or AI prompt</td>
+            <td>Updated Summary</td>
+            <td>Updates the summery field; optionally calls Gemini AI for content generation</td>
+          </tr>
+          <tr>
+            <td><strong>3.3</strong></td>
+            <td>Edit Experience</td>
+            <td>Job details or AI prompt</td>
+            <td>Updated Experience Array</td>
+            <td>Add/edit/remove experience entries; optionally generates work descriptions via AI</td>
+          </tr>
+          <tr>
+            <td><strong>3.4</strong></td>
+            <td>Edit Education</td>
+            <td>Education details</td>
+            <td>Updated Education Array</td>
+            <td>Add/edit/remove education entries with degree, major, dates, and descriptions</td>
+          </tr>
+          <tr>
+            <td><strong>3.5</strong></td>
+            <td>Edit Skills</td>
+            <td>Skill name and rating</td>
+            <td>Updated Skills Array</td>
+            <td>Add/edit/remove skills with proficiency rating (0–5 stars); skill name is required and validated</td>
+          </tr>
+          <tr>
+            <td><strong>4.0</strong></td>
+            <td>AI Content Generation</td>
+            <td>Structured prompt</td>
+            <td>AI-generated text</td>
+            <td>Sends prompts to Google Gemini 1.5 Flash API; returns JSON (summaries) or HTML (experience). Falls back
+              to mock responses if API key is unavailable.</td>
+          </tr>
+          <tr>
+            <td><strong>5.1</strong></td>
+            <td>Generate Preview</td>
+            <td>Complete Resume Data</td>
+            <td>Rendered HTML Preview</td>
+            <td>Real-time rendering of resume using React ResumePreview component with selected theme color</td>
+          </tr>
+          <tr>
+            <td><strong>5.2</strong></td>
+            <td>Download PDF</td>
+            <td>Rendered Preview</td>
+            <td>PDF File</td>
+            <td>Triggers browser's native <code>window.print()</code> to save/print resume as PDF</td>
+          </tr>
+          <tr>
+            <td><strong>5.3</strong></td>
+            <td>Share Resume</td>
+            <td>Resume ID</td>
+            <td>Shareable URL</td>
+            <td>Generates a public URL using Web Share API for sharing via social media or email</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ==================== FOOTER ==================== -->
+    <div class="footer">
+      <p>AI Resume Builder — Data Dictionary • Generated for Project Documentation</p>
+      <p style="margin-top:4px;">Total Tables: 8 &nbsp;|&nbsp; Total Fields: 42 &nbsp;|&nbsp; Total Data Flows: 19
+        &nbsp;|&nbsp; Total Processes: 13</p>
+    </div>
+
+  </div>
+</body>
+
+</html>

@@ -6,7 +6,7 @@ import { BtnBold, BtnBulletList, BtnClearFormatting, BtnItalic, BtnLink, BtnNumb
 import { AIChatSession, mockExperienceResponse } from './../../../../service/AIModal';
 import { toast } from 'sonner';
 
-const PROMPT='position title: {positionTitle} , Depends on position title give me 5-7 bullet points for my experience in resume (Please do not add experience level and No JSON array) , give me result in HTML tags'
+const PROMPT = 'Position Title: {positionTitle}. Based on this position, provide 5-7 professional resume bullet points highlighting key responsibilities and achievements. Return ONLY a valid HTML <ul> element with <li> tags. Do not include any other text or JSON. Ensure points are impactful and use action verbs.'
 
 function RichTextEditor({onRichTextEditorChange, index, defaultValue}) {
     const [value, setValue] = useState(defaultValue);
@@ -15,7 +15,7 @@ function RichTextEditor({onRichTextEditorChange, index, defaultValue}) {
 
     const GenerateSummeryFromAI = async () => {
       if (!resumeInfo?.Experience[index]?.title) {
-        toast('Please Add Position Title First');
+        toast.error('Please save the Position Title before generating.');
         return;
       }
       setLoading(true)
@@ -27,37 +27,42 @@ function RichTextEditor({onRichTextEditorChange, index, defaultValue}) {
           if (AIChatSession) {
               const result = await AIChatSession.sendMessage(prompt);
               resp = result.response.text();
+              // Clean up potential markdown or wrapper text
+              resp = resp.replace(/```html/g, '').replace(/```/g, '').trim();
           } else {
-              // Fallback Mock Response
               resp = mockExperienceResponse(title);
           }
-          const cleanResp = resp.replace('[', '').replace(']', '');
-          setValue(cleanResp);
-          onRichTextEditorChange({ target: { value: cleanResp } });
+          
+          setValue(resp);
+          onRichTextEditorChange({ target: { value: resp } });
+          toast.success("AI Experience Generated!");
       } catch (err) {
-          console.error(err);
-          toast.error("Failed to generate AI experience points");
+          console.error("AI Generation Error:", err);
+          toast.error("Failed to generate AI experience points. Using fallback.");
+          const fallback = mockExperienceResponse(title);
+          setValue(fallback);
+          onRichTextEditorChange({ target: { value: fallback } });
       } finally {
           setLoading(false);
       }
     }
   
     return (
-        <div className='flex flex-col gap-2 mt-2'>
-            <div className='flex justify-between items-center my-2'>
-                <label className='text-sm font-semibold text-gray-700'>Responsibilities & Achievements</label>
+        <div className='flex flex-col gap-2 mt-4'>
+            <div className='flex justify-between items-center my-3'>
+                <label className='text-[11px] font-black uppercase tracking-[0.2em] text-slate-500'>Responsibilities & Achievements</label>
                 <Button 
                     variant="outline" 
                     size="sm" 
                     onClick={GenerateSummeryFromAI}
                     disabled={loading}
-                    className="flex gap-2 border-violet-300 text-violet-700 hover:bg-violet-50 transition-colors duration-300 rounded-xl bg-white"
+                    className="flex gap-2 border-brand-primary/20 text-brand-primary hover:bg-brand-primary/5 hover:border-brand-primary transition-all duration-300 rounded-2xl bg-white h-10 px-4 font-bold shadow-sm"
                 >
                     {loading ? <Loader2 className='animate-spin w-4 h-4' /> : <Brain className='h-4 w-4'/>} 
-                    Generate from AI 
+                    AI Assistant 
                 </Button>
             </div>
-            <div className='border-2 border-gray-100 rounded-2xl overflow-hidden focus-within:border-violet-500 focus-within:ring-1 focus-within:ring-violet-500 transition-all'>
+            <div className='border-2 border-slate-100 rounded-[1.5rem] overflow-hidden focus-within:border-brand-primary/40 focus-within:ring-4 focus-within:ring-brand-primary/5 transition-all duration-300 shadow-sm'>
                 <EditorProvider>
                     <Editor 
                         value={value} 
@@ -65,18 +70,18 @@ function RichTextEditor({onRichTextEditorChange, index, defaultValue}) {
                             setValue(e.target.value);
                             onRichTextEditorChange(e);
                         }}
-                        className='min-h-[200px] p-4 bg-gray-50/30'
+                        className='min-h-[250px] p-6 bg-white outline-none prose prose-slate max-w-none'
                     >
-                        <Toolbar className='bg-gray-50 border-b border-gray-100 p-2 flex flex-wrap gap-1 rounded-t-xl'>
-                            <BtnBold className='p-2 hover:bg-violet-100 rounded-lg'/>
-                            <BtnItalic className='p-2 hover:bg-violet-100 rounded-lg'/>
-                            <BtnUnderline className='p-2 hover:bg-violet-100 rounded-lg'/>
-                            <BtnStrikeThrough className='p-2 hover:bg-violet-100 rounded-lg'/>
-                            <Separator className='mx-1 border-l border-gray-300'/>
-                            <BtnNumberedList className='p-2 hover:bg-violet-100 rounded-lg'/>
-                            <BtnBulletList className='p-2 hover:bg-violet-100 rounded-lg'/>
-                            <Separator className='mx-1 border-l border-gray-300'/>
-                            <BtnLink className='p-2 hover:bg-violet-100 rounded-lg'/>
+                        <Toolbar className='bg-slate-50/80 backdrop-blur-md border-b border-slate-100 p-2.5 flex flex-wrap gap-1.5'>
+                            <BtnBold className='p-2.5 hover:bg-brand-primary/10 hover:text-brand-primary rounded-xl transition-colors'/>
+                            <BtnItalic className='p-2.5 hover:bg-brand-primary/10 hover:text-brand-primary rounded-xl transition-colors'/>
+                            <BtnUnderline className='p-2.5 hover:bg-brand-primary/10 hover:text-brand-primary rounded-xl transition-colors'/>
+                            <BtnStrikeThrough className='p-2.5 hover:bg-brand-primary/10 hover:text-brand-primary rounded-xl transition-colors'/>
+                            <Separator className='mx-2 border-l border-slate-200 h-6 my-auto'/>
+                            <BtnNumberedList className='p-2.5 hover:bg-brand-primary/10 hover:text-brand-primary rounded-xl transition-colors'/>
+                            <BtnBulletList className='p-2.5 hover:bg-brand-primary/10 hover:text-brand-primary rounded-xl transition-colors'/>
+                            <Separator className='mx-2 border-l border-slate-200 h-6 my-auto'/>
+                            <BtnLink className='p-2.5 hover:bg-brand-primary/10 hover:text-brand-primary rounded-xl transition-colors'/>
                         </Toolbar>
                     </Editor>
                 </EditorProvider>

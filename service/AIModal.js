@@ -4,24 +4,28 @@ const apiKey = import.meta.env.VITE_GOOGLE_AI_API_KEY;
 
 let AIChatSession = null;
 
-if (apiKey && apiKey.trim() !== '') {
-  const genAI = new GoogleGenerativeAI(apiKey);
-  const model = genAI.getGenerativeModel({
-    model: "gemini-1.5-flash",
-  });
+try {
+  if (apiKey && apiKey.trim() !== '' && apiKey.length > 10) {
+    const genAI = new GoogleGenerativeAI(apiKey);
+    const model = genAI.getGenerativeModel({
+      model: "gemini-1.5-flash",
+    });
 
-  const generationConfig = {
-    temperature: 1,
-    topP: 0.95,
-    topK: 64,
-    maxOutputTokens: 8192,
-    responseMimeType: "application/json",
-  };
+    const generationConfig = {
+      temperature: 1,
+      topP: 0.95,
+      topK: 64,
+      maxOutputTokens: 8192,
+      responseMimeType: "application/json",
+    };
 
-  AIChatSession = model.startChat({
-    generationConfig,
-    history: [],
-  });
+    AIChatSession = model.startChat({
+      generationConfig,
+      history: [],
+    });
+  }
+} catch (error) {
+  console.error("AI Session Initialization Error:", error);
 }
 
 // Mock AI responses when no API key is configured
