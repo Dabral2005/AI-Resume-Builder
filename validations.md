@@ -1,6 +1,6 @@
-# Testing and Validations Strategy
+# Testing and Validations Strategy - CVera 🚀
 
-This document outlines the testing parameters and data validation requirements implemented within the AI Resume Builder project forms.
+This document outlines the testing parameters and data validation requirements implemented within the CVera project forms.
 
 ## 1. Personal Details Form Validation
 

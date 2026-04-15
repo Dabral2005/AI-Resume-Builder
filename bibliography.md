@@ -1,6 +1,6 @@
-# AI Resume Builder - Project Bibliography / Tech Stack
+# Project Bibliography / Tech Stack - CVera 🚀
 
-This document outlines the core technologies, frameworks, APIs, and libraries used to build and manage the AI Resume Builder project based on its dependency tree and service configurations.
+This document outlines the core technologies, frameworks, APIs, and libraries used to build and manage the CVera project based on its dependency tree and service configurations.
 
 ## Core Architecture & Frameworks
 - **React (v18.2)**: The core JavaScript library used for building the user interface.
