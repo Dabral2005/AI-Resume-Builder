@@ -7,7 +7,18 @@
 
 ## 📝 Description
 
-**AI Resume Builder** is a premium, minimal, and highly efficient web application designed for the modern job seeker. Built with a **Slate & Indigo** professional design system, it leverages **Google Gemini AI** to help you craft editorial-grade resumes in minutes. Whether you are a student or a seasoned professional, our application provides a seamless, "no-line" editorial experience that ensures your profile stands out.
+**CVera** (formerly AI Resume) is a premium, minimal, and highly efficient web application designed for the modern job seeker. Built with a **Slate & Indigo** professional design system, it leverages **Google Gemini AI** to help you craft editorial-grade resumes in minutes.
+
+## 📚 Project Documentation
+
+For detailed technical and academic documentation, please refer to the following files:
+
+- **[Introduction](INTRODUCTION.md)**: Project overview, mission, and brand philosophy.
+- **[Analysis Document](ANALYSIS_DOCUMENT.md)**: Problem statement, feasibility study, and requirements analysis.
+- **[Design Document](DESIGN_DOCUMENT.md)**: System architecture, UI design system, and data schema.
+- **[Testing & Validations](validations.md)**: Detailed form validation logic and error handling.
+- **[Bibliography & Tech Stack](bibliography.md)**: Core technologies, frameworks, and APIs used.
+- **[Limitations & Future Roadmap](LIMITATIONS_FUTURE.md)**: Current boundaries and future development plans.
 
 ## ✨ Key Features
 
