@@ -101,6 +101,51 @@ Contributions are what make the open source community such an amazing place to l
 - **Editorial Templates**: Modern, high-contrast resume layouts.
 
 ---
+# 🖼️ Images📷
+INPUT AND OUTPUT SCREEN
+
+1.	Home Screen
+ 
+<img width="796" height="386" alt="image" src="https://github.com/user-attachments/assets/d2a23acc-1d67-49ce-bdca-ae12c3a47b48" />
+<img width="799" height="389" alt="image" src="https://github.com/user-attachments/assets/fd7be700-7c49-4d6e-8feb-28773398af02" />
+<img width="826" height="404" alt="image" src="https://github.com/user-attachments/assets/b1f0f549-7cec-4ffa-93e1-a8e4a413f30e" />
+
+ <img width="841" height="415" alt="image" src="https://github.com/user-attachments/assets/74bffd48-7f88-4ed3-bb8b-aebea6c27537" />
+
+ <img width="824" height="400" alt="image" src="https://github.com/user-attachments/assets/f5def326-49cf-425e-a3b0-c4cb745a30d0" />
+
+
+
+
+ 
+ 
+2.	Authentication
+ <img width="825" height="400" alt="image" src="https://github.com/user-attachments/assets/3969f4d3-7bc0-456b-a4f5-20c2e2e14480" />
+
+
+
+
+3.	User Dashboard
+ 
+  <img width="827" height="406" alt="image" src="https://github.com/user-attachments/assets/5c555e7e-e06d-4396-87b1-b68704e62b7d" />
+
+4.	Live Preview
+ <img width="838" height="404" alt="image" src="https://github.com/user-attachments/assets/1d003ce1-e7fb-43b3-a063-1edd348029fc" />
+
+
+5.	AI-Suggestion
+ <img width="501" height="425" alt="image" src="https://github.com/user-attachments/assets/ec33d192-cbba-4d56-8123-ef81067a678d" />
+
+6.	Resume Preview & Download
+ <img width="826" height="401" alt="image" src="https://github.com/user-attachments/assets/ea16d479-f206-40dc-a457-cb6e1954e4d7" />
+
+7.	Templates and Themes
+ <img width="838" height="404" alt="image" src="https://github.com/user-attachments/assets/3dba7601-7ce6-4009-86b5-f0135da833b0" />
+
+
+
+
+---
 
 # 📫 Contact
 **Mohit Dabral** - [dabralmohit78@gmail.com](mailto:dabralmohit78@gmail.com)
