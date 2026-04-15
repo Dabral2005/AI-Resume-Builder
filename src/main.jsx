@@ -16,7 +16,7 @@ import Terms from './pages/Terms.jsx'
 import Support from './pages/Support.jsx'
 
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY
-
+console.log("new build v2");
 if (!PUBLISHABLE_KEY) {
   throw new Error("Missing VITE_CLERK_PUBLISHABLE_KEY in .env file")
 }
