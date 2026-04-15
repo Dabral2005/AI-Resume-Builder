@@ -23,7 +23,7 @@ function ThemeColor() {
   const colors = [
     "#e02900ff", "#33FF57", "#3357FF", "#FF33A1", "#A133FF",
     "#00ff88ff", "#FF7133", "#71FF33", "#7133FF", "#FF3371",
-    "#33FF71", "#3371FF", "#A1FF33", "#33A1FF", "#FF5733",
+    "#33FF71", "#3371FF", "#A1FF33", "#33A1FF", "#0b4c7bff",
     "#120060ff", "#33FF5A", "#5A33FF", "#FF335A", "#000000ff"
   ]
 >>>>>>> ai-feature
