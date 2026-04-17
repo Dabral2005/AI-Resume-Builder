@@ -9,7 +9,7 @@ CVera is built using a modern, scalable technology stack:
 - **Routing**: `react-router-dom` v6 handles client-side navigation.
 - **Authentication**: Clerk provides a secure, component-based authentication flow.
 - **AI Integration**: Custom service layers connect to the **Google Generative AI (Gemini 1.5 Flash)** SDK for intelligent content generation.
-- **Storage/Backend**: Strapi CMS (or Local Storage fallbacks) handles resume data persistence.
+- **Storage/Backend**: Local Storage.
 
 ## 2. UI/UX Design Philosophy
 
