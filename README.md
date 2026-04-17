@@ -69,7 +69,6 @@ For detailed technical and academic documentation, please refer to the following
 3. **Environment Setup**:
    Create a `.env.local` file and add your API keys:
    ```env
-   VITE_STRAPI_API_KEY=your_strapi_key
    VITE_GOOGLE_AI_API_KEY=your_gemini_key
    VITE_CLERK_PUBLISHABLE_KEY=your_clerk_key
    ```
