@@ -1,5 +1,4 @@
 import React from 'react'
-import Header from '@/components/custom/Header'
 import { ShieldCheck, Lock, Eye, FileText, ArrowLeft } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { Button } from '@/components/ui/button'
@@ -7,7 +6,6 @@ import { Button } from '@/components/ui/button'
 function Privacy() {
   return (
     <div className='min-h-screen bg-gray-50'>
-      <Header />
       <div className='max-w-4xl mx-auto px-4 py-16 sm:px-6 lg:px-8'>
         <Link to="/" className='inline-flex items-center gap-2 text-violet-600 hover:text-violet-700 font-medium mb-8 group transition-all'>
           <ArrowLeft className='w-4 h-4 group-hover:-translate-x-1 transition-transform' />
@@ -66,7 +64,7 @@ function Privacy() {
               <section className='p-6 rounded-2xl bg-violet-50 border border-violet-100'>
                 <h2 className='text-lg font-bold text-violet-900 mb-2'>Contact Us</h2>
                 <p className='text-violet-700 text-sm'>
-                  If you have any questions about CVera Privacy Policy, please contact us at dabralmohit78@gmail.com
+                  If you have any questions about CVera Privacy Policy, please contact us at mohitdabral780@gmail.com
                 </p>
               </section>
             </div>

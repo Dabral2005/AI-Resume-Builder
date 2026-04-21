@@ -31,12 +31,12 @@ ReactDOM.createRoot(document.getElementById('root')).render(
             <Route path="dashboard" element={<Dashboard />} />
             <Route path="dashboard/resume/:resumeId/edit" element={<EditResume />} />
             <Route path="my-resume/:resumeId/view" element={<ViewResume />} />
+            <Route path="privacy" element={<Privacy />} />
+            <Route path="terms" element={<Terms />} />
+            <Route path="support" element={<Support />} />
           </Route>
 
           <Route path="/auth/sign-in" element={<SignInPage />} />
-          <Route path="/privacy" element={<Privacy />} />
-          <Route path="/terms" element={<Terms />} />
-          <Route path="/support" element={<Support />} />
         </Routes>
       </BrowserRouter>
     </ClerkProvider>

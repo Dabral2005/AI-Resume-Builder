@@ -1,12 +1,10 @@
 import React from 'react'
-import Header from '@/components/custom/Header'
 import { FileText, Scale, CheckCircle2, AlertCircle, ArrowLeft } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
 function Terms() {
   return (
     <div className='min-h-screen bg-gray-50'>
-      <Header />
       <div className='max-w-4xl mx-auto px-4 py-16 sm:px-6 lg:px-8'>
         <Link to="/" className='inline-flex items-center gap-2 text-violet-600 hover:text-violet-700 font-medium mb-8 group transition-all'>
           <ArrowLeft className='w-4 h-4 group-hover:-translate-x-1 transition-transform' />

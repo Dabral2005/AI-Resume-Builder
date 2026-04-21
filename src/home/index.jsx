@@ -1,4 +1,3 @@
-import Header from '@/components/custom/Header'
 import { AtomIcon, Edit, Share2, FileText, Sparkles, Zap, Download, Star, ArrowRight, CheckCircle2 } from 'lucide-react'
 import React from 'react'
 import { Link } from 'react-router-dom'
@@ -6,7 +5,6 @@ import { Link } from 'react-router-dom'
 function Home() {
   return (
     <div className='min-h-screen'>
-      <Header />
 
       {/* ===== Hero Section ===== */}
       <section className='relative overflow-hidden'
