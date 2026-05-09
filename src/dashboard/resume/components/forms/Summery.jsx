@@ -87,7 +87,7 @@ function Summery({enabledNext}) {
                             onClick={() => GenerateSummeryFromAI()} 
                             type="button" 
                             size="sm" 
-                            className="border-brand-primary/20 text-brand-primary hover:bg-brand-primary/5 hover:border-brand-primary transition-all duration-300 flex gap-2 rounded-2xl h-10 px-4 font-bold shadow-sm"
+                            className="border-brand-primary/20 text-brand-primary hover:text-brand-primary hover:bg-brand-primary/5 hover:border-brand-primary transition-all duration-300 flex gap-2 rounded-2xl h-10 px-4 font-bold shadow-sm"
                         > 
                             {loading ? <Loader2 className='animate-spin h-4 w-4' /> : <Brain className='h-4 w-4' />}  
                             AI Assistant

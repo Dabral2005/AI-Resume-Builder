@@ -51,13 +51,13 @@ function RichTextEditor({onRichTextEditorChange, index, defaultValue}) {
         <div className='flex flex-col gap-2 mt-4'>
             <div className='flex justify-between items-center my-3'>
                 <label className='text-[11px] font-black uppercase tracking-[0.2em] text-slate-500'>Responsibilities & Achievements</label>
-                <Button 
-                    variant="outline" 
-                    size="sm" 
-                    onClick={GenerateSummeryFromAI}
-                    disabled={loading}
-                    className="flex gap-2 border-brand-primary/20 text-brand-primary hover:bg-brand-primary/5 hover:border-brand-primary transition-all duration-300 rounded-2xl bg-white h-10 px-4 font-bold shadow-sm"
-                >
+                    <Button 
+                        variant="outline" 
+                        size="sm" 
+                        onClick={GenerateSummeryFromAI}
+                        disabled={loading}
+                        className="flex gap-2 border-brand-primary/20 text-brand-primary hover:text-brand-primary hover:bg-brand-primary/5 hover:border-brand-primary transition-all duration-300 rounded-2xl bg-white h-10 px-4 font-bold shadow-sm"
+                    >
                     {loading ? <Loader2 className='animate-spin w-4 h-4' /> : <Brain className='h-4 w-4'/>} 
                     AI Assistant 
                 </Button>

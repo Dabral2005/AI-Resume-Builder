@@ -173,7 +173,7 @@ function Education() {
       
       <div className='flex flex-col sm:flex-row justify-between items-center gap-6 mt-12 pt-10 border-t border-slate-100'>
         <div className='flex gap-4 w-full sm:w-auto'>
-          <Button variant="outline" onClick={AddNewEducation} className="text-brand-primary border-slate-200 hover:bg-brand-primary/5 hover:border-brand-primary rounded-2xl gap-2 flex-1 sm:flex-none h-12 px-6 font-bold shadow-sm transition-all"> 
+          <Button variant="outline" onClick={AddNewEducation} className="text-brand-primary border-slate-200 hover:text-brand-primary hover:bg-brand-primary/5 hover:border-brand-primary rounded-2xl gap-2 flex-1 sm:flex-none h-12 px-6 font-bold shadow-sm transition-all"> 
             <Plus className='w-5 h-5' /> Add Education
           </Button>
           {educationalList.length > 0 && (

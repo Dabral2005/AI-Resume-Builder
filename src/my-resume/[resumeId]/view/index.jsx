@@ -29,7 +29,6 @@ function ViewResume() {
     return (
         <ResumeInfoContext.Provider value={{resumeInfo, setResumeInfo}}>
             <div className='min-h-screen bg-[#fafafa]' id="no-print">
-                <Header />
 
                 <div className='max-w-5xl mx-auto px-6 py-16 animate-fade-in'>
                     {/* Success Banner */}
